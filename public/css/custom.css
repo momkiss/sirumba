@@ -1,0 +1,12 @@
+.text-white {
+    color: #fff !important;
+}
+
+.hide-calendar .ui-datepicker-calendar{
+  display: none;
+}
+
+.mb-40 {
+  margin-bottom: 40px !important;
+}
+
