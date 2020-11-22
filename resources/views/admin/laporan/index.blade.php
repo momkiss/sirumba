@@ -55,10 +55,10 @@
                         <th>ALAMAT</th>
                         <th>NO.SURAT PENGESAHAN</th>
                         <th>TGL PENGESAHAN</th>
-                        <th>L.KAVLINGAN</th>
-                        <th>L.PSU</th>
-                        <th>L.PRASARANA UTILITAS</th>
-                        <th>L.SARANA</th>
+                        <th>LUAS</th>
+                        <th>% L.KAV</th>
+                        <th>% L.PRASARANA UTILITAS</th>
+                        <th>% L.SARANA</th>
                         <th>
                             <center>#</center>
                         </th>
@@ -78,8 +78,8 @@
                                 <td>{{  $p->alamat_jalan_perumahan.' - '.$p->kelurahan_perumahan->nama ?? "".' - '.$p->kecamatan_perumahan->nama ?? "" }}</td>
                                 <td>{{ $p->nomor_surat_pengesahan }}</td>
                                 <td>{{ $p->tanggal_pengesahan }}</td>
+                                <td>{{ $p->luas_lahan }}</td>
                                 <td>{{ number_format(($p->luas_kavling ?? 1)/($p->luas_lahan ?? 1)*100,2,',','.') }}%</td>
-                                <td>{{ number_format(($p->luas_prasarana ?? 1)/($p->luas_lahan ?? 1)*100,2,',','.') }}%</td>
                                 <td>{{ number_format(($p->luas_prasarana ?? 1)/($p->luas_lahan ?? 1)*100,2,',','.') }}%</td>
                                 <td>{{ number_format(($p->luas_sarana ?? 1)/($p->luas_lahan ?? 1)*100,2,',','.') }}%</td>
                                 <td nowrap align="center">

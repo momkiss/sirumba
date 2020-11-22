@@ -20,9 +20,10 @@ $(document).ready(function () {
         });
   });
 
-    $('#tabel-rekap').DataTable({
+    var tabelPermohonan = $('#tabel-permohonan').DataTable({
         processing: true,
         serverSide: true,
+        paging: true,
         pageLength: 50,
         ajax: {
             url: BASE_URL+"/admin/permohonan/rekap",
@@ -31,7 +32,7 @@ $(document).ready(function () {
         columns: [
             // { data: 'id', name: 'id', 'visible': false },
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
-            { data: 'perusahaan', name: 'perusahaan', searchable: true  },
+            { data: 'perusahaan', name: 'perusahaan' },
             { data: 'nama_perumahan', name: 'nama_perumahan' },
             { data: 'alamat', name: 'alamat'},
             { data: 'nomor_surat_pengesahan', name: 'nomor_surat_pengesahan' },
@@ -49,9 +50,13 @@ $(document).ready(function () {
         order: [[0, 'desc']]
     });
 
+    $('#tabel-permohonan tbody').on('click', 'a.hapus', function () {
+        var id = $(this).data('id');
+        hapus(id, 'permohonan');
+    });
+
   
     // Mask
-
      var kelurahan = $('#kelurahan2-update');   
     
     $('#kecamatan2-update').on('change', function () {
@@ -457,5 +462,86 @@ function loadRekap()
     });
 }
 
+function submitJalanMasuk()
+{
+    $.ajax({
+        method: "POST",
+        url: BASE_URL + "/admin/prasarana/jalan-masuk/simpan",
+        data: data,
+        success: function (response) {
+        }
+    });
+}
 
+
+function submitJalanUtama()
+{
+    $.ajax({
+        method: "POST",
+        url: BASE_URL + "/admin/prasarana/jalan-utama/simpan",
+        data: data,
+        success: function (response) {
+        }
+    });
+}
+
+
+function submitJalanPembantu()
+{
+    $.ajax({
+        method: "POST",
+        url: BASE_URL + "/admin/prasarana/jalan-pembantu/simpan",
+        data: data,
+        success: function (response) {
+           
+        }
+    });
+}
+
+function submitJalanPembagi()
+{
+    $.ajax({
+        method: "POST",
+        url: BASE_URL + "/admin/prasarana/jalan-pembagi/simpan",
+        data: data,
+        success: function (response) {
+        }
+    });
+}
+
+function submitLimbah()
+{
+    $.ajax({
+        method: "POST",
+        url: BASE_URL + "/admin/prasarana/limbah/simpan",
+        data: data,
+        success: function (response) {
+           
+        }
+    });
+}
+
+function submitSampah()
+{
+    var data = $('#form-sampah').serialize();
+    $.ajax({
+        method: "POST",
+        url: BASE_URL + "/admin/prasarana/sampah/simpan",
+        data: data,
+        success: function (response) {
+        }
+    });
+}
+
+function submitPrasarana(url,formData)
+{
+    $.ajax({
+        method: "POST",
+        url: url,
+        data: formData,
+        success: function () {
+            $('.nav-tabs a[href="#tab4"]').tab('show');
+        }
+    });
+}
 

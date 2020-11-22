@@ -49,10 +49,10 @@
                         <th>ALAMAT</th>
                         <th>NO.SURAT PENGESAHAN</th>
                         <th>TGL PENGESAHAN</th>
-                        <th>L.KAVLINGAN</th>
-                        <th>L.PSU</th>
-                        <th>L.PRASARANA UTILITAS</th>
-                        <th>L.SARANA</th>
+                        <th>LUAS</th>
+                        <th>% L.KAV</th>
+                        <th>% L.PRASARANA UTILITAS</th>
+                        <th>% L.SARANA</th>
                         <th>
                             <center>#</center>
                         </th>
@@ -72,11 +72,10 @@
                                 <td>{{  $p->alamat_jalan_perumahan.' - '.$p->kelurahan_perumahan->nama ?? "".' - '.$p->kecamatan_perumahan->nama ?? "" }}</td>
                                 <td>{{ $p->nomor_surat_pengesahan }}</td>
                                 <td>{{ $p->tanggal_pengesahan }}</td>
+                                <td>{{ $p->luas_lahan }}</td>
                                 <td>{{ number_format(($p->luas_kavling ?? 1)/($p->luas_lahan ?? 1)*100,2,',','.') }}%</td>
                                 <td>{{ number_format(($p->luas_prasarana ?? 1)/($p->luas_lahan ?? 1)*100,2,',','.') }}%</td>
-                                <td>{{ number_format(($p->luas_prasarana ?? 1)/($p->luas_lahan ?? 1)*100,2,',','.') }}%</td>
-                                <td>{{ number_format(($p->luas_sarana ?? 1)/($p->luas_lahan ?? 1)*100,2,',','.') }}%</td>
-                                <td nowrap align="center">
+                                <td>{{ number_format(($p->luas_sarana ?? 1)/($p->luas_lahan ?? 1)*100,2,',','.') }}%</td>                                <td nowrap align="center">
                                     <a href="{{ route('laporan.permohonan', ['id' => $p->id]) }}" target="_blank" class="btn btn-success btn-sm tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Permohonan"><i class="fa fa-envelope-o"></i></a>
                                     <a href="{{ route('laporan.kelengkapan', ['id' => $p->id]) }}" target="_blank" class="btn btn-danger btn-sm tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Kelengkapan"><i class="fa fa-file-text-o"></i></a>
                                 </td>

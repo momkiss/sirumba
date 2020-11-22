@@ -80,7 +80,7 @@ table {
 
 <!-- Modal pengesahan-->
 <div class="modal fade" id="modalPengesahan" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title"><i class="fa fa-edit"></i> PENGESAHAN</h5>
@@ -102,7 +102,7 @@ table {
                     </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-danger" >SIMPAN</button>
+                <button type="submit" class="btn btn-danger">SIMPAN</button>
             </div>
         </form>
         </div>
@@ -118,7 +118,7 @@ table {
 
     <div class="panel-body">
         <div class="table-responsive">
-            <table id="tabel-rekap" class="table table-striped table-hover display compact" style="width: 100%">
+            <table id="tabel-permohonan" class="table table-striped table-hover display compact" style="width: 100%">
                 <thead>
                     <tr>
                         <th>NO.</th>
@@ -132,7 +132,7 @@ table {
                         <th><center>AKSI</center></th>
                     </tr>
                 </thead>
-                <tbody id="result-rekap">
+                {{-- <tbody id="result-rekap"> --}}
                     {{--  @php
                     $no = 1
                     @endphp
@@ -181,7 +181,7 @@ table {
                         </td>
                     </tr>
                     @endforeach  --}}
-                </tbody>
+                {{-- </tbody> --}}
             </table>
         </div>
     </div>
@@ -200,6 +200,20 @@ table {
             var id = data.data('id');
             $(this).find("#pengesahanID").val(id);
         });
+    
+    $('#formPengesahan').submit(function(e){
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: BASE_URL+"/admin/permohonan/pengesahan",
+            data: $(this).serialize(),
+            dataType: "json",
+            success: function (response) {
+                alertSelesai(response.pesan,'permohonan');
+                $('#modalPengesahan').modal('hide');
+            }
+        });
+    });
 
 });
 </script>

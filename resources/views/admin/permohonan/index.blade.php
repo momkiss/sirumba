@@ -156,6 +156,8 @@
         });
     }
 
+    
+
     $(function() {
         var id_permohonan = $("#id_permohonan").val();
         if(id_permohonan != ""){
@@ -361,9 +363,20 @@
     });
 
 
-        $(".btn-next-prasarana").on('click', function () {
-            $('.nav-tabs a[href="#tab4"]').tab('show');
+     $(".btn-next-prasarana").on('click', function (event) {
+        $(".form-prasarana").each(function (index, el) {
+            var url      = $(el).attr('action')
+            var formData = $(el).serialize();
+            submitPrasarana(url,formData);
+            event.preventDefault();
         });
+         $.gritter.add({
+                title: 'PEMBERITAHUAN',
+                text: "Selesai simpan prasarana.",
+                class_name: 'with-icon question-circle primary'
+         });
+    });
+       
         // $(".btn-next-sarana").on('click', function () {
         //     $('.nav-tabs a[href="#tab5"]').tab('show');
         // });
@@ -430,132 +443,124 @@
             },
         });
 
-
         // Prasarana jalan masuk
-        $("#form-jalan-masuk").submit(function( event ) {
-            var data = $(this).serialize();
-            $.ajax({
-                method: "POST",
-                url: BASE_URL+"/admin/prasarana/jalan-masuk/simpan",
-                data: data,
-                success: function (response) {
-                     $.gritter.add({
-                        title: 'PEMBERITAHUAN',
-                        text: response.pesan,
-                        class_name: 'with-icon question-circle primary'
-                    });
-                    $('.nav-tabs a[href="#tab3"]').tab('show');
-                }
-            });
-            event.preventDefault();
-        });
+        // $("#form-jalan-masuk").submit(function( event ) {
+        //     var data = $(this).serialize();
+        //     $.ajax({
+        //         method: "POST",
+        //         url: BASE_URL+"/admin/prasarana/jalan-masuk/simpan",
+        //         data: data,
+        //         success: function (response) {
+        //              $.gritter.add({
+        //                 title: 'PEMBERITAHUAN',
+        //                 text: response.pesan,
+        //                 class_name: 'with-icon question-circle primary'
+        //             });
+        //             $('.nav-tabs a[href="#tab3"]').tab('show');
+        //         }
+        //     });
+        //     event.preventDefault();
+        // });
 
-        // Prasarana jalan utama
-        $("#form-jalan-utama").submit(function( event ) {
-            var data = $(this).serialize();
-            $.ajax({
-                method: "POST",
-                url: BASE_URL+"/admin/prasarana/jalan-utama/simpan",
-                data: data,
-                success: function (response) {
-                     $.gritter.add({
-                        title: 'PEMBERITAHUAN',
-                        text: response.pesan,
-                        class_name: 'with-icon question-circle primary'
-                    });
-                    $('.nav-tabs a[href="#tab3"]').tab('show');
-                }
-            });
-            event.preventDefault();
-        });
+        // // Prasarana jalan utama
+        // $("#form-jalan-utama").submit(function( event ) {
+        //     var data = $(this).serialize();
+        //     $.ajax({
+        //         method: "POST",
+        //         url: BASE_URL+"/admin/prasarana/jalan-utama/simpan",
+        //         data: data,
+        //         success: function (response) {
+        //              $.gritter.add({
+        //                 title: 'PEMBERITAHUAN',
+        //                 text: response.pesan,
+        //                 class_name: 'with-icon question-circle primary'
+        //             });
+        //             $('.nav-tabs a[href="#tab3"]').tab('show');
+        //         }
+        //     });
+        //     event.preventDefault();
+        // });
 
         // Prasarana jalan pembantu
-        $("#form-jalan-pembantu").submit(function( event ) {
-            var data = $(this).serialize();
-            $.ajax({
-                method: "POST",
-                url: BASE_URL+"/admin/prasarana/jalan-pembantu/simpan",
-                data: data,
-                success: function (response) {
-                     $.gritter.add({
-                        title: 'PEMBERITAHUAN',
-                        text: response.pesan,
-                        class_name: 'with-icon question-circle primary'
-                    });
-                    $('.nav-tabs a[href="#tab3"]').tab('show');
-                }
-            });
-            event.preventDefault();
-        });
+        // $("#form-jalan-pembantu").submit(function( event ) {
+        //     var data = $(this).serialize();
+        //     $.ajax({
+        //         method: "POST",
+        //         url: BASE_URL+"/admin/prasarana/jalan-pembantu/simpan",
+        //         data: data,
+        //         success: function (response) {
+        //              $.gritter.add({
+        //                 title: 'PEMBERITAHUAN',
+        //                 text: response.pesan,
+        //                 class_name: 'with-icon question-circle primary'
+        //             });
+        //             $('.nav-tabs a[href="#tab3"]').tab('show');
+        //         }
+        //     });
+        //     event.preventDefault();
+        // });
 
-        // Prasarana jalan pembagi
-        $("#form-jalan-pembagi").submit(function( event ) {
-            var data = $(this).serialize();
-            $.ajax({
-                method: "POST",
-                url: BASE_URL+"/admin/prasarana/jalan-pembagi/simpan",
-                data: data,
-                success: function (response) {
-                     $.gritter.add({
-                        title: 'PEMBERITAHUAN',
-                        text: response.pesan,
-                        class_name: 'with-icon question-circle primary'
-                    });
-                    $('.nav-tabs a[href="#tab3"]').tab('show');
-                }
-            });
-            event.preventDefault();
-        });
+        // // Prasarana jalan pembagi
+        // $("#form-jalan-pembagi").submit(function( event ) {
+        //     var data = $(this).serialize();
+        //     $.ajax({
+        //         method: "POST",
+        //         url: BASE_URL+"/admin/prasarana/jalan-pembagi/simpan",
+        //         data: data,
+        //         success: function (response) {
+        //              $.gritter.add({
+        //                 title: 'PEMBERITAHUAN',
+        //                 text: response.pesan,
+        //                 class_name: 'with-icon question-circle primary'
+        //             });
+        //             $('.nav-tabs a[href="#tab3"]').tab('show');
+        //         }
+        //     });
+        //     event.preventDefault();
+        // });
 
-        // Prasarana limbah
-         $("#form-limbah").submit(function( event ) {
-            var data = $(this).serialize();
-            $.ajax({
-                method: "POST",
-                url: BASE_URL+"/admin/prasarana/limbah/simpan",
-                data: data,
-                success: function (response) {
-                     $.gritter.add({
-                        title: 'PEMBERITAHUAN',
-                        text: response.pesan,
-                        class_name: 'with-icon question-circle primary'
-                    });
-                    $('.nav-tabs a[href="#tab3"]').tab('show');
-                }
-            });
-            event.preventDefault();
-        });
+        // // Prasarana limbah
+        //  $("#form-limbah").submit(function( event ) {
+        //     var data = $(this).serialize();
+        //     $.ajax({
+        //         method: "POST",
+        //         url: BASE_URL+"/admin/prasarana/limbah/simpan",
+        //         data: data,
+        //         success: function (response) {
+        //              $.gritter.add({
+        //                 title: 'PEMBERITAHUAN',
+        //                 text: response.pesan,
+        //                 class_name: 'with-icon question-circle primary'
+        //             });
+        //             $('.nav-tabs a[href="#tab3"]').tab('show');
+        //         }
+        //     });
+        //     event.preventDefault();
+        // });
         
-        // Prasarana sampah
-         $("#form-sampah").submit(function( event ) {
-            var data = $(this).serialize();
-            $.ajax({
-                method: "POST",
-                url: BASE_URL+"/admin/prasarana/sampah/simpan",
-                data: data,
-                success: function (response) {
-                     $.gritter.add({
-                        title: 'PEMBERITAHUAN',
-                        text: response.pesan,
-                        class_name: 'with-icon question-circle primary'
-                    });
-                    $('.nav-tabs a[href="#tab3"]').tab('show');
-                }
-            });
-            event.preventDefault();
-        });
+        // // Prasarana sampah
+        //  $("#form-sampah").submit(function( event ) {
+        //     var data = $(this).serialize();
+        //     $.ajax({
+        //         method: "POST",
+        //         url: BASE_URL+"/admin/prasarana/sampah/simpan",
+        //         data: data,
+        //         success: function (response) {
+        //              $.gritter.add({
+        //                 title: 'PEMBERITAHUAN',
+        //                 text: response.pesan,
+        //                 class_name: 'with-icon question-circle primary'
+        //             });
+        //             $('.nav-tabs a[href="#tab3"]').tab('show');
+        //         }
+        //     });
+        //     event.preventDefault();
+        // });
 
 
         // Ajax sarana
         $("#form-sarana").on("submit", function(event){
-            // var isValid;
-            //     $("#form-sarana").find("input").each(function() {
-            //     var element = $(this);
-            //         if (element.val() == "") {
-            //             alert('Semua inputan masih kosong');
-            //             return false;
-            //         }
-            //     });
+           
                 var data = $("#form-sarana").serialize();
                     $.ajax({
                         method: "POST",
@@ -572,16 +577,9 @@
                     });
             event.preventDefault();
         });
+
         // Ajax utilitas
         $("#form-utilitas").on("submit", function(event){
-        //    var isValid;
-        //         $("#form-utilitas").find("input").each(function() {
-        //         var element = $(this);
-        //             if (element.val() == "") {
-        //                 alert('Semua inputan masih kosong');
-        //                 return false;
-        //             }
-        //         });
             var data = $("#form-utilitas").serialize();
             $.ajax({
                 method: "POST",
@@ -598,6 +596,7 @@
             });
             event.preventDefault();
         });
+
         // Complete
         $('#cb-permohonan').change(function () {
             if (this.checked) {
@@ -651,6 +650,7 @@
         digitGroupSeparator: "."
     });
 });
+
 
 
 </script>

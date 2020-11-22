@@ -955,9 +955,7 @@
 
                                             <div class="col-md-2">
                                                 <br>
-                                                <button type="submit" class="btn btn-primary pull-right"><i
-                                                        class="fa fa-cloud-upload"></i>
-                                                    SIMPAN</button>
+                                                <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-cloud-upload"></i>SIMPAN</button>
                                             </div>
 
                                         </div>
@@ -1065,6 +1063,58 @@
 @endif
         
 @else 
+<div class="panel-body">
+    <div class="row">
+				<h3>Accordion Group Dengan Icon Plus Minus</h3>
+			    <div id="accordion">
+					<div class="card">
+						<div class="card-header">
+							<a class="card-link" data-toggle="collapse" href="#menuone" aria-expanded="false" aria-controls="menuone">
+								<span class="collapsed"><i class="fa fa-plus"></i></span> 
+								<span class="expanded"><i class="fa fa-minus"></i></span> 
+								Menu 1
+							</a>
+						</div>
+						<div id="menuone" class="collapse">
+						  <div class="card-body">
+							Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+						  </div>
+						</div>
+					</div>
+
+				    <div class="card">
+				        <div class="card-header">
+						  	<a class="card-link" data-toggle="collapse" href="#menutwo" aria-expanded="false" aria-controls="menutwo">
+								<span class="collapsed"><i class="fa fa-plus"></i></span> 
+								<span class="expanded"><i class="fa fa-minus"></i></span> 
+								Menu 2
+							</a>
+				        </div>
+				        <div id="menutwo" class="collapse">
+				          <div class="card-body">
+							Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+				          </div>
+				        </div>
+				    </div>
+
+				    <div class="card">
+				        <div class="card-header">
+							<a class="card-link" data-toggle="collapse"  href="#menu3" aria-expanded="false" aria-controls="menu3">
+								<span class="collapsed"><i class="fa fa-plus"></i></span> 
+								<span class="expanded"><i class="fa fa-minus"></i></span> 
+								Menu 1
+							</a>
+				        </div>
+				        <div id="menu3" class="collapse">
+				          <div class="card-body">
+							Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+				          </div>
+				        </div>
+				    </div>
+				</div>
+        </div>
+        </div>
+
     <div class="panel-body">
         <div class="row">
             <div class="panel-group" id="accordion8">
@@ -1076,42 +1126,38 @@
                             </a>
                         </h4>
                     </div>
-                    <div id="collapseOne8" class="panel-collapse collapse">
+                    <div id="collapseOne8" class="panel-collapse collapse" data-parent="#accordion8">
                     <div class="panel-body">
                     <div class="row">
-                        <form action="{{ route('jalan-masuk.simpan') }}" method="POST" id="form-jalan-masuk">
-                        @csrf
-                            <div class="wrap_jalan_masuk">
-                                <div class="form-group">
-                                    <div class="row">
-                                        <input type="hidden" name="pemohon_id" value="@isset($id_permohonan) {{ $id_permohonan }} @endisset" class="prasarana_id_permohonan">
-                                        <div class="col-sm-2">
-                                            <label class="control-label center-block"><strong>PANJANG</strong></label>
-                                            <input type="text" name="jalanmasuk_panjang[]" class="form-control"
-                                                placeholder="Panjang">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <label class="control-label center-block"><strong>LEBAR</strong></label>
-                                            <input type="text" name="jalanmasuk_lebar[]" class="form-control" placeholder="Lebar">
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <label class="control-label center-block"><strong>KETERANGAN</strong></label>
-                                            <input type="text" name="jalanmasuk_keterangan[]" class="form-control"
-                                                placeholder="misal: terhubung jalan A/B">
-                                        </div>
-                                        <div class="col-sm-1">
-                                            <label class="control-label center-block"><strong>&nbsp;</strong></label>
-                                            <i class="fa fa-2x fa-plus text-success" id="tambah-jalan-masuk"></i>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <br>
-                                            <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-cloud-upload"></i> SIMPAN</button>
+                        <form action="{{ route('jalan-masuk.simpan') }}" method="POST" id="form-jalan-masuk" class="form-prasarana">
+                                @csrf
+                                    <div class="wrap_jalan_masuk">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <input type="hidden" name="pemohon_id" value="@isset($id_permohonan) {{ $id_permohonan }} @endisset" class="prasarana_id_permohonan">
+                                                <div class="col-sm-2">
+                                                    <label class="control-label center-block"><strong>PANJANG</strong></label>
+                                                    <input type="text" name="jalanmasuk_panjang[]" class="form-control"
+                                                        placeholder="Panjang">
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <label class="control-label center-block"><strong>LEBAR</strong></label>
+                                                    <input type="text" name="jalanmasuk_lebar[]" class="form-control" placeholder="Lebar">
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="control-label center-block"><strong>KETERANGAN</strong></label>
+                                                    <input type="text" name="jalanmasuk_keterangan[]" class="form-control"
+                                                        placeholder="misal: terhubung jalan A/B">
+                                                </div>
+                                                <div class="col-sm-1">
+                                                    <label class="control-label center-block"><strong>&nbsp;</strong></label>
+                                                    <i class="fa fa-2x fa-plus text-success" id="tambah-jalan-masuk"></i>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
-                        </form>
-                    </div>
                         </div>
                     </div>
                 </div>
@@ -1126,7 +1172,7 @@
                     <div id="collapseTwo8" class="panel-collapse collapse">
                         <div class="panel-body">
                             <div class="row">
-                                <form action="{{ route('jalan-utama.simpan') }}" method="POST" id="form-jalan-utama">
+                                <form action="{{ route('jalan-utama.simpan') }}" method="POST" id="form-jalan-utama" class="form-prasarana">
                                     @csrf
                                     <div class="wrap_jalan_utama">
                                         <div class="form-group">
@@ -1204,7 +1250,7 @@
                     <div id="collapseJalanPembagi" class="panel-collapse collapse">
                         <div class="panel-body">
                             <div class="row">
-                                <form action="{{ route('jalan-pembagi.simpan') }}" method="POST" id="form-jalan-pembagi">
+                                <form action="{{ route('jalan-pembagi.simpan') }}" method="POST" id="form-jalan-pembagi" class="form-prasarana">
                                     @csrf
                                     <div class="wrap_jalan_pembagi">
                                         <div class="form-group">
@@ -1256,7 +1302,7 @@
                     <div id="collapseThree8" class="panel-collapse collapse">
                         <div class="panel-body">
                             <div class="row">
-                                <form action="{{ route('jalan-pembantu.simpan') }}" method="POST" id="form-jalan-pembantu">
+                                <form action="{{ route('jalan-pembantu.simpan') }}" method="POST" id="form-jalan-pembantu" class="form-prasarana">
                                     @csrf
                                     <div class="wrap_jalan_pembantu">
                                         <div class="form-group">
@@ -1350,7 +1396,7 @@
                     <div id="collapseLimbah" class="panel-collapse collapse">
                         <div class="panel-body">
                             <div class="row">
-                                <form action="{{ route('limbah.simpan') }}" method="POST" id="form-limbah">
+                                <form action="{{ route('limbah.simpan') }}" method="POST" id="form-limbah" class="form-prasarana">
                                     @csrf
                                     <div class="wrap_limbah">
                                         <div class="row">
@@ -1401,7 +1447,7 @@
                     <div id="collapseSampah" class="panel-collapse collapse">
                         <div class="panel-body">
                             <div class="row">
-                                <form action="{{ route('sampah.simpan') }}" method="POST" id="form-sampah">
+                                <form action="{{ route('sampah.simpan') }}" method="POST" id="form-sampah" class="form-prasarana">
                                     @csrf
                                     <div class="wrap_sampah">
                                         <div class="row">
@@ -1477,4 +1523,13 @@
         </div>
     </div>
 @endif
+
+@section('scripts')
+    <script>
+        $(document).ready(function () {
+               
+            
+        });
+    </script>
+@endsection
 

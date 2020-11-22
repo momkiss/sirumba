@@ -102,30 +102,6 @@
 
     <tr class="bg-primary">
         <td align="center">5.</td>
-        <td><strong>RUANG UNTUK BERPUTAR (CULDESAC)</strong></td>
-    </tr>
-    <tr>
-        <td align="center">&nbsp;</td>
-        <td>
-            <table width="100%" border="0" cellspacing="3" cellpadding="2" style="border-collapse: collapse">
-                <tbody>
-                    @php
-                    $num_culdesac = 1
-                    @endphp
-                    @foreach ($permohonan->culdesac as $culdesac)
-                    <tr>
-                        <td width="1% " >{{ $num_culdesac++ }}.</td>
-                        <td width="13%" >Panjang : {{ $culdesac->panjang ?? "-" }} m</td>
-                        <td width="10%" >Lebar : {{ $culdesac->lebar ?? "-" }} m</td>
-                        <td width="16%" >Keterangan : {{ $culdesac->keterangan ?? "-" }}</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </td>
-    </tr>
-    <tr class="bg-primary">
-        <td align="center">6.</td>
         <td><strong>SALURAN PEMBUANGAN AIR LIMBAH</strong></td>
     </tr>
     <tr>
@@ -151,7 +127,7 @@
         </td>
     </tr>
     <tr class="bg-primary">
-        <td align="center">7.</td>
+        <td align="center">6.</td>
         <td><strong>TEMPAT PEMBUANGAN SAMPAH</strong></td>
     </tr>
     <tr>

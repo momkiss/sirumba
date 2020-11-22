@@ -86,7 +86,11 @@ class PemohonController extends Controller
           {
             return datatables::eloquent($permohonan)
                 ->addColumn('action', function($permohonan){
-                    return  view('admin.permohonan.result', ['id' => $permohonan->id]);
+
+                    $aksi = '<a href="#"  class="btn btn-sm btn-warning" data-id="'.$permohonan->id.'" data-toggle="modal" title="Pengesahan" data-target="#modalPengesahan"><i class="fa fa-check"></i></a><a href="'.$permohonan->id.'/edit" class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a><a href="#" data-id="'.$permohonan->id.'" class="btn btn-sm btn-danger hapus"><i class="fa fa-trash"></i></a>';
+                    // return  view('admin.permohonan.result', ['id' => $permohonan->id]);
+
+                    return $aksi;
                 })
                 ->addColumn('perusahaan', function($permohonan) {
                     if($permohonan->pengembang()->exists()){ 
@@ -191,8 +195,12 @@ class PemohonController extends Controller
     public function destroy(Pemohon $permohonan)
     {
          $permohonan->delete();
-         return redirect()->route('permohonan.rekap')
-                        ->with('success','Pemohonan berhasil dihapus');
+
+         return response()->json([
+             'pesan' => 'Permohonan berhasil dihapus.'
+         ]);
+        //  return redirect()->route('permohonan.rekap')
+        //                 ->with('success','Pemohonan berhasil dihapus');
     }
 
 
@@ -524,14 +532,17 @@ class PemohonController extends Controller
 
     public function pengesahan(Request $request)
     {
-        // dd($request->all());
         $permohonan = Pemohon::find($request->id);
         $permohonan->nomor_surat_pengesahan = $request->nomor_surat_pengesahan;
         $permohonan->tanggal_pengesahan     = $request->tanggal_pengesahan;
         $permohonan->status = 2;
         $permohonan->save();
 
-        return redirect()->route('permohonan.rekap');
+        return response()->json([
+            'pesan' => 'Pengesahan selesai disimpan'
+        ]);
+
+        // return redirect()->route('permohonan.rekap');
 
     }
 

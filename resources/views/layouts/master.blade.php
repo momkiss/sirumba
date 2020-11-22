@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="{{ asset('lib/summernote/summernote.css') }}">
     <link rel="stylesheet" href="{{ asset('lib/bootstrap3-wysihtml5-bower/bootstrap3-wysihtml5.css') }}">
    <link rel="stylesheet" href="{{ asset('lib/jquery.gritter/jquery.gritter.css') }}">
+   <link href="{{ asset('css/sweetalert.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     @stack('css')
 
