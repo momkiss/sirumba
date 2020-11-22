@@ -166,3 +166,7 @@ function alertSelesai(pesan, el)
 	table.ajax.reload();
 	
 }
+
+function alertError(pesan) {
+	swal("Peringatan !", pesan, "error");
+}

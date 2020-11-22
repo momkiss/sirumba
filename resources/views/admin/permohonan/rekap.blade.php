@@ -83,7 +83,7 @@ table {
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title"><i class="fa fa-edit"></i> PENGESAHAN</h5>
+                <h2 class="modal-title"><i class="fa fa-edit"></i> PENGESAHAN</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -132,60 +132,10 @@ table {
                         <th><center>AKSI</center></th>
                     </tr>
                 </thead>
-                {{-- <tbody id="result-rekap"> --}}
-                    {{--  @php
-                    $no = 1
-                    @endphp
-                    @foreach ($pemohon as $p)
-                    <tr>
-                        <td>{{ $no++ }}</td>
-                        <td><a href="#" data-toggle="modal" data-target="#modal-detail-pemohon" data-id="{{ $p->id }}">{{ $p->pengembang->nama_perusahaan ?? "-" }}</a></td>
-                        <td>{{ $p->nama_lengkap_pengembang }}</td>
-                        <td>{{ $p->nomor_surat_permohonan }}</td>
-                        <td>{{ $p->tanggal_surat_permohonan->format('d-m-Y') }}</td>
-                        <td>{{ $p->nama_perumahan }}</td>
-                        <td>{{ $p->luas_lahan }}</td>
-                        <td>@if ($p->status == 0)
-                                <span class="label label-primary">Penginputan</span>
-                            @endif
-                            @if ($p->status == 1)
-                               <span class="label label-warning">Verifikasi</span>
-                            @endif
-                            @if ($p->status == 2)
-                               <span class="label label-success">Disetujui</span>
-                            @endif
-                            @if ($p->status == 3)
-                               <span class="label label-danger">Ditolak</span>
-                            @endif
-                    </td>
-                        <td nowrap align="center" width="15%">
-                            
-                            <form action="{{ route('permohonan.destroy',$p->id) }}" method="POST">
-                                <div class="btn-group mr5">
-                                    <button type="button" class="btn btn-sm btn-primary">Verifikasi</button>
-                                    <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <span class="caret"></span>
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                    </button>
-                                    <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#" onclick="statusVerifikasi('{{ $p->id }}','2')"><i class="fa fa-check"></i> Disetujui</a></li>
-                                    <li><a href="#" onclick="statusVerifikasi('{{ $p->id }}','3')"><i class="fa fa-close"></i> Ditolak</a></li>
-                                    </ul>
-                                </div>
-                            <a href="{{ route('permohonan.edit', $p->id) }}" class="btn btn-sm btn-success"><i class="fa fa-edit"></i> EDIT</a>
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>
-                                    HAPUS</button>
-                            </form>
-                        </td>
-                    </tr>
-                    @endforeach  --}}
-                {{-- </tbody> --}}
             </table>
         </div>
     </div>
-</div><!-- panel -->
+</div>
 
 @endsection
 

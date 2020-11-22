@@ -118,7 +118,7 @@ $no = 1
 
 </div>
 
-        <button class="btn btn-danger btn-lg btn-block btn-next-berkas">SIMPAN</button>
+        <button class="btn btn-danger btn-lg btn-block btn-next-berkas"><i class="glyphicon glyphicon-floppy-save"></i> SIMPAN</button>
 
         <script src="{{ asset('lib/jquery/jquery.js') }}"></script>
         <script src="{{ asset('lib/bootstrap/js/bootstrap.js') }}"></script>

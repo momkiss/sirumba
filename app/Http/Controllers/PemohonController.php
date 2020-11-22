@@ -85,11 +85,8 @@ class PemohonController extends Controller
           
           {
             return datatables::eloquent($permohonan)
-                ->addColumn('action', function($permohonan){
-
+                ->addColumn('aksi', function($permohonan){
                     $aksi = '<a href="#"  class="btn btn-sm btn-warning" data-id="'.$permohonan->id.'" data-toggle="modal" title="Pengesahan" data-target="#modalPengesahan"><i class="fa fa-check"></i></a><a href="'.$permohonan->id.'/edit" class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a><a href="#" data-id="'.$permohonan->id.'" class="btn btn-sm btn-danger hapus"><i class="fa fa-trash"></i></a>';
-                    // return  view('admin.permohonan.result', ['id' => $permohonan->id]);
-
                     return $aksi;
                 })
                 ->addColumn('perusahaan', function($permohonan) {
@@ -132,9 +129,9 @@ class PemohonController extends Controller
                     }     
                     return $status; 
                 })
-                ->rawColumns(['action','perusahaan','status'])
+                ->rawColumns(['aksi','perusahaan','status'])
                 ->addIndexColumn()
-                 ->toJson();
+                ->toJson();
                 
             }
         // $pemohon = Pemohon::get();
@@ -199,8 +196,6 @@ class PemohonController extends Controller
          return response()->json([
              'pesan' => 'Permohonan berhasil dihapus.'
          ]);
-        //  return redirect()->route('permohonan.rekap')
-        //                 ->with('success','Pemohonan berhasil dihapus');
     }
 
 
@@ -541,9 +536,6 @@ class PemohonController extends Controller
         return response()->json([
             'pesan' => 'Pengesahan selesai disimpan'
         ]);
-
-        // return redirect()->route('permohonan.rekap');
-
     }
 
 

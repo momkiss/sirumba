@@ -1063,57 +1063,6 @@
 @endif
         
 @else 
-<div class="panel-body">
-    <div class="row">
-				<h3>Accordion Group Dengan Icon Plus Minus</h3>
-			    <div id="accordion">
-					<div class="card">
-						<div class="card-header">
-							<a class="card-link" data-toggle="collapse" href="#menuone" aria-expanded="false" aria-controls="menuone">
-								<span class="collapsed"><i class="fa fa-plus"></i></span> 
-								<span class="expanded"><i class="fa fa-minus"></i></span> 
-								Menu 1
-							</a>
-						</div>
-						<div id="menuone" class="collapse">
-						  <div class="card-body">
-							Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-						  </div>
-						</div>
-					</div>
-
-				    <div class="card">
-				        <div class="card-header">
-						  	<a class="card-link" data-toggle="collapse" href="#menutwo" aria-expanded="false" aria-controls="menutwo">
-								<span class="collapsed"><i class="fa fa-plus"></i></span> 
-								<span class="expanded"><i class="fa fa-minus"></i></span> 
-								Menu 2
-							</a>
-				        </div>
-				        <div id="menutwo" class="collapse">
-				          <div class="card-body">
-							Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-				          </div>
-				        </div>
-				    </div>
-
-				    <div class="card">
-				        <div class="card-header">
-							<a class="card-link" data-toggle="collapse"  href="#menu3" aria-expanded="false" aria-controls="menu3">
-								<span class="collapsed"><i class="fa fa-plus"></i></span> 
-								<span class="expanded"><i class="fa fa-minus"></i></span> 
-								Menu 1
-							</a>
-				        </div>
-				        <div id="menu3" class="collapse">
-				          <div class="card-body">
-							Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-				          </div>
-				        </div>
-				    </div>
-				</div>
-        </div>
-        </div>
 
     <div class="panel-body">
         <div class="row">
@@ -1121,12 +1070,12 @@
                 <div class="panel panel-inverse">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" class="collapsed" data-parent="#accordion8" href="#collapseOne8">
+                            <a data-toggle="collapse"  aria-expanded="false" href="#collapseOne8" >
                                 JALAN MASUK 
                             </a>
                         </h4>
                     </div>
-                    <div id="collapseOne8" class="panel-collapse collapse" data-parent="#accordion8">
+                    <div id="collapseOne8" class="panel-collapse collapse">
                     <div class="panel-body">
                     <div class="row">
                         <form action="{{ route('jalan-masuk.simpan') }}" method="POST" id="form-jalan-masuk" class="form-prasarana">
@@ -1164,7 +1113,7 @@
                 <div class="panel panel-inverse">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" class="collapsed" data-parent="#accordion8" href="#collapseTwo8">
+                            <a data-toggle="collapse" aria-expanded="false" href="#collapseTwo8">
                                 JALAN UTAMA
                             </a>
                         </h4>
@@ -1210,11 +1159,6 @@
                                                     <label class="control-label center-block"><strong>&nbsp;</strong></label>
                                                     <i class="fa fa-2x fa-plus text-success add_jalan_utama"></i>
                                                 </div>
-                                                <div class="col-md-2">
-                                                    <br>
-                                                    <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-cloud-upload"></i>
-                                                        SIMPAN</button>
-                                                </div>
                                             </div>
                                             <div class="row">
                                                 <div class="median-jalan-utama-field0" style="display:none">
@@ -1242,7 +1186,7 @@
                 <div class="panel panel-inverse">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" class="collapsed" data-parent="#accordion8" href="#collapseJalanPembagi">
+                            <a data-toggle="collapse" aria-expanded="false" href="#collapseJalanPembagi">
                                 JALAN PEMBAGI
                             </a>
                         </h4>
@@ -1277,12 +1221,6 @@
                                                     <label class="control-label center-block"><strong>&nbsp;</strong></label>
                                                     <i class="fa fa-2x fa-plus text-success add_jalan_pembagi"></i>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <br>
-                                                    <button type="submit" class="btn btn-primary pull-right"><i
-                                                            class="fa fa-cloud-upload"></i>
-                                                        SIMPAN</button>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1294,7 +1232,7 @@
                 <div class="panel panel-inverse">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" class="collapsed" data-parent="#accordion8" href="#collapseThree8">
+                            <a data-toggle="collapse" aria-expanded="false" href="#collapseThree8">
                                 JALAN PEMBANTU
                             </a>
                         </h4>
@@ -1325,11 +1263,6 @@
                                                     <label class="control-label center-block"><strong>&nbsp;</strong></label>
                                                     <i class="fa fa-2x fa-plus text-success add_jalan_pembantu"></i>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <br>
-                                                    <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-cloud-upload"></i>
-                                                        SIMPAN</button>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1338,57 +1271,10 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="panel panel-inverse">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" class="collapsed" data-parent="#accordion8" href="#collapseCuldesac">
-                                RUANG BERPUTAR (CULDESAC)
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseCuldesac" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="row">
-                                <form action="{{ route('culdesac.simpan') }}" method="POST" id="form-culdesac">
-                                    @csrf
-                                    <div class="wrap_culdesac">
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <input type="hidden" name="pemohon_id" value="@isset($id_permohonan) {{ $id_permohonan }} @endisset"
-                                                    class="prasarana_id_permohonan">
-                                                <div class="col-sm-2">
-                                                    <label class="control-label center-block"><strong>PANJANG</strong></label>
-                                                    <input type="text" name="culdesac_panjang[]" class="form-control" placeholder="Panjang">
-                                                </div>
-                                                <div class="col-sm-2">
-                                                    <label class="control-label center-block"><strong>LEBAR</strong></label>
-                                                    <input type="text" name="culdesac_lebar[]" class="form-control" placeholder="Lebar">
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <label class="control-label center-block"><strong>KETERANGAN</strong></label>
-                                                    <input type="text" name="culdesac_keterangan[]" class="form-control" placeholder="Keterangan">
-                                                </div>
-                                                <div class="col-sm-1">
-                                                    <label class="control-label center-block"><strong>&nbsp;</strong></label>
-                                                    <i class="fa fa-2x fa-plus text-success add_culdesac"></i>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <br>
-                                                    <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-cloud-upload"></i>
-                                                        SIMPAN</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
                 <div class="panel panel-inverse">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" class="collapsed" data-parent="#accordion8" href="#collapseLimbah">
+                            <a data-toggle="collapse" aria-expanded="false" href="#collapseLimbah">
                                 SALURAN PEMBUANGAN AIR LIMBAH
                             </a>
                         </h4>
@@ -1424,11 +1310,6 @@
                                                 <label class="control-label center-block"><strong>&nbsp;</strong></label>
                                                 <i class="fa fa-2x fa-plus text-success add_limbah"></i>
                                             </div>
-                                            <div class="col-md-2">
-                                                <br>
-                                                <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-cloud-upload"></i>
-                                                    SIMPAN</button>
-                                            </div>
                                         </div>
                                     </div>
                                 </form>
@@ -1439,7 +1320,7 @@
                 <div class="panel panel-inverse">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" class="collapsed" data-parent="#accordion8" href="#collapseSampah">
+                            <a data-toggle="collapse" aria-expanded="false" href="#collapseSampah">
                                 TEMPAT PEMBUANGAN SAMPAH
                             </a>
                         </h4>
@@ -1457,14 +1338,6 @@
                                                 <label class="control-label center-block"><strong>UKURAN</strong></label>
                                                 <input type="text" name="sampah_ukuran[]" class="form-control" placeholder="PxLxT / contoh: 5x3x2">
                                             </div>
-                                            {{-- <div class="col-sm-1">
-                                                <label class="control-label center-block"><strong>LEBAR</strong></label>
-                                                <input type="text" name="sampah_lebar[]" class="form-control" placeholder="Lebar">
-                                            </div>
-                                            <div class="col-sm-1">
-                                                <label class="control-label center-block"><strong>TINGGI</strong></label>
-                                                <input type="text" name="sampah_tinggi[]" class="form-control" placeholder="Tinggi">
-                                            </div> --}}
                                             <div class="col-sm-2">
                                                 <div class="form-group">
                                                     <label class="control-label"><strong>JENIS</strong></label>
@@ -1506,10 +1379,6 @@
                                             <div class="col-sm-1">
                                                 <label class="control-label center-block"><strong>&nbsp;</strong></label>
                                                 <i class="fa fa-2x fa-plus text-success add_sampah"></i>
-                                            </div>
-                                            <div class="col-md-1">
-                                                <br>
-                                                <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-cloud-upload"></i> SIMPAN</button>
                                             </div>   
                                         </div>
                                     </div>
@@ -1518,7 +1387,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-danger btn-lg btn-block btn-next-prasarana">SIMPAN</button>
+                <button class="btn btn-danger btn-lg btn-block btn-next-prasarana"><i class="glyphicon glyphicon-floppy-save"></i> SIMPAN</button>
             </div>
         </div>
     </div>

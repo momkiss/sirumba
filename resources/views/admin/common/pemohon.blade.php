@@ -437,7 +437,7 @@
         </div>
     </div>
     <div class="col-sm-12 mt20">
-        <button class="btn btn-danger btn-lg btn-block" type="submit" id="btn-permohonan">SIMPAN</button>
+        <button class="btn btn-danger btn-lg btn-block" type="submit" id="btn-permohonan"><i class="glyphicon glyphicon-floppy-save"></i> SIMPAN</button>
     </div>
     </div>
     </form>

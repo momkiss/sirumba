@@ -167,7 +167,7 @@
             <td colspan="6">Data master tipe masih kosong.</td>
         @endif
     @endif
-    <button class="btn btn-danger btn-lg btn-block btn-next-tipe" type="submit">SIMPAN</button>
+    <button class="btn btn-danger btn-lg btn-block btn-next-tipe" type="submit"><i class="glyphicon glyphicon-floppy-save"></i> SIMPAN</button>
     </form>
 
 @endif

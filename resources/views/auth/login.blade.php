@@ -30,7 +30,7 @@
     <div class="panel signin">
         <div class="panel-heading">
             <h1><b>SIRUMBA</b></h1>
-            <h4 class="panel-title">Selamat Datang, Silakan Login.</h4>
+            <h4 class="panel-title">Sistem Informasi Perumahan Kabupaten Banjar</h4>
         </div>
         <div class="panel-body">
             <form method="POST" action="{{ route('login') }}">

@@ -54,27 +54,23 @@
 
         <script>
             $(document).ready(function () {
-
                 $(".tutup-modal").on("click", function(){
                     $("#modal-rekap-berkas").modal('hide');
                 });
-
                // Modal rekap berkas
                 $('#modal-rekap-berkas').on('show.bs.modal', function (e) {
                     var data = $(e.relatedTarget)
                     var file = data.data('file')
                     var title = data.data('title');
-                    
-
                     if(file == "")
                     {
-                        alert("Berkas tidak ada");
+                        // alert("Berkas tidak ada");
+                        alertError('Berkas tidak ada.');
                         return false;
                     }else{
                         $(this).find(".modal-title").html('<i class="fa fa-edit"></i> '+title);
                         $(this).find('#file-rekap-berkas').attr('src', BASE_URL + '/uploads/' + file);
                     }
-
                 });
             });
         </script>

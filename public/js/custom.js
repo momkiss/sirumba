@@ -39,7 +39,7 @@ $(document).ready(function () {
             { data: 'tanggal_pengesahan', name: 'tanggal_pengesahan' },
             { data: 'luas_lahan', name: 'luas_lahan' },
             { data: 'status', name: 'status' },
-            { data: 'action', name: 'action', orderable: false },
+            { data: 'aksi', name: 'aksi', orderable: false },
         ],
         columnDefs: [
             {
@@ -95,6 +95,7 @@ $(document).ready(function () {
     });
 
  
+
 
     $('#modal-detail-pemohon').on('shown.bs.modal', function (e) {
         data = $(e.relatedTarget)

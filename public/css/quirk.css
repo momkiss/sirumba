@@ -1085,7 +1085,7 @@ body {
   /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
   font-family: 'Montserrat', sans-serif;
   
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.42857143;
   color: #696c74;
   background-color: #d8dce3;
@@ -7795,7 +7795,7 @@ fieldset[disabled] .btn-info.active {
 .panel-group .panel-inverse > .panel-heading .panel-title > a:hover,
 .panel-group .panel-inverse > .panel-heading .panel-title > a:focus {
   color: #fff;
-  background-color: darkorange;
+  background-color: #259dab;
   margin-bottom: 10px;
 }
 .panel-group .panel-inverse > .panel-heading .panel-title > a.collapsed {
@@ -14055,9 +14055,11 @@ fieldset[disabled] .btn-fb.active {
 }
 .signpanel {
   background-color: rgba(0, 0, 0, 0.95);
-  background-image: -webkit-linear-gradient(left, transparent 0%, #1b1f27 100%);
+  /* background-image: -webkit-linear-gradient(left, transparent 0%, #1b1f27 100%);
   background-image: -o-linear-gradient(left, transparent 0%, #1b1f27 100%);
-  background-image: linear-gradient(to right, transparent 0%, #1b1f27 100%);
+  background-image: linear-gradient(to right, transparent 0%, #1b1f27 100%); */
+
+  background-image: url('/images/bg.svg');
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#ff1b1f27', GradientType=1);
   position: fixed;
@@ -14067,6 +14069,13 @@ fieldset[disabled] .btn-fb.active {
   left: 0;
   z-index: 200;
   opacity: .75;
+   /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 @media (max-width: 767px) {
   .signpanel {

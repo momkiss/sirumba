@@ -541,7 +541,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <button id="btn-utilitas" class="btn btn-danger btn-lg btn-block ">SIMPAN</button>
+                <button id="btn-utilitas" class="btn btn-danger btn-lg btn-block "><i class="glyphicon glyphicon-floppy-save"></i> SIMPAN</button>
             </div>
         </div>
     </div>

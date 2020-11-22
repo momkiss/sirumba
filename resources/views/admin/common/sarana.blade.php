@@ -434,7 +434,7 @@
                     </div>
                 </div>
             </div>
-            <button id="btn-sarana" class="btn btn-danger btn-lg btn-block btn-next-sarana">SIMPAN</button>
+            <button id="btn-sarana" class="btn btn-danger btn-lg btn-block btn-next-sarana"><i class="glyphicon glyphicon-floppy-save"></i> SIMPAN</button>
         </form>
     </div>
 </div>

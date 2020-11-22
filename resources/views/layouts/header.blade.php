@@ -2,8 +2,8 @@
     <div class="headerpanel">
 
         <div class="logopanel">
-        <img src="{{ asset('images/logo.png') }}" alt="" width="40" class="pull-left"><h2 style="font-weight:bold" class="pull-left"><a href="{{ url('/') }}">{{ env('APP_NAME') }}</a></h2>
-        </div><!-- logopanel -->
+        <img src="{{ asset('images/logo.png') }}" alt="" width="40" class="pull-left"><h2 style="font-weight:bold" class="pull-left text-white"><a class="text-white" href="{{ url('/') }}">{{ env('APP_NAME') }}</a></h2>
+        </div>
 
         <div class="headerbar">
 
