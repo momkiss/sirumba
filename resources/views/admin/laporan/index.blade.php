@@ -18,7 +18,7 @@
             <div class="col-xs-3">
                 <label>Tanggal Mulai</label>
                 <div class="input-group">
-                    <input type="text" class="form-control datepicker" placeholder="yyyy-mm-dd" name="tgl_awal" autocomplete="off">
+                    <input type="text" class="form-control datepicker" placeholder="yyyy-mm-dd" name="tgl_awal" autocomplete="off" @isset($tanggal_awal)  value="{{ $tanggal_awal }}" @endisset>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                 </div>
                 <div class="mb20 invisible"></div>
@@ -26,7 +26,7 @@
             <div class="col-xs-3">
                <label>Tanggal Akhir</label>
                 <div class="input-group">
-                    <input type="text" class="form-control datepicker" placeholder="yyyy-mm-dd" name="tgl_akhir" autocomplete="off">
+                    <input type="text" class="form-control datepicker" placeholder="yyyy-mm-dd" name="tgl_akhir" autocomplete="off" @isset($tanggal_akhir)  value="{{ $tanggal_akhir }}" @endisset>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                 </div>
             </div>
@@ -55,7 +55,10 @@
                         <th>ALAMAT</th>
                         <th>NO.SURAT PENGESAHAN</th>
                         <th>TGL PENGESAHAN</th>
-                        <th>LUAS</th>
+                        <th>L.KAVLINGAN</th>
+                        <th>L.PSU</th>
+                        <th>L.PRASARANA UTILITAS</th>
+                        <th>L.SARANA</th>
                         <th>
                             <center>#</center>
                         </th>
@@ -73,9 +76,12 @@
                                 <td>{{ $p->pengembang->nama_perusahaan ?? "" }}</td>
                                 <td>{{ $p->nama_perumahan }}</td>
                                 <td>{{  $p->alamat_jalan_perumahan.' - '.$p->kelurahan_perumahan->nama ?? "".' - '.$p->kecamatan_perumahan->nama ?? "" }}</td>
-                                <td>{{ $p->nomor_surat_permohonan }}</td>
-                                <td>{{ $p->tanggal_surat_permohonan->format('d-m-Y') }}</td>
-                                <td>{{ $p->luas_lahan }}</td>
+                                <td>{{ $p->nomor_surat_pengesahan }}</td>
+                                <td>{{ $p->tanggal_pengesahan }}</td>
+                                <td>{{ number_format(($p->luas_kavling ?? 1)/($p->luas_lahan ?? 1)*100,2,',','.') }}%</td>
+                                <td>{{ number_format(($p->luas_prasarana ?? 1)/($p->luas_lahan ?? 1)*100,2,',','.') }}%</td>
+                                <td>{{ number_format(($p->luas_prasarana ?? 1)/($p->luas_lahan ?? 1)*100,2,',','.') }}%</td>
+                                <td>{{ number_format(($p->luas_sarana ?? 1)/($p->luas_lahan ?? 1)*100,2,',','.') }}%</td>
                                 <td nowrap align="center">
                                     <a href="{{ route('laporan.permohonan', ['id' => $p->id]) }}" target="_blank" class="btn btn-success btn-sm tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Permohonan"><i class="fa fa-envelope-o"></i></a>
                                     <a href="{{ route('laporan.kelengkapan', ['id' => $p->id]) }}" target="_blank" class="btn btn-danger btn-sm tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Kelengkapan"><i class="fa fa-file-text-o"></i></a>
@@ -141,30 +147,30 @@
       dom: 'Bfrtip',
 
         buttons: [
-            {
-                extend: 'pdfHtml5',
-                text: 'PDF',
-                pageSize: 'A4',
-                orientation: 'portrait',
-                exportOptions: {
-                columns: [ 0, 1, 2, 3,4,5 ]
-                    }
-            },
-            {
-                extend: 'excelHtml5',
-                text: 'EXCEL',
-                exportOptions: {
-                columns: [ 0, 1, 2, 3,4,5 ]
-                }
-            },
-            {
-                extend: 'print',
-                text: 'CETAK',
-                exportOptions: {
-                columns: [ 0, 1, 2, 3,4,5 ]
-                }
-            },
-        ]
+                    {
+                        extend: 'pdfHtml5',
+                        text: 'PDF',
+                        pageSize: 'A4',
+                        orientation: 'landscape',
+                        exportOptions: {
+                        columns: [ 0, 1, 2, 3,4,5, 6,7,8,9 ]
+                            }
+                    },
+                    {
+                        extend: 'excelHtml5',
+                        text: 'EXCEL',
+                        exportOptions: {
+                        columns: [ 0, 1, 2, 3,4,5, 6,7,8,9 ]
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        text: 'CETAK',
+                        exportOptions: {
+                        columns: [ 0, 1, 2, 3,4,5, 6,7,8,9 ]
+                        }
+                    },
+                ]
   });
   // Select2
   $('select').select2({ minimumResultsForSearch: Infinity });

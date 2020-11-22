@@ -46,6 +46,9 @@ Route::get('permohonan/rekap', 'PemohonController@rekap')->name('permohonan.reka
 Route::get('permohonan/edit/{id}', 'PemohonController@edit')->name('permohonan.edit'); 
 Route::get('permohonan/selesai/{id}', 'PemohonController@status');
 Route::get('permohonan/status/{id}/{status}', 'PemohonController@statusVerifikasi');
+
+Route::post('permohonan/pengesahan', 'PemohonController@pengesahan')->name('pengesahan.simpan');
+
 Route::post('permohonan/simpan', 'PemohonController@store')->name('permohonan.simpan');
 Route::get('permohonan/result', function(\App\Pemohon $permohonan){
 	$pemohon = $permohonan->get();

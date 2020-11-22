@@ -16,11 +16,11 @@
     <form action="{{ route('laporan.perkecamatan.tampil') }}" method="get">
         <div class="row">
             <div class="col-xs-6">
-                <label>Kecamatan</label>
+            <label>Kecamatan </label>
                 <select name="kecamatan" class="form-control">
                     <option value="">---</option>
                     @foreach ($kecamatan as $k)
-                        <option value="{{ $k->id }}">{{ $k->nama }}</option>
+                        <option value="{{ $k->id }}" @isset($kec)  {{ $kec == $k->id ? "selected" : "" }} @endisset >{{ $k->nama }}</option>
                     @endforeach
                 </select>
                 <div class="mb20 invisible"></div>
@@ -49,38 +49,41 @@
                         <th>ALAMAT</th>
                         <th>NO.SURAT PENGESAHAN</th>
                         <th>TGL PENGESAHAN</th>
-                        <th>LUAS</th>
+                        <th>L.KAVLINGAN</th>
+                        <th>L.PSU</th>
+                        <th>L.PRASARANA UTILITAS</th>
+                        <th>L.SARANA</th>
                         <th>
                             <center>#</center>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
+                   
+                    @isset($permohonan)
                     @php
                     $no = 1
                     @endphp
-                    @isset($permohonan)
-                        @if (count($permohonan) > 0)
                             @foreach ($permohonan as $p)
                             <tr>
                                 <td>{{ $no++ }}</td>
                                 <td>{{ $p->pengembang->nama_perusahaan ?? "" }}</td>
                                 <td>{{ $p->nama_perumahan }}</td>
                                 <td>{{  $p->alamat_jalan_perumahan.' - '.$p->kelurahan_perumahan->nama ?? "".' - '.$p->kecamatan_perumahan->nama ?? "" }}</td>
-                                <td>{{ $p->nomor_surat_permohonan }}</td>
-                                <td>{{ $p->tanggal_surat_permohonan->format('d-m-Y') }}</td>
-                                <td>{{ $p->luas_lahan }}</td>
+                                <td>{{ $p->nomor_surat_pengesahan }}</td>
+                                <td>{{ $p->tanggal_pengesahan }}</td>
+                                <td>{{ number_format(($p->luas_kavling ?? 1)/($p->luas_lahan ?? 1)*100,2,',','.') }}%</td>
+                                <td>{{ number_format(($p->luas_prasarana ?? 1)/($p->luas_lahan ?? 1)*100,2,',','.') }}%</td>
+                                <td>{{ number_format(($p->luas_prasarana ?? 1)/($p->luas_lahan ?? 1)*100,2,',','.') }}%</td>
+                                <td>{{ number_format(($p->luas_sarana ?? 1)/($p->luas_lahan ?? 1)*100,2,',','.') }}%</td>
+
                                 <td nowrap align="center">
                                     <a href="{{ route('laporan.permohonan', ['id' => $p->id]) }}" target="_blank" class="btn btn-success btn-sm tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Permohonan"><i class="fa fa-envelope-o"></i></a>
                                     <a href="{{ route('laporan.kelengkapan', ['id' => $p->id]) }}" target="_blank" class="btn btn-danger btn-sm tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Kelengkapan"><i class="fa fa-file-text-o"></i></a>
                                 </td>
                             </tr>
                             @endforeach
-                        @else
-                            <tr>
-                                <td colspan="7"><center>Data tidak ditemukan</center></td>
-                            </tr>
-                        @endif
+                     
                     @endisset
                 </tbody>
             </table>
@@ -134,31 +137,31 @@
   $('#tbl-lap').DataTable({
       dom: 'Bfrtip',
 
-        buttons: [
-            {
-                extend: 'pdfHtml5',
-                text: 'PDF',
-                pageSize: 'A4',
-                orientation: 'portrait',
-                exportOptions: {
-                columns: [ 0, 1, 2, 3,4,5 ]
-                    }
-            },
-            {
-                extend: 'excelHtml5',
-                text: 'EXCEL',
-                exportOptions: {
-                columns: [ 0, 1, 2, 3,4,5 ]
-                }
-            },
-            {
-                extend: 'print',
-                text: 'CETAK',
-                exportOptions: {
-                columns: [ 0, 1, 2, 3,4,5 ]
-                }
-            },
-        ]
+         buttons: [
+                    {
+                        extend: 'pdfHtml5',
+                        text: 'PDF',
+                        pageSize: 'A4',
+                        orientation: 'landscape',
+                        exportOptions: {
+                        columns: [ 0, 1, 2, 3,4,5, 6,7,8,9 ]
+                            }
+                    },
+                    {
+                        extend: 'excelHtml5',
+                        text: 'EXCEL',
+                        exportOptions: {
+                        columns: [ 0, 1, 2, 3,4,5, 6,7,8,9 ]
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        text: 'CETAK',
+                        exportOptions: {
+                        columns: [ 0, 1, 2, 3,4,5, 6,7,8,9 ]
+                        }
+                    },
+                ]
   });
   // Select2
   $('select').select2({ minimumResultsForSearch: Infinity });

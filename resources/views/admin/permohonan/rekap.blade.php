@@ -76,6 +76,38 @@ table {
         </div>
     </div>
 </div>
+
+
+<!-- Modal pengesahan-->
+<div class="modal fade" id="modalPengesahan" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fa fa-edit"></i> PENGESAHAN</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('pengesahan.simpan') }}" method="post" id="formPengesahan">
+                    @csrf
+                    <input type="hidden" id="pengesahanID" name="id">
+                    <div class="form-group">
+                        <label class="control-label center-block"><strong>NOMOR</strong></label>
+                        <input type="text" class="form-control" placeholder="" name="nomor_surat_pengesahan">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label center-block"><strong>TANGGAL</strong></label>
+                        <input type="text" class="form-control datepicker" placeholder="mm-dd-yyyy" placeholder="" name="tanggal_pengesahan" autocomplete="off">
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger" >SIMPAN</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
 <div class="panel">
     <div class="panel-heading">
         <h2 class="text-success mt0" ><i class="fa fa-edit"></i> <strong>REKAP PERMOHONAN</strong></h2>
@@ -162,6 +194,13 @@ table {
     $(document).ready(function() {
         // Select2
         $('select').select2({ minimumResultsForSearch: Infinity });
+
+    $('#modalPengesahan').on('shown.bs.modal', function (e) {
+        var data = $(e.relatedTarget);
+            var id = data.data('id');
+            $(this).find("#pengesahanID").val(id);
+        });
+
 });
 </script>
 

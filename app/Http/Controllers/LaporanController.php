@@ -93,7 +93,9 @@ class LaporanController extends Controller
        $to = $request->tgl_akhir;
        $permohonan = Pemohon::whereBetween('tanggal_surat_permohonan', [$from, $to])->get();
  
-       return view('admin.laporan.index')->with('permohonan', $permohonan);
+       return view('admin.laporan.index')->with('permohonan', $permohonan)
+                                         ->with('tanggal_awal', $from)
+                                         ->with('tanggal_akhir', $to);
 
     }
 
@@ -125,7 +127,7 @@ class LaporanController extends Controller
         $kecamatan = MasterKecamatan::orderBy('nama')->get();
         $permohonan = Pemohon::where('alamat_kecamatan_perumahan', $kec)->get();
     
-        return view('admin.laporan.perkecamatan',compact('permohonan','kecamatan'));
+        return view('admin.laporan.perkecamatan',compact('permohonan','kecamatan','kec'));
     }
 
     
@@ -139,7 +141,9 @@ class LaporanController extends Controller
         $reqPengembang = $request->pengembang;
         $pengembang = Pengembang::orderBy('nama_perusahaan')->get();
         $permohonan = Pemohon::where('pengembang_id', $reqPengembang)->get();
+
+        $judul = Pengembang::select('nama_perusahaan')->where('id', $reqPengembang)->first()->nama_perusahaan;
     
-        return view('admin.laporan.perpengembang',compact('permohonan','pengembang'));
+        return view('admin.laporan.perpengembang',compact('permohonan','pengembang','judul','reqPengembang'));
     }
 }

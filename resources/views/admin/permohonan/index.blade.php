@@ -110,6 +110,8 @@
 </div>
 
 
+
+
  @endsection
 
  @push('js')
@@ -377,7 +379,7 @@
         });
         
         $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-            var target = $(e.target).attr("href") // activated tab
+            var target = $(e.target).attr("href") 
             var id = $.trim($("#id_permohonan").val());
                 if(target == "#tab2"){
                     $.ajax({
@@ -388,16 +390,10 @@
                         }
                     });
                 }
-                // if(target == "#tab4"){
-                //     $.ajax({
-                //         type: "get",
-                //         url: BASE_URL+"/admin/berkas/show/"+id,
-                //         success: function (res) {
-                //             $("#tab2").html(res);
-                //         }
-                //     });
-                // }
+
             });
+
+
         // Ajax permohonan
          $('#form-permohonan').validate({
             highlight: function (element) {
@@ -418,7 +414,7 @@
                             $.gritter.add({
                                 title: 'PEMBERITAHUAN',
                                 text: response.pesan,
-                                class_name: 'with-icon question-circle primary'
+                                class_name: 'with-icon question-circle success'
                             });
                             $("#id_permohonan,.prasarana_id_permohonan,#sarana_id_permohonan,#utilitas_id_permohonan,#ukuran_id_permohonan").val(response.id);
                             $('.nav-tabs a[href="#tab2"]').tab('show');
@@ -434,11 +430,7 @@
             },
         });
 
-            // $("#btn-permohonan").on("click", function(){
-                
-            // });
 
-  
         // Prasarana jalan masuk
         $("#form-jalan-masuk").submit(function( event ) {
             var data = $(this).serialize();
@@ -457,6 +449,7 @@
             });
             event.preventDefault();
         });
+
         // Prasarana jalan utama
         $("#form-jalan-utama").submit(function( event ) {
             var data = $(this).serialize();
@@ -475,6 +468,7 @@
             });
             event.preventDefault();
         });
+
         // Prasarana jalan pembantu
         $("#form-jalan-pembantu").submit(function( event ) {
             var data = $(this).serialize();
@@ -493,6 +487,7 @@
             });
             event.preventDefault();
         });
+
         // Prasarana jalan pembagi
         $("#form-jalan-pembagi").submit(function( event ) {
             var data = $(this).serialize();
@@ -511,42 +506,7 @@
             });
             event.preventDefault();
         });
-        // Prasarana culdesac
-        $("#form-culdesac").submit(function( event ) {
-            var data = $(this).serialize();
-            $.ajax({
-                method: "POST",
-                url: BASE_URL+"/admin/prasarana/culdesac/simpan",
-                data: data,
-                success: function (response) {
-                     $.gritter.add({
-                        title: 'PEMBERITAHUAN',
-                        text: response.pesan,
-                        class_name: 'with-icon question-circle primary'
-                    });
-                    $('.nav-tabs a[href="#tab3"]').tab('show');
-                }
-            });
-            event.preventDefault();
-        });
-        // Prasarana drainase
-        $("#form-drainase").submit(function( event ) {
-            var data = $(this).serialize();
-            $.ajax({
-                method: "POST",
-                url: BASE_URL+"/admin/prasarana/drainase/simpan",
-                data: data,
-                success: function (response) {
-                     $.gritter.add({
-                        title: 'PEMBERITAHUAN',
-                        text: response.pesan,
-                        class_name: 'with-icon question-circle primary'
-                    });
-                    $('.nav-tabs a[href="#tab3"]').tab('show');
-                }
-            });
-            event.preventDefault();
-        });
+
         // Prasarana limbah
          $("#form-limbah").submit(function( event ) {
             var data = $(this).serialize();
@@ -565,6 +525,7 @@
             });
             event.preventDefault();
         });
+        
         // Prasarana sampah
          $("#form-sampah").submit(function( event ) {
             var data = $(this).serialize();
@@ -583,6 +544,8 @@
             });
             event.preventDefault();
         });
+
+
         // Ajax sarana
         $("#form-sarana").on("submit", function(event){
             // var isValid;
@@ -611,14 +574,14 @@
         });
         // Ajax utilitas
         $("#form-utilitas").on("submit", function(event){
-           var isValid;
-                $("#form-utilitas").find("input").each(function() {
-                var element = $(this);
-                    if (element.val() == "") {
-                        alert('Semua inputan masih kosong');
-                        return false;
-                    }
-                });
+        //    var isValid;
+        //         $("#form-utilitas").find("input").each(function() {
+        //         var element = $(this);
+        //             if (element.val() == "") {
+        //                 alert('Semua inputan masih kosong');
+        //                 return false;
+        //             }
+        //         });
             var data = $("#form-utilitas").serialize();
             $.ajax({
                 method: "POST",

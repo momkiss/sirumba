@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pemohon extends Model
 {
     protected $table = "pemohon";
-    protected $fillable = ['user_id', 'pengembang_id', 'tahun', 'nama_lengkap_pengembang', 'alamat_kecamatan_pengembang', 'alamat_kelurahan_pengembang', 'alamat_rt_pengembang', 'alamat_jalan_pengembang', 'alamat_kodepos_pengembang', 'nomor_ktp', 'nomor_surat_permohonan', 'tanggal_surat_permohonan', 'pekerjaan', 'jabatan', 'telp', 'nama_perumahan', 'alamat_kecamatan_perumahan', 'alamat_kelurahan_perumahan', 'alamat_rt_perumahan', 'alamat_jalan_perumahan', 'alamat_kodepos_perumahan', 'luas_lahan', 'luas_prasarana','luas_kavling' ,'luas_sarana', 'luas_rth', 'verifikator', 'jenis_perumahan', 'status', 'keterangan'];
+    protected $fillable = ['user_id', 'pengembang_id', 'tahun', 'nama_lengkap_pengembang', 'alamat_kecamatan_pengembang', 'alamat_kelurahan_pengembang', 'alamat_rt_pengembang', 'alamat_jalan_pengembang', 'alamat_kodepos_pengembang', 'nomor_ktp', 'nomor_surat_permohonan', 'tanggal_surat_permohonan', 'pekerjaan', 'jabatan', 'telp', 'nama_perumahan', 'alamat_kecamatan_perumahan', 'alamat_kelurahan_perumahan', 'alamat_rt_perumahan', 'alamat_jalan_perumahan', 'alamat_kodepos_perumahan', 'luas_lahan', 'luas_prasarana','luas_kavling' ,'luas_sarana', 'luas_rth', 'verifikator', 'jenis_perumahan', 'status', 'nomor_surat_pengesahan','tanggal_pengesahan' ,'keterangan'];
 
     protected $dates = [
         'tanggal_surat_permohonan',
@@ -82,30 +82,30 @@ class Pemohon extends Model
         return $luas2;
     }
 
-    public function getLuasLahanAttribute($value)
-    {
-        return $this->formatAngka($value);
-    }
+    // public function getLuasLahanAttribute($value)
+    // {
+    //     return $this->formatAngka($value);
+    // }
 
-    public function getLuasKavlingAttribute($value)
-    {
-        return $this->formatAngka($value);
-    }
+    // public function getLuasKavlingAttribute($value)
+    // {
+    //     return $this->formatAngka($value);
+    // }
 
-    public function getLuasPrasaranaAttribute($value)
-    {
-        return $this->formatAngka($value);
-    }
+    // public function getLuasPrasaranaAttribute($value)
+    // {
+    //     return $this->formatAngka($value);
+    // }
 
-    public function getLuasSaranaAttribute($value)
-    {
-        return $this->formatAngka($value);
-    }
+    // public function getLuasSaranaAttribute($value)
+    // {
+    //     return $this->formatAngka($value);
+    // }
 
-    public function getLuasRthAttribute($value)
-    {
-        return $this->formatAngka($value);
-    }
+    // public function getLuasRthAttribute($value)
+    // {
+    //     return $this->formatAngka($value);
+    // }
 
     // public function setTanggalAttribute($value)
     // {

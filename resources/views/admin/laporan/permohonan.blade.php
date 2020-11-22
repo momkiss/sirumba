@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Kelengkapan Berkas {{ $permohonan->nama_lengkap_pengembang }}</title>
+    <title>{{ $permohonan->nama_lengkap_pengembang }}</title>
     <style>
         @font-face {
             font-family: 'customFont';
@@ -43,7 +43,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="4" align="right"><em style="font-size: 9px !important">Dinas Perumahan dan Permukiman Kab. Banjar | {{ $permohonan->tanggal_surat_permohonan->format('d M Y') }}</em>
+                <td colspan="4" align="right"><em style="font-size: 9px !important">Tanggal permohonan : {{ $permohonan->tanggal_surat_permohonan->format('d M Y') }}</em>
                 </td>
             </tr>
             <tr>
@@ -165,6 +165,12 @@
             </tr>
             <tr>
                 <td align="center">&nbsp;</td>
+                <td>- Luas Kavling</td>
+                <td>:</td>
+                <td>{{ $permohonan->luas_kavling }} m2</td>
+            </tr>
+            <tr>
+                <td align="center">&nbsp;</td>
                 <td>- Luas Prasarana</td>
                 <td>:</td>
                 <td>{{ $permohonan->luas_prasarana }} m2</td>
@@ -181,6 +187,8 @@
                 <td>:</td>
                 <td>{{ $permohonan->luas_rth }} m2</td>
             </tr>
+           
+            <div style="page-break-before: always !important"></div>
             <tr>
                 <td align="center">&nbsp;</td>
                 <td>&nbsp;</td>
@@ -189,7 +197,7 @@
             </tr>
             <tr>
                 <td align="right"><strong>8.</strong></td>
-                <td colspan="3"><strong>JUMLAH RUMAH/UKURAN KAPLING</strong></td>
+                <td colspan="3"><strong>JUMLAH UNIT</strong></td>
             </tr>
             @foreach ($permohonan->jumlah as $jumlah)
                 @if ($jumlah->luas != NULL && $jumlah->jumlah != NULL)
@@ -350,14 +358,7 @@
             </tr>
 
 
-
-            <tr>
-                <td align="center">&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
+            {{-- <tr>
                 <td align="center">&nbsp;</td>
                 <td colspan="3"><strong>RUANG UNTUK BERPUTAR (CULDESAC)</strong></td>
             </tr>
@@ -383,7 +384,7 @@
                         </tbody>
                     </table>
                 </td>
-            </tr>
+            </tr> --}}
 
             {{--  <tr>
                 <td align="center">&nbsp;</td>
@@ -502,44 +503,23 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
-            <tr>
+             <tr>
                 <td align="center">&nbsp;</td>
-                <td colspan="3"><strong>- SARANA PERIBADATAN</strong></td>
+                <td colspan="3"><strong>- RUANG TERBUKA HIJAU</strong></td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td colspan="3"> Jenis bangunan : {{ $permohonan->peribadatan->jenisbangunan->nama ?? "-" }}
+                <td colspan="3"> Jenis : {{ $permohonan->rth->jenis ?? "-" }}
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td colspan="3"> Jenis konstruksi : {{ $permohonan->peribadatan->jeniskonstruksi->nama ?? "-" }}</td>
+                <td colspan="3"> Ukuran Bangunan : {{ $permohonan->rth->jeniskonstruksi->ukuran ?? "-" }}</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td colspan="3"> Ukuran : {{ $permohonan->peribadatan->ukuran ?? "-" }} </td>
+                <td colspan="3"> Luas Lahan : {{ $permohonan->rth->luas_lahan ?? "-" }} </td>
             </tr>
-            <tr>
-                <td align="center">&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td align="center">&nbsp;</td>
-                <td colspan="3"><strong>- SARANA PERTAMANAN DAN RUANG TERBUKA HIJAU</strong></td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td colspan="3"> Jenis bangunan : {{ $permohonan->rth->jenisbangunan->nama ?? "-" }}
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td colspan="3"> Jenis konstruksi : {{ $permohonan->rth->jeniskonstruksi->nama ?? "-" }}</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td colspan="3"> Ukuran : {{ $permohonan->rth->ukuran ?? "-" }} </td>
-            </tr>
+            <div style="page-break-before: always !important"></div>
             <tr>
                 <td align="center">&nbsp;</td>
                 <td>&nbsp;</td>
@@ -548,19 +528,42 @@
             </tr>
             <tr>
                 <td align="center">&nbsp;</td>
-                <td colspan="3"><strong>- SARANA REKREASI DAN OLAHRAGA</strong></td>
+                <td colspan="3"><strong>- PERIBADATAN</strong></td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td colspan="3"> Jenis bangunan : {{ $permohonan->rekreasi->jenisbangunan->nama ?? "-" }}
+                <td colspan="3"> Jenis : {{ $permohonan->peribadatan->jenis ?? "-" }}
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td colspan="3"> Jenis konstruksi : {{ $permohonan->rekreasi->jeniskonstruksi->nama ?? "-" }}</td>
+                <td colspan="3"> Ukuran Bangunan : {{ $permohonan->peribadatan->ukuran ?? "-" }}</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td colspan="3"> Ukuran : {{ $permohonan->rekreasi->ukuran ?? "-" }} </td>
+                <td colspan="3"> Luas Lahan : {{ $permohonan->peribadatan->luas_lahan ?? "-" }} </td>
+            </tr>
+            <tr>
+                <td align="center">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+
+            <tr>
+                <td align="center">&nbsp;</td>
+                <td colspan="3"><strong>- REKREASI DAN OLAHRAGA</strong></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="3"> Jenis : {{ $permohonan->rekreasi->jenis ?? "-" }}
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="3"> Ukuran Bangunan : {{ $permohonan->rekreasi->ukuran ?? "-" }}</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="3"> Luas Lahan : {{ $permohonan->rekreasi->luas_lahan ?? "-" }} </td>
             </tr>
 >
             <tr>
@@ -568,39 +571,100 @@
             </tr>
             <tr>
                 <td align="center">&nbsp;</td>
-                <td colspan="3"><strong>- SARANA PELAYANAN UMUM DAN PEMERINTAHAN</strong></td>
+                <td colspan="3"><strong>- PENDIDIKAN</strong></td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td colspan="3"> Jenis bangunan : {{ $permohonan->pelayananumum->jenisbangunan->nama ?? "-" }}
+                <td colspan="3"> Jenis : {{ $permohonan->pendidikan->jenis ?? "-" }}
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td colspan="3"> Jenis konstruksi : {{ $permohonan->pelayananumum->jeniskonstruksi->nama ?? "-" }}</td>
+                <td colspan="3"> Ukuran Bangunan : {{ $permohonan->pendidikan->ukuran ?? "-" }}</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td colspan="3"> Ukuran : {{ $permohonan->pelayananumum->ukuran ?? "-" }} </td>
+                <td colspan="3"> Luas Lahan : {{ $permohonan->pendidikan->luas_lahan ?? "-" }} </td>
+            </tr>
+            
+            <tr>
+                <td colspan="4">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="center">&nbsp;</td>
+                <td colspan="3"><strong>- KESEHATAN</strong></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="3"> Jenis : {{ $permohonan->kesehatan->jenis ?? "-" }}
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="3"> Ukuran Bangunan : {{ $permohonan->kesehatan->ukuran ?? "-" }}</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="3"> Luas Lahan : {{ $permohonan->kesehatan->luas_lahan ?? "-" }} </td>
+            </tr>
+            
+            <tr>
+                <td colspan="4">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="center">&nbsp;</td>
+                    <td colspan="3"><strong>- PERNIAGAAN</strong></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td colspan="3"> Jenis : {{ $permohonan->perniagaan->jenis?? "-" }}
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td colspan="3"> Ukuran Bangunan : {{ $permohonan->perniagaan->ukuran ?? "-" }}</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td colspan="3"> Luas Lahan : {{ $permohonan->perniagaan->luas_lahan ?? "-" }} </td>
+                </tr>
+                
+                <tr>
+                    <td colspan="4">&nbsp;</td>
+                </tr>
+            <tr>
+                <td align="center">&nbsp;</td>
+                <td colspan="3"><strong>- PELAYANAN UMUM DAN PEMERINTAHAN</strong></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="3"> Jenis : {{ $permohonan->pelayananumum->jenis ?? "-" }}
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="3"> Ukuran Bangunan : {{ $permohonan->pelayananumum->ukuran ?? "-" }}</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="3"> Luas Lahan : {{ $permohonan->pelayananumum->luas_lahan ?? "-" }} </td>
             </tr>
             <tr>
                 <td colspan="4">&nbsp;</td>
             </tr>
             <tr>
                 <td align="center">&nbsp;</td>
-                <td colspan="3"><strong>- SARANA PARKIR</strong></td>
+                <td colspan="3"><strong>- PARKIR</strong></td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td colspan="3"> Jenis bangunan : {{ $permohonan->parkir->jenisbangunan->nama ?? "-" }}
+                <td colspan="3"> Jenis : {{ $permohonan->parkir->jenis ?? "-" }}
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td colspan="3"> Jenis konstruksi : {{ $permohonan->parkir->jeniskonstruksi->nama ?? "-" }}</td>
+                <td colspan="3"> Luas Bangunan : {{ $permohonan->parkir->ukuran ?? "-" }}</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td colspan="3"> Ukuran : {{ $permohonan->parkir->ukuran ?? "-" }} </td>
+                <td colspan="3"> Luas Lahan : {{ $permohonan->parkir->luas_lahan ?? "-" }} </td>
             </tr>
+           <div style="page-break-before: always !important"></div>
             <tr>
                 <td align="center">&nbsp;</td>
                 <td>&nbsp;</td>

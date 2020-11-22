@@ -147,7 +147,7 @@ $no = 1
                             $.gritter.add({
                                     title: 'PEMBERITAHUAN',
                                     text: data.pesan,
-                                    class_name: 'with-icon question-circle primary'
+                                    class_name: 'with-icon question-circle success'
                             });
 
                             

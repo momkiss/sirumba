@@ -26,7 +26,7 @@
 			 @foreach($posts as $post)
 					<tr>
 						<td>{{ $no++  }}</td>
-						<td><img src="{{ $post->featured }}" alt="{{ $post->featured }}" width="50px"></td>
+						<td><img src="{{ asset($post->featured) }}" alt="{{ $post->featured }}" width="50px"></td>
 						<td>{{ $post->title }}</td>
 						<td>
 							<a href="{{ route('post.restore',['id' => $post->id] ) }}" class="btn btn-sm btn-info">RESTORE</a>

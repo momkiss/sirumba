@@ -78,7 +78,7 @@
                     <li class="nav-parent">
                         <a href=""><i class="fa fa-gear"></i> <span>Master Data</span></a>
                         <ul class="children">
-                            <li><a href="{{ route('identitas.index') }}">Identitas</a></li>
+                            {{-- <li><a href="{{ route('identitas.index') }}">Identitas</a></li> --}}
                             <li><a href="{{ route('jenis-konstruksi.index') }}">Jenis Konstruksi</a></li>
                             <li><a href="{{ route('jenis-bangunan.index') }}">Jenis Bangunan</a></li>
                             <li><a href="{{ route('kecamatan.index') }}">Kecamatan</a></li>

@@ -34,8 +34,8 @@ $(document).ready(function () {
             { data: 'perusahaan', name: 'perusahaan', searchable: true  },
             { data: 'nama_perumahan', name: 'nama_perumahan' },
             { data: 'alamat', name: 'alamat'},
-            { data: 'nomor_surat_permohonan', name: 'nomor_surat_permohonan' },
-            { data: 'tanggal_surat_permohonan', name: 'tanggal_surat_permohonan' },
+            { data: 'nomor_surat_pengesahan', name: 'nomor_surat_pengesahan' },
+            { data: 'tanggal_pengesahan', name: 'tanggal_pengesahan' },
             { data: 'luas_lahan', name: 'luas_lahan' },
             { data: 'status', name: 'status' },
             { data: 'action', name: 'action', orderable: false },
@@ -456,4 +456,6 @@ function loadRekap()
         }
     });
 }
+
+
 

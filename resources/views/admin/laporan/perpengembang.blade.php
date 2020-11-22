@@ -6,9 +6,9 @@
 @section('content')
 <div class="panel">
     <div class="panel-heading">
-        <h2 class="text-success mt0"><i class="fa fa-edit"></i> <strong>LAPORAN PER PENGEMBANG/PERUSAHAAN</strong></h2>
+        <h2 class="text-success mt0"><i class="fa fa-edit"></i> <strong>LAPORAN PER PERUSAHAAN</strong></h2>
         <hr style="margin: 0 !important">
-        <h4 class="panel-title mt10">PENGEMBANG/PERUSAHAAN</h4>
+        <h4 class="panel-title mt10">PERUSAHAAN</h4>
         <p>Menampilkan laporan berdasarkan pengembang/perusahaan.</p>
     </div>
 
@@ -20,7 +20,7 @@
                 <select name="pengembang" class="form-control">
                     <option value="">---</option>
                     @foreach ($pengembang as $p)
-                        <option value="{{ $p->id }}">{{ $p->nama_perusahaan }}</option>
+                        <option value="{{ $p->id }}" @isset($reqPengembang) {{ $reqPengembang == $p->id ? "selected" : "" }} @endisset>{{ $p->nama_perusahaan }}</option>
                     @endforeach
                 </select>
                 <div class="mb20 invisible"></div>
@@ -36,11 +36,11 @@
 
 <div class="panel">
     <div class="panel-heading">
-        <h4 class="panel-title">LAPORAN PER PENGEMBANG/PERUSAHAAN</h4>
+        <h4 class="panel-title">LAPORAN PER PERUSAHAAN</h4>
     </div>
     <div class="panel-body">
         <div class="table-responsive">
-            <table id="tbl-lap" class="table table-bordered table-inverse nomargin" style="width: 100%">
+        <table id="tbl-lap" class="table table-bordered table-inverse nomargin" style="width: 100%">
                 <thead>
                     <tr>
                         <th>NO.</th>
@@ -49,38 +49,40 @@
                         <th>ALAMAT</th>
                         <th>NO.SURAT PENGESAHAN</th>
                         <th>TGL PENGESAHAN</th>
-                        <th>LUAS</th>
+                        <th>L.KAVLINGAN</th>
+                        <th>L.PSU</th>
+                        <th>L.PRASARANA UTILITAS</th>
+                        <th>L.SARANA</th>
                         <th>
                             <center>#</center>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
+                   
+                    @isset($permohonan)
                     @php
                     $no = 1
                     @endphp
-                    @isset($permohonan)
-                        @if (count($permohonan) > 0)
                             @foreach ($permohonan as $p)
                             <tr>
                                 <td>{{ $no++ }}</td>
                                 <td>{{ $p->pengembang->nama_perusahaan ?? "" }}</td>
                                 <td>{{ $p->nama_perumahan }}</td>
                                 <td>{{  $p->alamat_jalan_perumahan.' - '.$p->kelurahan_perumahan->nama ?? "".' - '.$p->kecamatan_perumahan->nama ?? "" }}</td>
-                                <td>{{ $p->nomor_surat_permohonan }}</td>
-                                <td>{{ $p->tanggal_surat_permohonan->format('d-m-Y') }}</td>
-                                <td>{{ $p->luas_lahan }}</td>
+                                <td>{{ $p->nomor_surat_pengesahan }}</td>
+                                <td>{{ $p->tanggal_pengesahan }}</td>
+                                <td>{{ number_format(($p->luas_kavling ?? 1)/($p->luas_lahan ?? 1)*100,2,',','.') }}%</td>
+                                <td>{{ number_format(($p->luas_prasarana ?? 1)/($p->luas_lahan ?? 1)*100,2,',','.') }}%</td>
+                                <td>{{ number_format(($p->luas_prasarana ?? 1)/($p->luas_lahan ?? 1)*100,2,',','.') }}%</td>
+                                <td>{{ number_format(($p->luas_sarana ?? 1)/($p->luas_lahan ?? 1)*100,2,',','.') }}%</td>
                                 <td nowrap align="center">
                                     <a href="{{ route('laporan.permohonan', ['id' => $p->id]) }}" target="_blank" class="btn btn-success btn-sm tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Permohonan"><i class="fa fa-envelope-o"></i></a>
                                     <a href="{{ route('laporan.kelengkapan', ['id' => $p->id]) }}" target="_blank" class="btn btn-danger btn-sm tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Kelengkapan"><i class="fa fa-file-text-o"></i></a>
                                 </td>
                             </tr>
                             @endforeach
-                        @else
-                            <tr>
-                                <td colspan="7"><center>Data tidak ditemukan</center></td>
-                            </tr>
-                        @endif
+                     
                     @endisset
                 </tbody>
             </table>
@@ -128,38 +130,34 @@
 
 <script>
     $(document).ready(function() {
-
-
-
-  $('#tbl-lap').DataTable({
-      dom: 'Bfrtip',
-
-        buttons: [
-            {
-                extend: 'pdfHtml5',
-                text: 'PDF',
-                pageSize: 'A4',
-                orientation: 'portrait',
-                exportOptions: {
-                columns: [ 0, 1, 2, 3,4,5 ]
-                    }
-            },
-            {
-                extend: 'excelHtml5',
-                text: 'EXCEL',
-                exportOptions: {
-                columns: [ 0, 1, 2, 3,4,5 ]
-                }
-            },
-            {
-                extend: 'print',
-                text: 'CETAK',
-                exportOptions: {
-                columns: [ 0, 1, 2, 3,4,5 ]
-                }
-            },
-        ]
-  });
+        $('#tbl-lap').DataTable({
+            dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'pdfHtml5',
+                        text: 'PDF',
+                        pageSize: 'A4',
+                        orientation: 'landscape',
+                        exportOptions: {
+                        columns: [ 0, 1, 2, 3,4,5, 6,7,8,9 ]
+                            }
+                    },
+                    {
+                        extend: 'excelHtml5',
+                        text: 'EXCEL',
+                        exportOptions: {
+                        columns: [ 0, 1, 2, 3,4,5, 6,7,8,9 ]
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        text: 'CETAK',
+                        exportOptions: {
+                        columns: [ 0, 1, 2, 3,4,5, 6,7,8,9 ]
+                        }
+                    },
+                ]
+        });
   // Select2
   $('select').select2({ minimumResultsForSearch: Infinity });
 

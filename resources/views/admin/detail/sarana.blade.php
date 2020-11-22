@@ -2,7 +2,7 @@
     <tbody>
         <tr class="bg-primary">
             <td align="center" style="width:1%"><strong>1.</strong></td>
-            <td colspan="3"><strong>PERTAMANAN DAN RUANG TERBUKA HIJAU</strong></td>
+            <td colspan="3"><strong>RUANG TERBUKA HIJAU</strong></td>
         </tr>
         <tr>
             <td>&nbsp;</td>
@@ -10,7 +10,7 @@
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td colspan="3"> Ukuran : {{ $permohonan->rth->ukuran ?? "-" }} m</td>
+            <td colspan="3"> Ukuran Bangunan : {{ $permohonan->rth->ukuran ?? "-" }} m</td>
         </tr>
         <tr>
             <td>&nbsp;</td>
@@ -33,7 +33,7 @@
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td colspan="3"> Ukuran : {{ $permohonan->peribadatan->ukuran ?? "-" }} m</td>
+                <td colspan="3"> Ukuran Bangunan : {{ $permohonan->peribadatan->ukuran ?? "-" }} m</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
@@ -57,7 +57,7 @@
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td colspan="3"> Ukuran : {{ $permohonan->rekreasi->ukuran ?? "-" }} m</td>
+                <td colspan="3"> Ukuran Bangunan : {{ $permohonan->rekreasi->ukuran ?? "-" }} m</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
@@ -80,7 +80,7 @@
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
-                    <td colspan="3"> Ukuran : {{ $permohonan->pendidikan->ukuran ?? "-" }} m</td>
+                    <td colspan="3"> Ukuran Bangunan: {{ $permohonan->pendidikan->ukuran ?? "-" }} m</td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
@@ -103,7 +103,7 @@
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
-                    <td colspan="3"> Ukuran : {{ $permohonan->kesehatan->ukuran ?? "-" }} m</td>
+                    <td colspan="3"> Ukuran Bangunan: {{ $permohonan->kesehatan->ukuran ?? "-" }} m</td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
@@ -118,7 +118,7 @@
                 </tr>
             <tr class="bg-primary">
                     <td align="center"><strong>6.</strong></td>
-                    <td colspan="3"><strong>PERNIAGAAN DAN PERBELANJAAN</strong></td>
+                    <td colspan="3"><strong>PERNIAGAAN</strong></td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
@@ -126,7 +126,7 @@
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
-                    <td colspan="3"> Ukuran : {{ $permohonan->perniagaan->ukuran ?? "-" }} m</td>
+                    <td colspan="3"> Ukuran Bangunan: {{ $permohonan->perniagaan->ukuran ?? "-" }} m</td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
@@ -149,7 +149,7 @@
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td colspan="3"> Ukuran : {{ $permohonan->pelayananumum->ukuran ?? "-" }} m</td>
+                <td colspan="3"> Ukuran Bangunan : {{ $permohonan->pelayananumum->ukuran ?? "-" }} m</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
@@ -172,7 +172,7 @@
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td colspan="3"> Ukuran : {{ $permohonan->parkir->ukuran ?? "-" }} m </td>
+                <td colspan="3"> Ukuran Bangunan: {{ $permohonan->parkir->ukuran ?? "-" }} m </td>
             </tr>
             <tr>
                 <td>&nbsp;</td>

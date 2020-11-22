@@ -51,9 +51,6 @@ class PemohonController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->request->add(['user_id' => Auth::id() ]);
-        //             $pemohon = Pemohon::create($request->all());
-        //             return redirect()->route('pemohon.tambah', $pemohon->id)->with(['pemohon' => $pemohon]);
         try {
             DB::beginTransaction();
                     $request->request->add(['user_id' => Auth::id() ]);
@@ -63,40 +60,16 @@ class PemohonController extends Controller
                     {
                         $pemohon->berkas()->create(['pemohon_id' => $pemohon->id, 'jenis_berkas_id' => $b->id, 'nama' => $b->nama, 'tersedia' => 'Tidak']);
                     }
-                    // $pemohon->jalanmasuk()->create(['pemohon_id' => $pemohon->id, 'user_id' => Auth::id()]);
-                    // $pemohon->jalanpembagi()->create(['pemohon_id' => $pemohon->id]);
-                    // $pemohon->jalanpembantu()->create(['pemohon_id' => $pemohon->id]);
-                    // $pemohon->jalanutama()->create(['pemohon_id' => $pemohon->id]);
-                    // $pemohon->culdesac()->create(['pemohon_id' => $pemohon->id]);
-                    // $pemohon->drainase()->create(['pemohon_id' => $pemohon->id]);
-                    // $pemohon->limbah()->create(['pemohon_id' => $pemohon->id]);
-                    // $pemohon->sampah()->create(['pemohon_id' => $pemohon->id]);
-                    // $pemohon->peribadatan()->create(['pemohon_id' => $pemohon->id]);
-                    // $pemohon->rth()->create(['pemohon_id' => $pemohon->id]);
-                    // $pemohon->rekreasi()->create(['pemohon_id' => $pemohon->id]);
-                    // $pemohon->pelayananumum()->create(['pemohon_id' => $pemohon->id]);
-                    // $pemohon->parkir()->create(['pemohon_id' => $pemohon->id]);
-                    // $pemohon->peneranganjalan()->create(['pemohon_id' => $pemohon->id]);
-                    // $pemohon->airbersih()->create(['pemohon_id' => $pemohon->id]);
-                    // $pemohon->pemadamkebakaran()->create(['pemohon_id' => $pemohon->id]);
-                    // $pemohon->listrik()->create(['pemohon_id' => $pemohon->id]);
-                    // $pemohon->telepon()->create(['pemohon_id' => $pemohon->id]);
-                    // $pemohon->gas()->create(['pemohon_id' => $pemohon->id]);
-                    // $pemohon->transportasi()->create(['pemohon_id' => $pemohon->id]);
-                    // $pemohon->peneranganjasaumum()->create(['pemohon_id' => $pemohon->id]);
             DB::commit();
                     return response()->json([
                         'id' => $pemohon->id,
                         'pesan' => 'Biodata pemohon berhasil disimpan. Silakan ke form selanjutnya.',
                     ]);
-                // return redirect()->route('pemohon.tambah', $pemohon->id)->with(['pemohon' => $pemohon,
-                //                                                                 'pesan' => 'Biodata pemohon sudah berhasil disimpan, lanjutkan pengisian berikutnya.'    
-                //                                                                 ]);
+
             } catch (\PDOException $e) {
                 // Woopsy
                 DB::rollBack();
             }
-                // return response()->json($pemohon);
         }
 
     /**
@@ -124,8 +97,13 @@ class PemohonController extends Controller
 
                     return '<a href="#" data-toggle="modal" data-target="#modal-detail-pemohon" data-id="'.$permohonan->id.'">'.$perusahaan.' </a>';
                 })
-                ->addColumn('tanggal_surat_permohonan', function($permohonan){
-                    return $permohonan->tanggal_surat_permohonan->format('d-m-Y');
+                      
+                ->addColumn('nomor_surat_pengesahan', function($permohonan){
+                    return $permohonan->nomor_surat_pengesahan;
+                })
+
+                ->addColumn('tanggal_pengesahan', function($permohonan){
+                    return $permohonan->tanggal_pengesahan;
                 })
 
                 ->addColumn('alamat', function($permohonan){
@@ -541,8 +519,20 @@ class PemohonController extends Controller
             ->rawColumns(['action'])
             ->addIndexColumn()
             ->make(true);
+         }
     }
-       
+
+    public function pengesahan(Request $request)
+    {
+        // dd($request->all());
+        $permohonan = Pemohon::find($request->id);
+        $permohonan->nomor_surat_pengesahan = $request->nomor_surat_pengesahan;
+        $permohonan->tanggal_pengesahan     = $request->tanggal_pengesahan;
+        $permohonan->status = 2;
+        $permohonan->save();
+
+        return redirect()->route('permohonan.rekap');
+
     }
 
 

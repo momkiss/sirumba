@@ -84,22 +84,29 @@ class JumlahRumahController extends Controller
      */
     public function update(Request $request, $id)
     {
-        for ($i = 0; $i < count($request->id); $i++) { 
+        DB::transaction(function () {
 
-             DB::table('jumlah_rumah')
-                    ->where('id',$request->id[$i])
-                    ->update([
-                        'user_id'    => Auth::id(),
-                        'pemohon_id' => $id,
-                        'tipe'       => $request->tipe[$i],
-                        'luas'       => $request->luas[$i],
-                        'jumlah'     => $request->jumlah[$i],
-                        'kategori' => $request->kategori[$i],
-                         ]);
+            for ($i = 0; $i < count($request->id); $i++) { 
+
+                DB::table('jumlah_rumah')->where('id', $request->id[$id])
+                                         ->delete();
+
+                DB::table('jumlah_rumah')
+                        ->where('id',$request->id[$i])
+                        ->update([
+                            'user_id'    => Auth::id(),
+                            'pemohon_id' => $id,
+                            'tipe'       => $request->tipe[$i],
+                            'luas'       => $request->luas[$i],
+                            'jumlah'     => $request->jumlah[$i],
+                            'kategori' => $request->kategori[$i],
+                            ]);
             }
+        });
+     
 
         return response()->json([
-            'pesan' => 'Jumlah rumah/ukuran berhasi di update'
+            'pesan' => 'Jumlah unit berhasi di update'
         ]);
     }
 

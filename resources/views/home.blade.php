@@ -76,7 +76,7 @@
 
                         </div><!-- row -->
                     
-                    <div class="col-md-9 col-lg-8 dash-left">
+                    <div class="col-md-12 col-lg-12 dash-left">
 
                         <div class="row panel-quick-page">
                                         <div class="col-xs-4 col-sm-5 col-md-4 page-user">
@@ -169,7 +169,7 @@
          
 
                     </div><!-- col-md-9 -->
-                    <div class="col-md-3 col-lg-4 dash-right">
+                    {{-- <div class="col-md-3 col-lg-4 dash-right">
                         <div class="row">
                             <div class="col-sm-5 col-md-12 col-lg-6">
                                 <div class="panel panel-danger panel-weather">
@@ -200,7 +200,7 @@
                                 </div>
                             </div><!-- col-md-12 -->
                         </div><!-- row -->
-                    </div><!-- col-md-3 -->
+                    </div><!-- col-md-3 --> --}}
                 </div><!-- row -->
 
  @endsection
