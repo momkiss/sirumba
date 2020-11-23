@@ -7,7 +7,7 @@
     <div class="row">
         <form action="{{ route('sarana.update', $pemohon->id) }}" method="POST" id="form-sarana-update">
             @csrf
-
+            <input type="hidden" value="{{ $pemohon->id }}" name="pemohon_id" id="sarana_id_permohonan_update">
              <div class="wrap_rth mb-40">
                 <div class="form-group">
                     <div class="row">
@@ -15,6 +15,7 @@
                         <div class="col-sm-2">
                             <div class="form-group">
                                 <label class="control-label"><strong>JENIS</strong></label>
+                                <input type="hidden" name="id_rth" value="{{ $pemohon->rth->id ?? ""  }}">
                             <input type="text" name="rth_jenis" class="form-control"  value="{{ $pemohon->rth->jenis ?? ""  }}">
                             </div>
                         </div>
@@ -40,6 +41,7 @@
                        <div class="col-sm-2">
                             <div class="form-group">
                                 <label class="control-label"><strong>JENIS</strong></label>
+                                <input type="hidden" name="id_peribadatan" value="{{ $pemohon->peribadatan->id ?? ""  }}">
                                 <input type="text" name="ibadah_jenis" class="form-control" value="{{ $pemohon->peribadatan->jenis ?? ""  }}">
                             </div>
                         </div>
@@ -67,6 +69,7 @@
                       <div class="col-sm-2">
                         <div class="form-group">
                             <label class="control-label"><strong>JENIS</strong></label>
+                            <input type="hidden" name="id_rekreasi" value="{{ $pemohon->rekreasi->id ?? ""  }}">
                             <input type="text" name="rekreasi_jenis" class="form-control" value="{{ $pemohon->rekreasi->jenis ?? ""  }}">
                         </div>
                     </div>
@@ -93,6 +96,7 @@
                        <div class="col-sm-2">
                             <div class="form-group">
                                 <label class="control-label"><strong>JENIS</strong></label>
+                                <input type="hidden" name="id_sarana_pendidikan" value="{{ $pemohon->pendidikan->id ?? ""  }}">
                                 <input type="text" name="pendidikan_jenis" class="form-control" value="{{ $pemohon->pendidikan->jenis ?? ""  }}">
                             </div>
                         </div>
@@ -119,6 +123,7 @@
                         <div class="col-sm-2">
                             <div class="form-group">
                                 <label class="control-label"><strong>JENIS</strong></label>
+                                <input type="hidden" name="id_sarana_kesehatan" value="{{ $pemohon->kesehatan->id ?? ""  }}">
                                 <input type="text" name="kesehatan_jenis" class="form-control" value="{{ $pemohon->kesehatan->jenis ?? ""  }}">
                             </div>
                         </div>
@@ -145,6 +150,7 @@
                             <div class="col-sm-2">
                                     <div class="form-group">
                                         <label class="control-label"><strong>JENIS</strong></label>
+                                        <input type="hidden" name="id_sarana_perniagaan" value="{{ $pemohon->perniagaan->id ?? ""  }}">
                                         <input type="text" name="perniagaan_jenis" class="form-control" value="{{ $pemohon->perniagaan->jenis ?? ""  }}">
                                     </div>
                                 </div>
@@ -172,6 +178,7 @@
                         <div class="col-sm-2">
                             <div class="form-group">
                                 <label class="control-label"><strong>JENIS</strong></label>
+                                <input type="hidden" name="id_pelayanan_umum" value="{{ $pemohon->pelayananumum->id ?? ""  }}">
                                 <input type="text" name="umum_jenis" class="form-control" value="{{ $pemohon->pelayananumum->jenis ?? ""  }}">
                             </div>
                         </div>
@@ -198,6 +205,7 @@
                      <div class="col-sm-2">
                             <div class="form-group">
                                 <label class="control-label"><strong>JENIS</strong></label>
+                                <input type="hidden" name="id_parkir" value="{{ $pemohon->parkir->id ?? ""  }}">
                                 <input type="text" name="parkir_jenis" class="form-control" value="{{ $pemohon->parkir->jenis ?? ""  }}">
                             </div>
                         </div>
@@ -216,11 +224,12 @@
                     </div>
                 </div>
             </div>
-            <button  class="btn btn-danger btn-lg btn-block ">UPDATE</button>
+            <button  class="btn btn-primary btn-lg btn-block "><i class="glyphicon glyphicon-floppy-save"></i> UPDATE</button>
         </form>
     </div>
 </div>
 @else 
+{{-- Form Tambah Sarana --}}
 <div class="panel-body">
     <div class="row">
         <form action="{{ route('sarana.simpan') }}" method="POST" id="form-sarana">

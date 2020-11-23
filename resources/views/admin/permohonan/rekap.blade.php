@@ -36,8 +36,6 @@ table {
             <li><a href="#detail-tab-prasarana" data-toggle="tab"><strong>Prasarana</strong></a></li>
             <li><a href="#detail-tab-sarana" data-toggle="tab"><strong>Sarana</strong></a></li>
             <li><a href="#detail-tab-utilitas" data-toggle="tab"><strong>Utilitas</strong></a></li>
-            <li><a href="#" id="rekap-cetak-permohonan" target="_blank"><span class="fa fa-file-pdf-o"></span> Cetak Permohonan </a></li>
-            <li><a href="#" id="rekap-cetak-kelengkapan" target="_blank"><span class="fa fa-file-pdf-o"></span> Cetak Kelengkapan </a></li>
           </ul>
 
           <!-- Tab panes -->
@@ -125,7 +123,7 @@ table {
                         <th>PENGEMBANG</th>
                         <th>PERUMAHAN</th>
                         <th>ALAMAT</th>
-                        <th>NO.SURAT PENGESAHAN</th>
+                        <th>NO.PENGESAHAN</th>
                         <th>TGL.PENGESAHAN</th>
                         <th>LUAS</th>
                         <th>STATUS</th>

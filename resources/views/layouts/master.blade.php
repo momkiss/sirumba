@@ -46,52 +46,40 @@
 </head>
 
 <body>
+
+    <!-- Loading Spinner Wrapper-->
+<div class="loader text-center" style="display: none">
+    <div class="loader-inner">
+
+        <!-- Animated Spinner -->
+        <div class="lds-roller mb-3">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        
+        <!-- Spinner Description Text [For Demo Purpose]-->
+        <h4 class="text-uppercase font-weight-bold">Loading</h4>
+    </div>
+</div>
 @if(Route::current()->getName() != 'index')
     @include('layouts.header')
         <section>
-                @include('layouts.sidebar')
+            @include('layouts.sidebar')
             @endif
             <div class="mainpanel">
                 <div class="contentpanel">
-                    @if ($message = Session::get('success'))
-                    <div class="alert alert-success alert-block">
-                        <button type="button" class="close" data-dismiss="alert">×</button>
-                        <strong>{{ $message }}</strong>
-                    </div>
-                    @endif
-                    
-                    @if ($message = Session::get('error'))
-                    <div class="alert alert-danger alert-block">
-                        <button type="button" class="close" data-dismiss="alert">×</button>
-                        <strong>{{ $message }}</strong>
-                    </div>
-                    @endif
-                    
-                    @if ($message = Session::get('warning'))
-                    <div class="alert alert-warning alert-block">
-                        <button type="button" class="close" data-dismiss="alert">×</button>
-                        <strong>{{ $message }}</strong>
-                    </div>
-                    @endif
-                    
-                    @if ($message = Session::get('info'))
-                    <div class="alert alert-info alert-block">
-                        <button type="button" class="close" data-dismiss="alert">×</button>
-                        <strong>{{ $message }}</strong>
-                    </div>
-                    @endif
-                    
-                    @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <button type="button" class="close" data-dismiss="alert">×</button>
-                        Please check the form below for errors
-                    </div>
-                    @endif
                     @yield('content')
                 </div>
             </div>
         </section>
 </section>
-@yield('scripts')
+
 @include('layouts.scripts')
+@yield('scripts')
 

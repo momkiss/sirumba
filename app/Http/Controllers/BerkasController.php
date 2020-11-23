@@ -147,43 +147,25 @@ class BerkasController extends Controller
 
     public function upload(Request $request)
     {
-        // dd($request->all());
-
         $validator = Validator::make($request->all(), [
-            'file' => 'required|mimes:pdf,docx,xlsx,jpeg,png,jpg,gif,svg|max:2048',
+            'file' => 'required|mimes:pdf,docx,xlsx,jpeg,png,jpg,gif,svg|max:10000',
         ]);
-
-
-        // $request->validate([
-        //     'file' => 'required|mimes:pdf,xlx,csv|max:2048',
-        // ]);
-  
          if ($validator->passes()) {
                 $id = $request->id;
                 $fileName = str_random(20).'.'.$request->file->extension();  
-        
                 $request->file->move(public_path('uploads'), $fileName);
-
                 $berkas             = Berkas::find($id);
                 $berkas->user_id    = Auth::id();
                 $berkas->path       = $fileName;
                 $berkas->tersedia   = "Ada";
                 $berkas->save();
-
-                // return response()->json(['success'=>'Berhasil']);
                 return response()->json([
                     'pesan'   => 'File berhasil diupload',
                     'uploaded_image' => '<img src="/uploads/'.$fileName.'" class="img-thumbnail" width="300" />',
                     'class_name'  => 'alert-success'
                     ]);
         }
-
               return response()->json(['error'=>$validator->errors()->all()]);
-
-
-        // return back()
-        //     ->with('success','Upload berhasil.')
-        //     ->with('file',$fileName);
     }
 
     public function hapus($id,$pemohon)

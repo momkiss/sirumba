@@ -1,5 +1,17 @@
 $(document).ready(function () {
 
+    $body = $("body");
+    // $(document).on({
+    //     ajaxStart: function () { $body.addClass("loader"); },
+    //     ajaxStop: function () { $body.removeClass("loader"); }
+    // });
+
+    // $(window).on('load', function () {
+    //     setTimeout(function () {
+    //         $('.loader').hide(300);
+    //     }, 7000);
+    // });
+
   $('#pemohon-pengembang').on('change', function(){
       var id = $(this).children("option:selected").val();
         $.ajax({
@@ -99,47 +111,47 @@ $(document).ready(function () {
 
     $('#modal-detail-pemohon').on('shown.bs.modal', function (e) {
         data = $(e.relatedTarget)
-        id = data.data('id')
-        $("#rekap-cetak-permohonan").attr('href',BASE_URL+'/admin/laporan/permohonan/'+id);
-        $("#rekap-cetak-kelengkapan").attr('href',BASE_URL+'/admin/laporan/kelengkapan/'+id);
+        idPermohonan = data.data('id');
         $.ajax({
             type: "POST",
-            url: BASE_URL+"/admin/permohonan/detail/"+id,
+            url: BASE_URL+"/admin/permohonan/detail/"+idPermohonan,
             success: function (pemohon) {
                 $('#detail-isi-pemohon').html(pemohon);
+                $('#btn-cetak-permohonan').attr('href', BASE_URL+'/admin/laporan/permohonan/'+idPermohonan);
             }
         });
         $.ajax({
             type: "POST",
-            url: BASE_URL+"/admin/berkas/detail/"+id,
+            url: BASE_URL+"/admin/berkas/detail/"+idPermohonan,
             success: function (berkas) {
                 $('#detail-isi-berkas').html(berkas);
+                $('#btn-cetak-kelengkapan').attr('href', BASE_URL+'/admin/laporan/kelengkapan/'+idPermohonan);
             }
         });
         $.ajax({
             type: "POST",
-            url: BASE_URL+"/admin/prasarana/detail/"+id,
+            url: BASE_URL+"/admin/prasarana/detail/"+idPermohonan,
             success: function (prasarana) {
                 $('#detail-isi-prasarana').html(prasarana);
             }
         });
         $.ajax({
             type: "POST",
-            url: BASE_URL+"/admin/sarana/detail/"+id,
+            url: BASE_URL+"/admin/sarana/detail/"+idPermohonan,
             success: function (sarana) {
                 $('#detail-isi-sarana').html(sarana);
             }
         });
         $.ajax({
             type: "POST",
-            url: BASE_URL+"/admin/utilitas/detail/"+id,
+            url: BASE_URL+"/admin/utilitas/detail/"+idPermohonan,
             success: function (utilitas) {
                 $('#detail-isi-utilitas').html(utilitas);
             }
         });
         $.ajax({
             type: "POST",
-            url: BASE_URL+"/admin/ukuran/detail/"+id,
+            url: BASE_URL+"/admin/ukuran/detail/"+idPermohonan,
             success: function (ukuran) {
                 $('#detail-isi-ukuran').html(ukuran);
             }
@@ -153,6 +165,9 @@ $(document).ready(function () {
             type: "POST",
             data: $(this).serialize(),
             url: BASE_URL+"/admin/permohonan/update/"+id,
+            beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+                $('.loader').show();
+            },
             success: function (res) {
                 console.log(res);
                 $.gritter.add({
@@ -160,7 +175,10 @@ $(document).ready(function () {
                     text: res.pesan,
                     class_name: 'with-icon question-circle primary'
                 });
-            }
+            },
+            complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
+                $('.loader').hide();
+            },
         });
         e.preventDefault();
     });
@@ -241,24 +259,6 @@ $(document).ready(function () {
         event.preventDefault();
     });
 
-    // Form edit culdesac
-    $("#form-culdesac-update").submit(function (event) {
-        var id = $("#prasarana_id_permohonan").val();
-        var data = $(this).serialize();
-        $.ajax({
-            method: "POST",
-            url: BASE_URL+"/admin/prasarana/culdesac/update/"+id,
-            data: data,
-            success: function (response) {
-                $.gritter.add({
-                    title: 'PEMBERITAHUAN',
-                    text: response.pesan,
-                    class_name: 'with-icon question-circle primary'
-                });
-            }
-        });
-        event.preventDefault();
-    });
 
     // Form edit drainase
     $("#form-drainase-update").submit(function (event) {
@@ -325,6 +325,9 @@ $(document).ready(function () {
             type: "POST",
             data: $(this).serialize(),
             url: BASE_URL + "/admin/jumlah/update/"+id,
+            beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+                $('.loader').show();
+            },
             success: function (res) {
                 console.log(res);
                 $.gritter.add({
@@ -332,7 +335,10 @@ $(document).ready(function () {
                     text: res.pesan,
                     class_name: 'with-icon question-circle primary'
                 });
-            }
+            },
+            complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
+                $('.loader').hide();
+            },
         });
         e.preventDefault();
     });
@@ -343,7 +349,10 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             data: $(this).serialize(),
-            url: BASE_URL + "/admin/sarana/update/" + id,
+            url: BASE_URL+"/admin/sarana/update/"+id,
+            beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+                $('.loader').show();
+            },
             success: function (res) {
                 console.log(res);
                 $.gritter.add({
@@ -351,7 +360,10 @@ $(document).ready(function () {
                     text: res.pesan,
                     class_name: 'with-icon question-circle primary'
                 });
-            }
+            },
+            complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
+                $('.loader').hide();
+            },
         });
         e.preventDefault();
     });
@@ -364,6 +376,9 @@ $(document).ready(function () {
             type: "POST",
             data: $(this).serialize(),
             url: BASE_URL + "/admin/utilitas/update/"+id,
+            beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+                $('.loader').show();
+            },
             success: function (res) {
                 console.log(res);
                 $.gritter.add({
@@ -371,7 +386,10 @@ $(document).ready(function () {
                     text: res.pesan,
                     class_name: 'with-icon question-circle primary'
                 });
-            }
+            },
+            complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
+                $('.loader').hide();
+            },
         });
         e.preventDefault();
     });
@@ -493,9 +511,15 @@ function submitJalanPembantu()
         method: "POST",
         url: BASE_URL + "/admin/prasarana/jalan-pembantu/simpan",
         data: data,
+        beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+            $('.loader').show();
+        },
         success: function (response) {
            
-        }
+        },
+        complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
+            $('.loader').hide();
+        },
     });
 }
 
@@ -505,8 +529,14 @@ function submitJalanPembagi()
         method: "POST",
         url: BASE_URL + "/admin/prasarana/jalan-pembagi/simpan",
         data: data,
+        beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+            $('.loader').show();
+        },
         success: function (response) {
-        }
+        },
+        complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
+            $('.loader').hide();
+        },
     });
 }
 
@@ -516,9 +546,15 @@ function submitLimbah()
         method: "POST",
         url: BASE_URL + "/admin/prasarana/limbah/simpan",
         data: data,
+        beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+            $('.loader').show();
+        },
         success: function (response) {
            
-        }
+        },
+        complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
+            $('.loader').hide();
+        },
     });
 }
 
@@ -529,8 +565,14 @@ function submitSampah()
         method: "POST",
         url: BASE_URL + "/admin/prasarana/sampah/simpan",
         data: data,
+        beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+            $('.loader').show();
+        },
         success: function (response) {
-        }
+        },
+        complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
+            $('.loader').hide();
+        },
     });
 }
 
@@ -540,9 +582,15 @@ function submitPrasarana(url,formData)
         method: "POST",
         url: url,
         data: formData,
+        beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+            $('.loader').show();
+        },
         success: function () {
             $('.nav-tabs a[href="#tab4"]').tab('show');
-        }
+        },
+        complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
+            $('.loader').hide();
+        },
     });
 }
 

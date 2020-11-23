@@ -13,7 +13,7 @@
                         @endif>{{ $pen->nama_perusahaan }}</option>
                     @endforeach
                 </select>
-            <span class="input-group-addon" onclick="location.href = '{{ route('pengembang.create') }}';"><i class="glyphicon glyphicon-plus"></i></span>
+            <span class="input-group-addon btn-danger" onclick="location.href = '{{ route('pengembang.create') }}';"><i class="glyphicon glyphicon-plus"></i></span>
             </div>
         </div>
         <div class="col-sm-3 pull-right">
@@ -178,7 +178,7 @@
     <div class="col-sm-3 mt20">
         <div class="form-group">
             <label class="control-label center-block"><strong>Luas Lahan</strong></label>
-            <input type="text" class="form-control" placeholder="Isikan luas lahan perumahan" name="luas_lahan" value="{{ isset($pemohon->luas_lahan) ? $pemohon->luas_lahan : "" }}">
+            <input type="text" class="form-control" id="luas-lahan" placeholder="Isikan luas lahan perumahan" name="luas_lahan" value="{{ isset($pemohon->luas_lahan) ? $pemohon->luas_lahan : "" }}">
         </div>
     </div>
     <div class="col-sm-3 mt20">
@@ -190,19 +190,19 @@
     <div class="col-sm-3 mt20">
         <div class="form-group">
             <label class="control-label center-block"><strong>Luas Prasarana dan Utilitas</strong></label>
-            <input type="text" class="form-control" placeholder="Isikan luas prasarana perumahan" name="luas_prasarana" value="{{ isset($pemohon->luas_prasarana) ? $pemohon->luas_prasarana : "" }}">
+            <input type="text" class="form-control" id="luas-prasarana" placeholder="Isikan luas prasarana perumahan" name="luas_prasarana" value="{{ isset($pemohon->luas_prasarana) ? $pemohon->luas_prasarana : "" }}">
         </div>
     </div>
     <div class="col-sm-3 mt20">
         <div class="form-group">
             <label class="control-label center-block"><strong>Luas Sarana</strong></label>
-            <input  type="text" class="form-control format-ukuran" placeholder="" name="luas_sarana" value="{{ isset($pemohon->luas_sarana) ? $pemohon->luas_sarana : "" }}">
+            <input  type="text" class="form-control format-ukuran" id="luas-sarana" placeholder="" name="luas_sarana" value="{{ isset($pemohon->luas_sarana) ? $pemohon->luas_sarana : "" }}">
         </div>
     </div>
     <div class="col-sm-3 mt20">
         <div class="form-group">
             <label class="control-label center-block"><strong>Luas RTH</strong></label>
-            <input type="text" class="form-control" placeholder="Isikan luas RTH perumahan" name="luas_rth" value="{{ isset($pemohon->luas_rth) ? $pemohon->luas_rth : "" }}">
+            <input type="text" class="form-control" id="luas-rth" placeholder="Isikan luas RTH perumahan" name="luas_rth" value="{{ isset($pemohon->luas_rth) ? $pemohon->luas_rth : "" }}">
         </div>
     </div>
     <div class="col-sm-6 mt20">
@@ -212,12 +212,13 @@
         </div>
     </div>
     <div class="col-sm-12 mt20">
-        <button class="btn btn-danger btn-lg btn-block" type="submit" id="btn-update-permohonan">UPDATE  </button>
+        <button class="btn btn-primary btn-lg btn-block" type="submit" id="btn-update-permohonan"><i class="glyphicon glyphicon-floppy-save"></i> UPDATE</button>
     </div>
     </div>
     </form>
 </div>
 @else 
+{{-- Form Tambah Pemohon --}}
 <div class="panel-body">
     <div class="col-md-12 mb20">
         <div class="separator"><h4 class="text-success">PEMOHON</h4></div>
@@ -238,7 +239,7 @@
                         <option value="{{ $pen->id }}">{{ $pen->nama_perusahaan }}</option>
                     @endforeach
                 </select>
-            <span class="input-group-addon" onclick="location.href = '{{ route('pengembang.create') }}';"><i class="glyphicon glyphicon-plus"></i></span>
+            <span class="input-group-addon btn-danger" onclick="location.href = '{{ route('pengembang.create') }}';"><i class="glyphicon glyphicon-plus"></i></span>
             </div>
         </div>
         <div class="col-sm-3 pull-right">

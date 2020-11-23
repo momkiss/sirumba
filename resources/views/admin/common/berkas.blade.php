@@ -3,9 +3,6 @@
 @php
 $no = 1
 @endphp
-<div id="print-error-msg" class="alert " style="display:none">
-    <ul></ul>
-</div>
 
 <ul class="nav nav-tabs nav-line" id="tab-kelengkapan-berkas">
     <li><a href="#tab-berkas-administrasi" data-toggle="tab"><strong>Administrasi</strong></a></li>
@@ -119,22 +116,19 @@ $no = 1
 </div>
 
         <button class="btn btn-danger btn-lg btn-block btn-next-berkas"><i class="glyphicon glyphicon-floppy-save"></i> SIMPAN</button>
-
         <script src="{{ asset('lib/jquery/jquery.js') }}"></script>
         <script src="{{ asset('lib/bootstrap/js/bootstrap.js') }}"></script>
         <script src="{{ asset('js/jquery.form.js') }}"></script>
         <script src="{{ asset('lib/jquery.gritter/jquery.gritter.js') }}"></script>
+        
         <script>
-
             function upload(key){           
                 var form = $("#form-berkas"+key);
                     var formdata = false;
                     if (window.FormData){
                         formdata = new FormData(form[0]);
                 }
-
                 var id = $.trim($("#id_permohonan").val());
-                
                 $.ajax({
                     url:BASE_URL+"/admin/berkas/upload",
                     data: formdata ? formdata : form.serialize(),
@@ -142,15 +136,11 @@ $no = 1
                     type : 'POST',
                     cache: false,
                     processData: false,
+                        beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+                            $('.loader').show();
+                        },
                         success:function(data)
-                        {   
-                            $.gritter.add({
-                                    title: 'PEMBERITAHUAN',
-                                    text: data.pesan,
-                                    class_name: 'with-icon question-circle success'
-                            });
-
-                            
+                        {                               
                             $.ajax({
                                     type: "get",
                                     url: BASE_URL+"/admin/berkas/show/"+id,
@@ -159,25 +149,19 @@ $no = 1
                                             if(key >= 0 && key <= 8){ 
                                                 $('#tab-kelengkapan-berkas a[href="#tab-berkas-administrasi" ]').tab('show'); 
                                             } 
-                                        
                                             if(key > 8){
                                                 $('#tab-kelengkapan-berkas a[href="#tab-berkas-teknis"]').tab('show');
                                             }
-                                        
                                     }
                                 });
-                           
-                        }
+                        },
+                        complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
+                            $('.loader').hide();
+                        },
                 });
-
-              
             }
 
-
-            
-
             $(document).ready(function () {
-                
                 $(".btn-next-berkas").on('click', function(){
                     $('.nav-tabs a[href="#tab3"]').tab('show');
                 });

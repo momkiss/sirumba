@@ -30,7 +30,11 @@ class HomeController extends Controller
                                 ->orWhere('status', 2)
                                 ->get()->count();
         $pengembang = Pengembang::get()->count();
-        $perumahan = Pemohon::where('status',3)->get()->count();
-        return view('home', compact('permohonan','pengembang','perumahan'));
+        $proses = Pemohon::where('status', 0)
+                                ->orWhere('status', 1)
+                                ->get()->count();
+        $selesai = Pemohon::where('status', 2)
+                                ->get()->count();
+        return view('home', compact('permohonan','pengembang','proses','selesai'));
     }
 }

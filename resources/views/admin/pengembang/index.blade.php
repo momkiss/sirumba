@@ -42,7 +42,7 @@
 
     <div class="panel-body">
         <div class="table-responsive">
-            <table id="dataTable1" class="table table-bordered table-inverse nomargin">
+            <table id="dataTable1" class="table table-striped table-inverse nomargin">
                 <thead>
                     <tr>
                         <th>NO.</th>

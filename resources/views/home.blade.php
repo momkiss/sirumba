@@ -2,7 +2,7 @@
 @section('content')
                 <div class="row">
                         <div class="col-md-12 panel-statistics">
-                            <div class="col-sm-4">
+                            <div class="col-sm-3">
                                 <div class="panel panel-danger-full panel-updates">
                                     <div class="panel-body">
                                         <div class="row">
@@ -16,7 +16,7 @@
                                                         <span class="sr-only"></span>
                                                     </div>
                                                 </div>
-                                                <p>Jumlah permohonan tahun ini</p>
+                                                <p>Total pengajuan permohonan tahun ini</p>
                                             </div>
                                             <div class="col-xs-5 col-lg-4 text-right">
                                                 <input type="text" value="{{ $permohonan }}" class="dial-warning">
@@ -26,8 +26,8 @@
                                 </div><!-- panel -->
                             </div><!-- col-sm-6 -->
 
-                            <div class="col-sm-4">
-                                <div class="panel panel-success-full panel-updates">
+                            <div class="col-sm-3">
+                                <div class="panel  panel-updates">
                                     <div class="panel-body">
                                         <div class="row">
                                             <div class="col-xs-7 col-lg-8">
@@ -50,13 +50,14 @@
                                 </div><!-- panel -->
                             </div><!-- col-sm-6 -->
 
-                            <div class="col-sm-4">
-                                <div class="panel panel-updates">
+
+                            <div class="col-sm-3">
+                                <div class="panel panel-warning-full panel-updates">
                                     <div class="panel-body">
                                         <div class="row">
                                             <div class="col-xs-7 col-lg-8">
-                                                <h4 class="panel-title text-danger">Perumahan</h4>
-                                                <h3>{{ $perumahan }}</h3>
+                                                <h4 class="panel-title text-danger">Proses</h4>
+                                                <h3>{{ $proses }}</h3>
                                                 <div class="progress">
                                                     <div style="width: q00%" aria-valuemax="100" aria-valuemin="0"
                                                         aria-valuenow="q00" role="progressbar"
@@ -64,10 +65,34 @@
                                                         <span class="sr-only"></span>
                                                     </div>
                                                 </div>
-                                                <p>Jumlah Perumahan</p>
+                                                <p>Jumlah Permohonan Diproses</p>
                                             </div>
                                             <div class="col-xs-5 col-lg-4 text-right">
-                                                <input type="text" value="{{ $perumahan }}" class="dial-danger">
+                                                <input type="text" value="{{ $proses }}" class="dial-danger">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- panel -->
+                            </div><!-- col-sm-6 -->
+
+                            <div class="col-sm-3">
+                                <div class="panel panel-success-full panel-updates">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-xs-7 col-lg-8">
+                                                <h4 class="panel-title text-danger">Selesai</h4>
+                                                <h3>{{ $selesai }}</h3>
+                                                <div class="progress">
+                                                    <div style="width: q00%" aria-valuemax="100" aria-valuemin="0"
+                                                        aria-valuenow="q00" role="progressbar"
+                                                        class="progress-bar progress-bar-danger">
+                                                        <span class="sr-only"></span>
+                                                    </div>
+                                                </div>
+                                                <p>Jumlah Permohonan Selesai/Disahkan</p>
+                                            </div>
+                                            <div class="col-xs-5 col-lg-4 text-right">
+                                                <input type="text" value="{{ $selesai }}" class="dial-danger">
                                             </div>
                                         </div>
                                     </div>

@@ -24,6 +24,12 @@
         </div>
     </div>
 </div>
+<div class="row mb10">
+    <div class="col-md-10"></div>
+    <div class="col-md-2">
+        <a href="#" id="btn-cetak-kelengkapan" class="btn btn-primary" style="float: right"><i class="glyphicon glyphicon-print"></i> CETAK</button></a>
+    </div>
+</div>
     <table width="100%" border="1" cellspacing="5" cellpadding="3">
             <tbody>
                 <tr class="bg-primary">

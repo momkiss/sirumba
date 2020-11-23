@@ -192,6 +192,7 @@ class UtilitasController extends Controller
                     'keterangan'        => $request->pemadam_kebakaran_keterangan
                 ]);
 
+
             DB::table('listrik')->where('id', $request->id_jaringan_listrik)->update(
                 [
                     'user_id'           => Auth::id(),
@@ -228,7 +229,7 @@ class UtilitasController extends Controller
                     'keterangan'        => $request->jaringan_transportasi_keterangan
                 ]);
 
-           DB::table('gorong_gorong')->where('id', $request->id_gorong_gorong)->update(
+           DB::table('utilitas_gorong_gorong')->where('id', $request->id_gorong_gorong)->update(
                 [
                     'user_id'           => Auth::id(),
                     'pemohon_id'        => $request->pemohon_id,

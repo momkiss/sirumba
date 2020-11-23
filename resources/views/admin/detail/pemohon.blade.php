@@ -1,8 +1,11 @@
 <table width="100%" border="0" cellpadding="5" cellspacing="3" style="border-collapse: collapse;">
       <tbody>
         <tr>
+          <td colspan="9" align="right"><a href="#" id="btn-cetak-permohonan" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> CETAK</button></a>
+        </tr>
+        <tr>
           <td colspan="9" align="right"><em style="font-size: 9px !important">Dinas Perumahan dan Permukiman Kab.
-            Banjar | {{ $permohonan->tanggal_surat_permohonan->format('d M Y') }}</em></td>
+            Banjar | Tgl Permohonan: {{ $permohonan->tanggal_surat_permohonan->format('d M Y') }}</em></td>
         </tr>
         <tr>
           <td align="left">&nbsp;</td>

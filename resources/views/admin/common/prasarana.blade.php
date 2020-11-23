@@ -16,7 +16,7 @@
                 <div class="panel panel-inverse">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" class="collapsed" data-parent="#accordion8" href="#collapseOne8">
+                            <a data-toggle="collapse"  aria-expanded="false" href="#collapseOne8" >
                                 JALAN MASUK
                             </a>
                         </h4>
@@ -24,8 +24,7 @@
                     <div id="collapseOne8" class="panel-collapse collapse">
                         <div class="panel-body">
                             <div class="row">
-                                <form action="{{ route('jalan-masuk.update', $pemohon->id) }}" method="POST"
-                                    id="form-jalan-masuk-update">
+                                <form action="{{ route('jalan-masuk.update', $pemohon->id) }}" method="POST" id="form-jalan-masuk-update" class="form-prasarana">
                                     @csrf
                                     <div class="wrap_jalan_masuk">
                                         <div class="form-group">
@@ -55,11 +54,6 @@
                                                         class="control-label center-block"><strong>&nbsp;</strong></label>
                                                     <i class="fa fa-2x fa-plus text-success" id="tambah-jalan-masuk"></i>
                                                 </div>
-                                                <div class="col-md-3">
-                                                    <br>
-                                                    <button type="submit" class="btn btn-danger pull-right"><i
-                                                            class="fa fa-cloud-upload"></i> UPDATE</button>
-                                                </div>
                                                 @else
                                                 <div class="col-sm-1">
                                                     <label
@@ -74,6 +68,7 @@
 
                                         </div>
                                     </div>
+
                                 </form>
                             </div>
                         </div>
@@ -82,15 +77,14 @@
                 <div class="panel panel-inverse">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" class="collapsed" data-parent="#accordion8" href="#collapseTwo8">
+                            <a data-toggle="collapse"  aria-expanded="false" href="#collapseTwo8" >
                                 JALAN UTAMA
                             </a>
                         </h4>
                     </div>
                     <div id="collapseTwo8" class="panel-collapse collapse">
                         <div class="panel-body">
-                            <form action="{{ route('jalan-utama.update', $pemohon->id) }}" method="POST"
-                                id="form-jalan-utama-update">
+                            <form action="{{ route('jalan-utama.update', $pemohon->id) }}" method="POST" id="form-jalan-utama-update" class="form-prasarana">
                                 <div class="row">
                                     @csrf
                                     <div class="wrap_jalan_utama_edit">
@@ -142,13 +136,6 @@
                                                         class="control-label center-block"><strong>&nbsp;</strong></label>
                                                     <i class="fa fa-2x fa-plus text-success add_jalan_utama_edit"></i>
                                                 </div>
-
-                                                <div class="col-md-2">
-                                                    <br>
-                                                    <button type="submit" class="btn btn-danger pull-right"><i
-                                                            class="fa fa-cloud-upload"></i>
-                                                        UPDATE</button>
-                                                </div>
                                                 @else
                                                 <div class="col-sm-1">
                                                     <label
@@ -198,8 +185,7 @@
                 <div class="panel panel-inverse">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" class="collapsed" data-parent="#accordion8"
-                                href="#collapseJalanPembagi">
+                            <a data-toggle="collapse"  aria-expanded="false" href="#collapseJalanPembagi" >
                                 JALAN PEMBAGI
                             </a>
                         </h4>
@@ -207,8 +193,7 @@
                     <div id="collapseJalanPembagi" class="panel-collapse collapse">
                         <div class="panel-body">
                             <div class="row">
-                                <form action="{{ route('jalan-pembagi.update', $pemohon->id) }}" method="POST"
-                                    id="form-jalan-pembagi-update">
+                                <form action="{{ route('jalan-pembagi.update', $pemohon->id) }}" method="POST" id="form-jalan-pembagi-update" class="form-prasarana">
                                     @csrf
                                     <div class="wrap_jalan_pembagi">
                                         <div class="form-group">
@@ -242,12 +227,6 @@
                                                         class="control-label center-block"><strong>&nbsp;</strong></label>
                                                     <i class="fa fa-2x fa-plus text-success add_jalan_pembagi"></i>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <br>
-                                                    <button type="submit" class="btn btn-danger pull-right"><i
-                                                            class="fa fa-cloud-upload"></i>
-                                                        UPDATE</button>
-                                                </div>
                                                 @else
                                                 <div class="col-sm-1">
                                                     <label
@@ -269,7 +248,7 @@
                 <div class="panel panel-inverse">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" class="collapsed" data-parent="#accordion8" href="#collapseThree8">
+                            <a data-toggle="collapse"  aria-expanded="false" href="#collapseThree8" >
                                 JALAN PEMBANTU
                             </a>
                         </h4>
@@ -277,8 +256,7 @@
                     <div id="collapseThree8" class="panel-collapse collapse">
                         <div class="panel-body">
                             <div class="row">
-                                <form action="{{ route('jalan-pembantu.update', $pemohon->id) }}" method="POST"
-                                    id="form-jalan-pembantu-update">
+                                <form action="{{ route('jalan-pembantu.update', $pemohon->id) }}" method="POST" id="form-jalan-pembantu-update" class="form-prasarana">
                                     @csrf
                                     <div class="wrap_jalan_pembantu">
                                         <div class="form-group">
@@ -309,12 +287,6 @@
                                                     <label
                                                         class="control-label center-block"><strong>&nbsp;</strong></label>
                                                     <i class="fa fa-2x fa-plus text-success add_jalan_pembantu"></i>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <br>
-                                                    <button type="submit" class="btn btn-danger pull-right"><i
-                                                            class="fa fa-cloud-upload"></i>
-                                                        UPDATE</button>
                                                 </div>
                                                 @else
                                                 <div class="col-sm-1">
@@ -405,7 +377,7 @@
                 <div class="panel panel-inverse">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" class="collapsed" data-parent="#accordion8" href="#collapseLimbah">
+                            <a data-toggle="collapse"  aria-expanded="false" href="#collapseLimbah" >
                                 SALURAN PEMBUANGAN AIR LIMBAH
                             </a>
                         </h4>
@@ -413,8 +385,7 @@
                     <div id="collapseLimbah" class="panel-collapse collapse">
                         <div class="panel-body">
                             <div class="row">
-                                <form action="{{ route('limbah.update', $pemohon->id) }}" method="POST"
-                                    id="form-limbah-update">
+                                <form action="{{ route('limbah.update', $pemohon->id) }}" method="POST" id="form-limbah-update" class="form-prasarana">
                                     @csrf
                                     <div class="wrap_limbah">
                                         @foreach ($pemohon->limbah as $limbah )
@@ -454,12 +425,6 @@
                                                 <label class="control-label center-block"><strong>&nbsp;</strong></label>
                                                 <i class="fa fa-2x fa-plus text-success add_limbah"></i>
                                             </div>
-
-                                            <div class="col-md-2">
-                                                <br>
-                                                <button type="submit" class="btn btn-danger pull-right"><i
-                                                        class="fa fa-cloud-upload"></i>UPDATE</button>
-                                            </div>
                                             @else
                                             <div class="col-sm-1">
                                                 <label class="control-label center-block"><strong>&nbsp;</strong></label>
@@ -479,7 +444,7 @@
                 <div class="panel panel-inverse">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" class="collapsed" data-parent="#accordion8" href="#collapseSampah">
+                            <a data-toggle="collapse"  aria-expanded="false" href="#collapseSampah" >
                                 TEMPAT PEMBUANGAN SAMPAH
                             </a>
                         </h4>
@@ -487,8 +452,7 @@
                     <div id="collapseSampah" class="panel-collapse collapse">
                         <div class="panel-body">
                             <div class="row">
-                                <form action="{{ route('sampah.update', $pemohon->id) }}" method="POST"
-                                    id="form-sampah-update">
+                                <form action="{{ route('sampah.update', $pemohon->id) }}" method="POST" id="form-sampah-update" class="form-prasarana">
                                     @csrf
                                     <div class="wrap_sampah_edit">
                                         @foreach ($pemohon->sampah as $i => $sampah )
@@ -558,11 +522,6 @@
                                                 <label class="control-label center-block"><strong>&nbsp;</strong></label>
                                                 <i class="fa fa-2x fa-plus text-success add_sampah_edit"></i>
                                             </div>
-                                            <div class="col-md-1">
-                                                <br>
-                                                <button type="submit" class="btn btn-danger pull-right"><i
-                                                        class="fa fa-cloud-upload"></i> UPDATE</button>
-                                            </div>
                                             @else
                                             <div class="col-sm-1">
                                                 <label class="control-label center-block"><strong>&nbsp;</strong></label>
@@ -578,819 +537,670 @@
                         </div>
                     </div>
                 </div>
+                  <button class="btn btn-primary btn-lg btn-block btn-next-prasarana"><i class="glyphicon glyphicon-floppy-save"></i> UPDATE</button>
+
             </div>
         </div>
     </div>
 @else 
-    <div class="panel-body">
-        <div class="row">
-            <div class="panel-group" id="accordion8">
-                <div class="panel panel-inverse">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" class="collapsed" data-parent="#accordion8" href="#collapseOne8">
-                                JALAN MASUK
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseOne8" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="row">
-                                <form action="{{ route('jalan-masuk.simpan') }}" method="POST" id="form-jalan-masuk">
-                                    @csrf
-                                    <div class="wrap_jalan_masuk">
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <input type="hidden" name="pemohon_id"
-                                                    value="@isset($id_permohonan) {{ $id_permohonan }} @endisset"
-                                                    class="prasarana_id_permohonan">
-                                                <div class="col-sm-2">
-                                                    <label
-                                                        class="control-label center-block"><strong>PANJANG</strong></label>
-                                                    <input type="text" name="jalanmasuk_panjang[]" class="form-control"
-                                                        placeholder="Panjang">
-                                                </div>
-                                                <div class="col-sm-2">
-                                                    <label class="control-label center-block"><strong>LEBAR</strong></label>
-                                                    <input type="text" name="jalanmasuk_lebar[]" class="form-control"
-                                                        placeholder="Lebar">
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <label
-                                                        class="control-label center-block"><strong>KETERANGAN</strong></label>
-                                                    <input type="text" name="jalanmasuk_keterangan[]" class="form-control"
-                                                        placeholder="misal: terhubung jalan A/B">
-                                                </div>
-                                                <div class="col-sm-1">
-                                                    <label
-                                                        class="control-label center-block"><strong>&nbsp;</strong></label>
-                                                    <i class="fa fa-2x fa-plus text-success" id="tambah-jalan-masuk"></i>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <br>
-                                                    <button type="submit" class="btn btn-primary pull-right"><i
-                                                            class="fa fa-cloud-upload"></i> SIMPAN</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+<div class="panel-body">
+    <div class="row">
+        <div class="panel-group" id="accordion8">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse"  aria-expanded="false" href="#collapseOne8" >
+                            JALAN MASUK 
+                        </a>
+                    </h4>
                 </div>
-                <div class="panel panel-inverse">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" class="collapsed" data-parent="#accordion8" href="#collapseTwo8">
-                                JALAN UTAMA
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseTwo8" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="row">
-                                <form action="{{ route('jalan-utama.simpan') }}" method="POST" id="form-jalan-utama">
-                                    @csrf
-                                    <div class="wrap_jalan_utama">
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <input type="hidden" name="pemohon_id"
-                                                    value="@isset($id_permohonan) {{ $id_permohonan }} @endisset"
-                                                    class="prasarana_id_permohonan">
-                                                <div class="col-sm-2">
-                                                    <label
-                                                        class="control-label center-block"><strong>PANJANG</strong></label>
-                                                    <input type="text" class="form-control" placeholder="Panjang"
-                                                        name="jalanutama_panjang[]">
-                                                </div>
-                                                <div class="col-sm-2">
-                                                    <label class="control-label center-block"><strong>LEBAR</strong></label>
-                                                    <input type="text" class="form-control" placeholder="Lebar"
-                                                        name="jalanutama_lebar[]">
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <label
-                                                        class="control-label center-block"><strong>KETERANGAN</strong></label>
-                                                    <input type="text" class="form-control"
-                                                        placeholder="misal: di jalur 1/2/3/4"
-                                                        name="jalanutama_keterangan[]">
-                                                </div>
-                                                <div class="col-sm-2">
-                                                    <div class="form-group">
-                                                        <label
-                                                            class="control-label center-block"><strong>MEDIAN</strong></label>
-                                                        <label class="rdiobox-inline mr20">
-                                                            <input type="radio" name="jalanutama_median[][1]" value="Ada"
-                                                                onclick="click_first_radio_button('jalanutama_median0','median-jalan-utama-field0','Ada');">
-                                                            <span>Ada</span>
-                                                        </label>
-                                                        <label class="rdiobox-inline">
-                                                            <input type="radio" name="jalanutama_median[][1]" value="Tidak"
-                                                                onclick="click_first_radio_button('jalanutama_median0','median-jalan-utama-field0','Tidak');">
-                                                            <span>Tidak</span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-1">
-                                                    <label
-                                                        class="control-label center-block"><strong>&nbsp;</strong></label>
-                                                    <i class="fa fa-2x fa-plus text-success add_jalan_utama"></i>
-                                                </div>
-
-                                                <div class="col-md-2">
-                                                    <br>
-                                                    <button type="submit" class="btn btn-primary pull-right"><i
-                                                            class="fa fa-cloud-upload"></i>
-                                                        SIMPAN</button>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="median-jalan-utama-field0" style="display:none">
-                                                    <div class="col-sm-2 mt20">
-                                                        <div class="form-group">
-                                                            <label class="control-label"><strong>JENIS
-                                                                    KONSTRUKSI</strong></label>
-                                                            <input type="text" class="form-control"
-                                                                name="jalanutama_jenis_konstruksi[]"
-                                                                placeholder="Isikan Jenis Konstruksi">
-
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-sm-2 mt20">
-                                                        <div class="form-group">
-                                                            <label class="control-label"><strong>UKURAN</strong></label>
-                                                            <input type="text" class="form-control"
-                                                                name="jalanutama_ukuran[]" placeholder="Isikan ukuran">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-inverse">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" class="collapsed" data-parent="#accordion8"
-                                href="#collapseJalanPembagi">
-                                JALAN PEMBAGI
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseJalanPembagi" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="row">
-                                <form action="{{ route('jalan-pembagi.simpan') }}" method="POST" id="form-jalan-pembagi">
-                                    @csrf
-                                    <div class="wrap_jalan_pembagi">
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <input type="hidden" name="pemohon_id"
-                                                    value="@isset($id_permohonan) {{ $id_permohonan }} @endisset"
-                                                    class="prasarana_id_permohonan">
-                                                <div class="col-sm-2">
-                                                    <label
-                                                        class="control-label center-block"><strong>PANJANG</strong></label>
-                                                    <input type="text" name="jalanpembagi_panjang[]" class="form-control"
-                                                        placeholder="Panjang">
-                                                </div>
-                                                <div class="col-sm-2">
-                                                    <label class="control-label center-block"><strong>LEBAR</strong></label>
-                                                    <input type="text" name="jalanpembagi_lebar[]" class="form-control"
-                                                        placeholder="Lebar">
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <label
-                                                        class="control-label center-block"><strong>KETERANGAN</strong></label>
-                                                    <input type="text" name="jalanpembagi_keterangan[]" class="form-control"
-                                                        placeholder="Keterangan">
-                                                </div>
-                                                <div class="col-sm-1">
-                                                    <label
-                                                        class="control-label center-block"><strong>&nbsp;</strong></label>
-                                                    <i class="fa fa-2x fa-plus text-success add_jalan_pembagi"></i>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <br>
-                                                    <button type="submit" class="btn btn-primary pull-right"><i
-                                                            class="fa fa-cloud-upload"></i>
-                                                        SIMPAN</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-inverse">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" class="collapsed" data-parent="#accordion8" href="#collapseThree8">
-                                JALAN PEMBANTU
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseThree8" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="row">
-                                <form action="{{ route('jalan-pembantu.simpan') }}" method="POST" id="form-jalan-pembantu">
-                                    @csrf
-                                    <div class="wrap_jalan_pembantu">
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <input type="hidden" name="pemohon_id"
-                                                    value="@isset($id_permohonan) {{ $id_permohonan }} @endisset"
-                                                    class="prasarana_id_permohonan">
-                                                <div class="col-sm-2">
-                                                    <label
-                                                        class="control-label center-block"><strong>PANJANG</strong></label>
-                                                    <input type="text" name="jalanpembantu_panjang[]" class="form-control"
-                                                        placeholder="Panjang">
-                                                </div>
-                                                <div class="col-sm-2">
-                                                    <label class="control-label center-block"><strong>LEBAR</strong></label>
-                                                    <input type="text" name="jalanpembantu_lebar[]" class="form-control"
-                                                        placeholder="Lebar">
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <label
-                                                        class="control-label center-block"><strong>KETERANGAN</strong></label>
-                                                    <input type="text" name="jalanpembantu_keterangan[]"
-                                                        class="form-control" placeholder="Keterangan">
-                                                </div>
-                                                <div class="col-sm-1">
-                                                    <label
-                                                        class="control-label center-block"><strong>&nbsp;</strong></label>
-                                                    <i class="fa fa-2x fa-plus text-success add_jalan_pembantu"></i>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <br>
-                                                    <button type="submit" class="btn btn-primary pull-right"><i
-                                                            class="fa fa-cloud-upload"></i>
-                                                        SIMPAN</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- <div class="panel panel-inverse">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" class="collapsed" data-parent="#accordion8" href="#collapseCuldesac">
-                                RUANG BERPUTAR (CULDESAC)
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseCuldesac" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="row">
-                                <form action="{{ route('culdesac.simpan') }}" method="POST" id="form-culdesac">
-                                    @csrf
-                                    <div class="wrap_culdesac">
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <input type="hidden" name="pemohon_id"
-                                                    value="@isset($id_permohonan) {{ $id_permohonan }} @endisset"
-                                                    class="prasarana_id_permohonan">
-                                                <div class="col-sm-2">
-                                                    <label
-                                                        class="control-label center-block"><strong>PANJANG</strong></label>
-                                                    <input type="text" name="culdesac_panjang[]" class="form-control"
-                                                        placeholder="Panjang">
-                                                </div>
-                                                <div class="col-sm-2">
-                                                    <label class="control-label center-block"><strong>LEBAR</strong></label>
-                                                    <input type="text" name="culdesac_lebar[]" class="form-control"
-                                                        placeholder="Lebar">
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <label
-                                                        class="control-label center-block"><strong>KETERANGAN</strong></label>
-                                                    <input type="text" name="culdesac_keterangan[]" class="form-control"
-                                                        placeholder="Keterangan">
-                                                </div>
-                                                <div class="col-sm-1">
-                                                    <label
-                                                        class="control-label center-block"><strong>&nbsp;</strong></label>
-                                                    <i class="fa fa-2x fa-plus text-success add_culdesac"></i>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <br>
-                                                    <button type="submit" class="btn btn-primary pull-right"><i
-                                                            class="fa fa-cloud-upload"></i>
-                                                        SIMPAN</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-                <div class="panel panel-inverse">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" class="collapsed" data-parent="#accordion8" href="#collapseLimbah">
-                                SALURAN PEMBUANGAN AIR LIMBAH
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseLimbah" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="row">
-                                <form action="{{ route('limbah.simpan') }}" method="POST" id="form-limbah">
-                                    @csrf
-                                    <div class="wrap_limbah">
+                <div id="collapseOne8" class="panel-collapse collapse">
+                <div class="panel-body">
+                <div class="row">
+                    <form action="{{ route('jalan-masuk.simpan') }}" method="POST" id="form-jalan-masuk" class="form-prasarana">
+                            @csrf
+                                <div class="wrap_jalan_masuk">
+                                    <div class="form-group">
                                         <div class="row">
-                                            <input type="hidden" name="pemohon_id"
-                                                value="@isset($id_permohonan) {{ $id_permohonan }} @endisset"
-                                                class="prasarana_id_permohonan">
+                                            <input type="hidden" name="pemohon_id" value="@isset($id_permohonan) {{ $id_permohonan }} @endisset" class="prasarana_id_permohonan">
                                             <div class="col-sm-2">
                                                 <label class="control-label center-block"><strong>PANJANG</strong></label>
-                                                <input type="text" name="limbah_panjang[]" class="form-control"
+                                                <input type="text" name="jalanmasuk_panjang[]" class="form-control"
                                                     placeholder="Panjang">
                                             </div>
                                             <div class="col-sm-2">
                                                 <label class="control-label center-block"><strong>LEBAR</strong></label>
-                                                <input type="text" name="limbah_lebar[]" class="form-control"
-                                                    placeholder="Lebar">
+                                                <input type="text" name="jalanmasuk_lebar[]" class="form-control" placeholder="Lebar">
                                             </div>
-                                            <div class="col-sm-2">
-                                                <div class="form-group">
-                                                    <label class="control-label"><strong>JENIS KONSTRUKSI</strong></label>
-                                                    <input type="text" name="limbah_jenis_konstruksi[]" class="form-control"
-                                                        placeholder="Isikan jenis konstruksi">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <label
-                                                    class="control-label center-block"><strong>KETERANGAN</strong></label>
-                                                <input type="text" name="limbah_keterangan[]" class="form-control"
-                                                    placeholder="Keterangan">
-                                            </div>
-
-                                            <div class="col-sm-1">
-                                                <label class="control-label center-block"><strong>&nbsp;</strong></label>
-                                                <i class="fa fa-2x fa-plus text-success add_limbah"></i>
-                                            </div>
-
-                                            <div class="col-md-2">
-                                                <br>
-                                                <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-cloud-upload"></i>SIMPAN</button>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-inverse">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" class="collapsed" data-parent="#accordion8" href="#collapseSampah">
-                                TEMPAT PEMBUANGAN SAMPAH
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseSampah" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="row">
-                                <form action="{{ route('sampah.simpan') }}" method="POST" id="form-sampah">
-                                    @csrf
-                                    <div class="wrap_sampah">
-                                        <div class="row">
-                                            <input type="hidden" name="pemohon_id"
-                                                value="@isset($id_permohonan) {{ $id_permohonan }} @endisset"
-                                                class="prasarana_id_permohonan">
-                                            <div class="col-sm-2">
-                                                <label class="control-label center-block"><strong>UKURAN</strong></label>
-                                                <input type="text" name="sampah_ukuran[]" class="form-control"
-                                                    placeholder="PxLxT / contoh: 5x3x2">
-                                            </div>
-                                            {{-- <div class="col-sm-1">
-                                                    <label class="control-label center-block"><strong>LEBAR</strong></label>
-                                                    <input type="text" name="sampah_lebar[]" class="form-control" placeholder="Lebar">
-                                                </div>
-                                                <div class="col-sm-1">
-                                                    <label class="control-label center-block"><strong>TINGGI</strong></label>
-                                                    <input type="text" name="sampah_tinggi[]" class="form-control" placeholder="Tinggi">
-                                                </div> --}}
-                                            <div class="col-sm-2">
-                                                <div class="form-group">
-                                                    <label class="control-label"><strong>JENIS</strong></label>
-                                                    <select name="sampah_jenis_tps[]" class="form-control">
-                                                        <option value="">---</option>
-                                                        <option value="Permanen">Permanen</option>
-                                                        <option value="Non Permanen">Non Permanen</option>
-                                                        <option value="Pengelolaan">Pengelolaan</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <div class="form-group">
-                                                    <label class="control-label"><strong>JENIS KONSTRUKSI</strong></label>
-                                                    <input type="text" name="sampah_jenis_konstruksi[]" class="form-control"
-                                                        placeholder="Jenis konstruksi">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-1">
-                                                <label class="control-label center-block"><strong>RADIUS</strong></label>
-                                                <input type="text" name="sampah_jarak[]" class="form-control"
-                                                    placeholder="Jarak (m)">
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <label
-                                                    class="control-label center-block"><strong>KETERANGAN</strong></label>
-                                                <input type="text" name="sampah_keterangan[]" class="form-control"
-                                                    placeholder="Keterangan jika ada">
-                                            </div>
-                                            <div class="col-sm-1">
-                                                <div class="form-group">
-                                                    <label
-                                                        class="control-label center-block"><strong>TERPILAH</strong></label>
-                                                    <label class="rdiobox rdiobox-success rdiobox-inline mr20">
-                                                        <input type="radio" name="sampah_terpilah[][1]" value="Ya">
-                                                        <span>Ya</span>
-                                                    </label>
-                                                    <label class="rdiobox rdiobox-danger rdiobox-inline">
-                                                        <input type="radio" name="sampah_terpilah[][1]" value="Tidak">
-                                                        <span>Tidak</span>
-                                                    </label>
-                                                </div>
+                                            <div class="col-sm-4">
+                                                <label class="control-label center-block"><strong>KETERANGAN</strong></label>
+                                                <input type="text" name="jalanmasuk_keterangan[]" class="form-control"
+                                                    placeholder="misal: terhubung jalan A/B">
                                             </div>
                                             <div class="col-sm-1">
                                                 <label class="control-label center-block"><strong>&nbsp;</strong></label>
-                                                <i class="fa fa-2x fa-plus text-success add_sampah"></i>
+                                                <i class="fa fa-2x fa-plus text-success" id="tambah-jalan-masuk"></i>
                                             </div>
-                                            <div class="col-md-1">
-                                                <br>
-                                                <button type="submit" class="btn btn-primary pull-right"><i
-                                                        class="fa fa-cloud-upload"></i> SIMPAN</button>
-                                            </div>
-
                                         </div>
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-danger btn-lg btn-block btn-next-prasarana">UPDATE</button>
             </div>
-        </div>
-    </div>
-@endif
-        
-@else 
-
-    <div class="panel-body">
-        <div class="row">
-            <div class="panel-group" id="accordion8">
-                <div class="panel panel-inverse">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse"  aria-expanded="false" href="#collapseOne8" >
-                                JALAN MASUK 
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseOne8" class="panel-collapse collapse">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" aria-expanded="false" href="#collapseTwo8">
+                            JALAN UTAMA
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo8" class="panel-collapse collapse">
                     <div class="panel-body">
-                    <div class="row">
-                        <form action="{{ route('jalan-masuk.simpan') }}" method="POST" id="form-jalan-masuk" class="form-prasarana">
+                        <div class="row">
+                            <form action="{{ route('jalan-utama.simpan') }}" method="POST" id="form-jalan-utama" class="form-prasarana">
                                 @csrf
-                                    <div class="wrap_jalan_masuk">
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <input type="hidden" name="pemohon_id" value="@isset($id_permohonan) {{ $id_permohonan }} @endisset" class="prasarana_id_permohonan">
-                                                <div class="col-sm-2">
-                                                    <label class="control-label center-block"><strong>PANJANG</strong></label>
-                                                    <input type="text" name="jalanmasuk_panjang[]" class="form-control"
-                                                        placeholder="Panjang">
-                                                </div>
-                                                <div class="col-sm-2">
-                                                    <label class="control-label center-block"><strong>LEBAR</strong></label>
-                                                    <input type="text" name="jalanmasuk_lebar[]" class="form-control" placeholder="Lebar">
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <label class="control-label center-block"><strong>KETERANGAN</strong></label>
-                                                    <input type="text" name="jalanmasuk_keterangan[]" class="form-control"
-                                                        placeholder="misal: terhubung jalan A/B">
-                                                </div>
-                                                <div class="col-sm-1">
-                                                    <label class="control-label center-block"><strong>&nbsp;</strong></label>
-                                                    <i class="fa fa-2x fa-plus text-success" id="tambah-jalan-masuk"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-inverse">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" aria-expanded="false" href="#collapseTwo8">
-                                JALAN UTAMA
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseTwo8" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="row">
-                                <form action="{{ route('jalan-utama.simpan') }}" method="POST" id="form-jalan-utama" class="form-prasarana">
-                                    @csrf
-                                    <div class="wrap_jalan_utama">
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <input type="hidden" name="pemohon_id" value="@isset($id_permohonan) {{ $id_permohonan }} @endisset"
-                                                    class="prasarana_id_permohonan">
-                                                <div class="col-sm-2">
-                                                    <label class="control-label center-block"><strong>PANJANG</strong></label>
-                                                    <input type="text" class="form-control" placeholder="Panjang" name="jalanutama_panjang[]">
-                                                </div>
-                                                <div class="col-sm-2">
-                                                    <label class="control-label center-block"><strong>LEBAR</strong></label>
-                                                    <input type="text" class="form-control" placeholder="Lebar" name="jalanutama_lebar[]">
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <label class="control-label center-block"><strong>KETERANGAN</strong></label>
-                                                    <input type="text" class="form-control" placeholder="misal: di jalur 1/2/3/4" name="jalanutama_keterangan[]">
-                                                </div>
-                                                <div class="col-sm-2">
-                                                    <div class="form-group">
-                                                        <label class="control-label center-block"><strong>MEDIAN</strong></label>
-                                                        <label class="rdiobox-inline mr20">
-                                                            <input type="radio" name="jalanutama_median[][1]" value="Ada"
-                                                                onclick="click_first_radio_button('jalanutama_median0','median-jalan-utama-field0','Ada');">
-                                                            <span>Ada</span>
-                                                        </label>
-                                                        <label class="rdiobox-inline">
-                                                            <input type="radio" name="jalanutama_median[][1]" value="Tidak"
-                                                                onclick="click_first_radio_button('jalanutama_median0','median-jalan-utama-field0','Tidak');">
-                                                            <span>Tidak</span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-1">
-                                                    <label class="control-label center-block"><strong>&nbsp;</strong></label>
-                                                    <i class="fa fa-2x fa-plus text-success add_jalan_utama"></i>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="median-jalan-utama-field0" style="display:none">
-                                                    <div class="col-sm-2 mt20">
-                                                        <div class="form-group">
-                                                            <label class="control-label"><strong>JENIS KONSTRUKSI</strong></label>
-                                                            <input type="text" class="form-control" name="jalanutama_jenis_konstruksi[]" placeholder="Isikan Jenis Konstruksi">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-2 mt20">
-                                                        <div class="form-group">
-                                                            <label class="control-label"><strong>UKURAN</strong></label>
-                                                            <input type="text" class="form-control" name="jalanutama_ukuran[]" placeholder="Isikan ukuran">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-inverse">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" aria-expanded="false" href="#collapseJalanPembagi">
-                                JALAN PEMBAGI
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseJalanPembagi" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="row">
-                                <form action="{{ route('jalan-pembagi.simpan') }}" method="POST" id="form-jalan-pembagi" class="form-prasarana">
-                                    @csrf
-                                    <div class="wrap_jalan_pembagi">
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <input type="hidden" name="pemohon_id"
-                                                    value="@isset($id_permohonan) {{ $id_permohonan }} @endisset"
-                                                    class="prasarana_id_permohonan">
-                                                <div class="col-sm-2">
-                                                    <label class="control-label center-block"><strong>PANJANG</strong></label>
-                                                    <input type="text" name="jalanpembagi_panjang[]" class="form-control"
-                                                        placeholder="Panjang">
-                                                </div>
-                                                <div class="col-sm-2">
-                                                    <label class="control-label center-block"><strong>LEBAR</strong></label>
-                                                    <input type="text" name="jalanpembagi_lebar[]" class="form-control"
-                                                        placeholder="Lebar">
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <label class="control-label center-block"><strong>KETERANGAN</strong></label>
-                                                    <input type="text" name="jalanpembagi_keterangan[]" class="form-control"
-                                                        placeholder="Keterangan">
-                                                </div>
-                                                <div class="col-sm-1">
-                                                    <label class="control-label center-block"><strong>&nbsp;</strong></label>
-                                                    <i class="fa fa-2x fa-plus text-success add_jalan_pembagi"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-inverse">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" aria-expanded="false" href="#collapseThree8">
-                                JALAN PEMBANTU
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseThree8" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="row">
-                                <form action="{{ route('jalan-pembantu.simpan') }}" method="POST" id="form-jalan-pembantu" class="form-prasarana">
-                                    @csrf
-                                    <div class="wrap_jalan_pembantu">
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <input type="hidden" name="pemohon_id" value="@isset($id_permohonan) {{ $id_permohonan }} @endisset"
-                                                    class="prasarana_id_permohonan">
-                                                <div class="col-sm-2">
-                                                    <label class="control-label center-block"><strong>PANJANG</strong></label>
-                                                    <input type="text" name="jalanpembantu_panjang[]" class="form-control" placeholder="Panjang">
-                                                </div>
-                                                <div class="col-sm-2">
-                                                    <label class="control-label center-block"><strong>LEBAR</strong></label>
-                                                    <input type="text" name="jalanpembantu_lebar[]" class="form-control" placeholder="Lebar">
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <label class="control-label center-block"><strong>KETERANGAN</strong></label>
-                                                    <input type="text" name="jalanpembantu_keterangan[]" class="form-control" placeholder="Keterangan">
-                                                </div>
-                                                <div class="col-sm-1">
-                                                    <label class="control-label center-block"><strong>&nbsp;</strong></label>
-                                                    <i class="fa fa-2x fa-plus text-success add_jalan_pembantu"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-inverse">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" aria-expanded="false" href="#collapseLimbah">
-                                SALURAN PEMBUANGAN AIR LIMBAH
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseLimbah" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="row">
-                                <form action="{{ route('limbah.simpan') }}" method="POST" id="form-limbah" class="form-prasarana">
-                                    @csrf
-                                    <div class="wrap_limbah">
+                                <div class="wrap_jalan_utama">
+                                    <div class="form-group">
                                         <div class="row">
                                             <input type="hidden" name="pemohon_id" value="@isset($id_permohonan) {{ $id_permohonan }} @endisset"
                                                 class="prasarana_id_permohonan">
                                             <div class="col-sm-2">
                                                 <label class="control-label center-block"><strong>PANJANG</strong></label>
-                                                <input type="text" name="limbah_panjang[]" class="form-control" placeholder="Panjang">
+                                                <input type="text" class="form-control" placeholder="Panjang" name="jalanutama_panjang[]">
                                             </div>
                                             <div class="col-sm-2">
                                                 <label class="control-label center-block"><strong>LEBAR</strong></label>
-                                                <input type="text" name="limbah_lebar[]" class="form-control" placeholder="Lebar">
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <div class="form-group">
-                                                    <label class="control-label"><strong>JENIS KONSTRUKSI</strong></label>
-                                                    <input type="text" name="limbah_jenis_konstruksi[]" class="form-control" placeholder="Isikan jenis konstruksi">
-                                                </div>
+                                                <input type="text" class="form-control" placeholder="Lebar" name="jalanutama_lebar[]">
                                             </div>
                                             <div class="col-sm-3">
                                                 <label class="control-label center-block"><strong>KETERANGAN</strong></label>
-                                                <input type="text" name="limbah_keterangan[]" class="form-control" placeholder="Keterangan">
-                                            </div>
-                                            <div class="col-sm-1">
-                                                <label class="control-label center-block"><strong>&nbsp;</strong></label>
-                                                <i class="fa fa-2x fa-plus text-success add_limbah"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-inverse">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" aria-expanded="false" href="#collapseSampah">
-                                TEMPAT PEMBUANGAN SAMPAH
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseSampah" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="row">
-                                <form action="{{ route('sampah.simpan') }}" method="POST" id="form-sampah" class="form-prasarana">
-                                    @csrf
-                                    <div class="wrap_sampah">
-                                        <div class="row">
-                                            <input type="hidden" name="pemohon_id" value="@isset($id_permohonan) {{ $id_permohonan }} @endisset"
-                                                class="prasarana_id_permohonan">                        
-                                            <div class="col-sm-2">
-                                                <label class="control-label center-block"><strong>UKURAN</strong></label>
-                                                <input type="text" name="sampah_ukuran[]" class="form-control" placeholder="PxLxT / contoh: 5x3x2">
+                                                <input type="text" class="form-control" placeholder="misal: di jalur 1/2/3/4" name="jalanutama_keterangan[]">
                                             </div>
                                             <div class="col-sm-2">
                                                 <div class="form-group">
-                                                    <label class="control-label"><strong>JENIS</strong></label>
-                                                    <select name="sampah_jenis_tps[]" class="form-control">
-                                                        <option value="">---</option>
-                                                        <option value="Permanen">Permanen</option>
-                                                        <option value="Non Permanen">Non Permanen</option>
-                                                        <option value="Pengelolaan">Pengelolaan</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <div class="form-group">
-                                                    <label class="control-label"><strong>JENIS KONSTRUKSI</strong></label>
-                                                    <input type="text" name="sampah_jenis_konstruksi[]" class="form-control" placeholder="Jenis konstruksi">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-1">
-                                                <label class="control-label center-block"><strong>RADIUS</strong></label>
-                                                <input type="text" name="sampah_jarak[]" class="form-control" placeholder="Jarak (m)">
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <label class="control-label center-block"><strong>KETERANGAN</strong></label>
-                                                <input type="text" name="sampah_keterangan[]" class="form-control" placeholder="Keterangan jika ada">
-                                            </div>
-                                            <div class="col-sm-1">
-                                                <div class="form-group">
-                                                    <label class="control-label center-block"><strong>TERPILAH</strong></label>
-                                                    <label class="rdiobox rdiobox-success rdiobox-inline mr20">
-                                                        <input type="radio" name="sampah_terpilah[][1]" value="Ya">
-                                                        <span>Ya</span>
+                                                    <label class="control-label center-block"><strong>MEDIAN</strong></label>
+                                                    <label class="rdiobox-inline mr20">
+                                                        <input type="radio" name="jalanutama_median[][1]" value="Ada"
+                                                            onclick="click_first_radio_button('jalanutama_median0','median-jalan-utama-field0','Ada');">
+                                                        <span>Ada</span>
                                                     </label>
-                                                    <label class="rdiobox rdiobox-danger rdiobox-inline">
-                                                        <input type="radio" name="sampah_terpilah[][1]" value="Tidak">
+                                                    <label class="rdiobox-inline">
+                                                        <input type="radio" name="jalanutama_median[][1]" value="Tidak"
+                                                            onclick="click_first_radio_button('jalanutama_median0','median-jalan-utama-field0','Tidak');">
                                                         <span>Tidak</span>
                                                     </label>
                                                 </div>
                                             </div>
                                             <div class="col-sm-1">
                                                 <label class="control-label center-block"><strong>&nbsp;</strong></label>
-                                                <i class="fa fa-2x fa-plus text-success add_sampah"></i>
-                                            </div>   
+                                                <i class="fa fa-2x fa-plus text-success add_jalan_utama"></i>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="median-jalan-utama-field0" style="display:none">
+                                                <div class="col-sm-2 mt20">
+                                                    <div class="form-group">
+                                                        <label class="control-label"><strong>JENIS KONSTRUKSI</strong></label>
+                                                        <input type="text" class="form-control" name="jalanutama_jenis_konstruksi[]" placeholder="Isikan Jenis Konstruksi">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2 mt20">
+                                                    <div class="form-group">
+                                                        <label class="control-label"><strong>UKURAN</strong></label>
+                                                        <input type="text" class="form-control" name="jalanutama_ukuran[]" placeholder="Isikan ukuran">
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-danger btn-lg btn-block btn-next-prasarana"><i class="glyphicon glyphicon-floppy-save"></i> SIMPAN</button>
             </div>
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" aria-expanded="false" href="#collapseJalanPembagi">
+                            JALAN PEMBAGI
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseJalanPembagi" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="row">
+                            <form action="{{ route('jalan-pembagi.simpan') }}" method="POST" id="form-jalan-pembagi" class="form-prasarana">
+                                @csrf
+                                <div class="wrap_jalan_pembagi">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <input type="hidden" name="pemohon_id"
+                                                value="@isset($id_permohonan) {{ $id_permohonan }} @endisset"
+                                                class="prasarana_id_permohonan">
+                                            <div class="col-sm-2">
+                                                <label class="control-label center-block"><strong>PANJANG</strong></label>
+                                                <input type="text" name="jalanpembagi_panjang[]" class="form-control"
+                                                    placeholder="Panjang">
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label class="control-label center-block"><strong>LEBAR</strong></label>
+                                                <input type="text" name="jalanpembagi_lebar[]" class="form-control"
+                                                    placeholder="Lebar">
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="control-label center-block"><strong>KETERANGAN</strong></label>
+                                                <input type="text" name="jalanpembagi_keterangan[]" class="form-control"
+                                                    placeholder="Keterangan">
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="control-label center-block"><strong>&nbsp;</strong></label>
+                                                <i class="fa fa-2x fa-plus text-success add_jalan_pembagi"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" aria-expanded="false" href="#collapseThree8">
+                            JALAN PEMBANTU
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree8" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="row">
+                            <form action="{{ route('jalan-pembantu.simpan') }}" method="POST" id="form-jalan-pembantu" class="form-prasarana">
+                                @csrf
+                                <div class="wrap_jalan_pembantu">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <input type="hidden" name="pemohon_id" value="@isset($id_permohonan) {{ $id_permohonan }} @endisset"
+                                                class="prasarana_id_permohonan">
+                                            <div class="col-sm-2">
+                                                <label class="control-label center-block"><strong>PANJANG</strong></label>
+                                                <input type="text" name="jalanpembantu_panjang[]" class="form-control" placeholder="Panjang">
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label class="control-label center-block"><strong>LEBAR</strong></label>
+                                                <input type="text" name="jalanpembantu_lebar[]" class="form-control" placeholder="Lebar">
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="control-label center-block"><strong>KETERANGAN</strong></label>
+                                                <input type="text" name="jalanpembantu_keterangan[]" class="form-control" placeholder="Keterangan">
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="control-label center-block"><strong>&nbsp;</strong></label>
+                                                <i class="fa fa-2x fa-plus text-success add_jalan_pembantu"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" aria-expanded="false" href="#collapseLimbah">
+                            SALURAN PEMBUANGAN AIR LIMBAH
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseLimbah" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="row">
+                            <form action="{{ route('limbah.simpan') }}" method="POST" id="form-limbah" class="form-prasarana">
+                                @csrf
+                                <div class="wrap_limbah">
+                                    <div class="row">
+                                        <input type="hidden" name="pemohon_id" value="@isset($id_permohonan) {{ $id_permohonan }} @endisset"
+                                            class="prasarana_id_permohonan">
+                                        <div class="col-sm-2">
+                                            <label class="control-label center-block"><strong>PANJANG</strong></label>
+                                            <input type="text" name="limbah_panjang[]" class="form-control" placeholder="Panjang">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <label class="control-label center-block"><strong>LEBAR</strong></label>
+                                            <input type="text" name="limbah_lebar[]" class="form-control" placeholder="Lebar">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="form-group">
+                                                <label class="control-label"><strong>JENIS KONSTRUKSI</strong></label>
+                                                <input type="text" name="limbah_jenis_konstruksi[]" class="form-control" placeholder="Isikan jenis konstruksi">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label class="control-label center-block"><strong>KETERANGAN</strong></label>
+                                            <input type="text" name="limbah_keterangan[]" class="form-control" placeholder="Keterangan">
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <label class="control-label center-block"><strong>&nbsp;</strong></label>
+                                            <i class="fa fa-2x fa-plus text-success add_limbah"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" aria-expanded="false" href="#collapseSampah">
+                            TEMPAT PEMBUANGAN SAMPAH
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseSampah" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="row">
+                            <form action="{{ route('sampah.simpan') }}" method="POST" id="form-sampah" class="form-prasarana">
+                                @csrf
+                                <div class="wrap_sampah">
+                                    <div class="row">
+                                        <input type="hidden" name="pemohon_id" value="@isset($id_permohonan) {{ $id_permohonan }} @endisset"
+                                            class="prasarana_id_permohonan">                        
+                                        <div class="col-sm-2">
+                                            <label class="control-label center-block"><strong>UKURAN</strong></label>
+                                            <input type="text" name="sampah_ukuran[]" class="form-control" placeholder="PxLxT / contoh: 5x3x2">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="form-group">
+                                                <label class="control-label"><strong>JENIS</strong></label>
+                                                <select name="sampah_jenis_tps[]" class="form-control">
+                                                    <option value="">---</option>
+                                                    <option value="Permanen">Permanen</option>
+                                                    <option value="Non Permanen">Non Permanen</option>
+                                                    <option value="Pengelolaan">Pengelolaan</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="form-group">
+                                                <label class="control-label"><strong>JENIS KONSTRUKSI</strong></label>
+                                                <input type="text" name="sampah_jenis_konstruksi[]" class="form-control" placeholder="Jenis konstruksi">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <label class="control-label center-block"><strong>RADIUS</strong></label>
+                                            <input type="text" name="sampah_jarak[]" class="form-control" placeholder="Jarak (m)">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <label class="control-label center-block"><strong>KETERANGAN</strong></label>
+                                            <input type="text" name="sampah_keterangan[]" class="form-control" placeholder="Keterangan jika ada">
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <div class="form-group">
+                                                <label class="control-label center-block"><strong>TERPILAH</strong></label>
+                                                <label class="rdiobox rdiobox-success rdiobox-inline mr20">
+                                                    <input type="radio" name="sampah_terpilah[][1]" value="Ya">
+                                                    <span>Ya</span>
+                                                </label>
+                                                <label class="rdiobox rdiobox-danger rdiobox-inline">
+                                                    <input type="radio" name="sampah_terpilah[][1]" value="Tidak">
+                                                    <span>Tidak</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <label class="control-label center-block"><strong>&nbsp;</strong></label>
+                                            <i class="fa fa-2x fa-plus text-success add_sampah"></i>
+                                        </div>   
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-lg btn-block btn-next-prasarana"><i class="glyphicon glyphicon-floppy-save"></i> UPDATE</button>
         </div>
     </div>
+</div>
+@endif
+        
+@else 
+{{-- Form Tambah Prasarana --}}
+<div class="panel-body">
+    <div class="row">
+        <div class="panel-group" id="accordion8">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse"  aria-expanded="false" href="#collapseOne8" >
+                            JALAN MASUK 
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne8" class="panel-collapse collapse">
+                <div class="panel-body">
+                <div class="row">
+                    <form action="{{ route('jalan-masuk.simpan') }}" method="POST" id="form-jalan-masuk" class="form-prasarana">
+                            @csrf
+                                <div class="wrap_jalan_masuk">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <input type="hidden" name="pemohon_id" value="@isset($id_permohonan) {{ $id_permohonan }} @endisset" class="prasarana_id_permohonan">
+                                            <div class="col-sm-2">
+                                                <label class="control-label center-block"><strong>PANJANG</strong></label>
+                                                <input type="text" name="jalanmasuk_panjang[]" class="form-control"
+                                                    placeholder="Panjang">
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label class="control-label center-block"><strong>LEBAR</strong></label>
+                                                <input type="text" name="jalanmasuk_lebar[]" class="form-control" placeholder="Lebar">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <label class="control-label center-block"><strong>KETERANGAN</strong></label>
+                                                <input type="text" name="jalanmasuk_keterangan[]" class="form-control"
+                                                    placeholder="misal: terhubung jalan A/B">
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="control-label center-block"><strong>&nbsp;</strong></label>
+                                                <i class="fa fa-2x fa-plus text-success" id="tambah-jalan-masuk"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" aria-expanded="false" href="#collapseTwo8">
+                            JALAN UTAMA
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo8" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="row">
+                            <form action="{{ route('jalan-utama.simpan') }}" method="POST" id="form-jalan-utama" class="form-prasarana">
+                                @csrf
+                                <div class="wrap_jalan_utama">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <input type="hidden" name="pemohon_id" value="@isset($id_permohonan) {{ $id_permohonan }} @endisset"
+                                                class="prasarana_id_permohonan">
+                                            <div class="col-sm-2">
+                                                <label class="control-label center-block"><strong>PANJANG</strong></label>
+                                                <input type="text" class="form-control" placeholder="Panjang" name="jalanutama_panjang[]">
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label class="control-label center-block"><strong>LEBAR</strong></label>
+                                                <input type="text" class="form-control" placeholder="Lebar" name="jalanutama_lebar[]">
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="control-label center-block"><strong>KETERANGAN</strong></label>
+                                                <input type="text" class="form-control" placeholder="misal: di jalur 1/2/3/4" name="jalanutama_keterangan[]">
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <div class="form-group">
+                                                    <label class="control-label center-block"><strong>MEDIAN</strong></label>
+                                                    <label class="rdiobox-inline mr20">
+                                                        <input type="radio" name="jalanutama_median[][1]" value="Ada"
+                                                            onclick="click_first_radio_button('jalanutama_median0','median-jalan-utama-field0','Ada');">
+                                                        <span>Ada</span>
+                                                    </label>
+                                                    <label class="rdiobox-inline">
+                                                        <input type="radio" name="jalanutama_median[][1]" value="Tidak"
+                                                            onclick="click_first_radio_button('jalanutama_median0','median-jalan-utama-field0','Tidak');">
+                                                        <span>Tidak</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="control-label center-block"><strong>&nbsp;</strong></label>
+                                                <i class="fa fa-2x fa-plus text-success add_jalan_utama"></i>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="median-jalan-utama-field0" style="display:none">
+                                                <div class="col-sm-2 mt20">
+                                                    <div class="form-group">
+                                                        <label class="control-label"><strong>JENIS KONSTRUKSI</strong></label>
+                                                        <input type="text" class="form-control" name="jalanutama_jenis_konstruksi[]" placeholder="Isikan Jenis Konstruksi">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2 mt20">
+                                                    <div class="form-group">
+                                                        <label class="control-label"><strong>UKURAN</strong></label>
+                                                        <input type="text" class="form-control" name="jalanutama_ukuran[]" placeholder="Isikan ukuran">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" aria-expanded="false" href="#collapseJalanPembagi">
+                            JALAN PEMBAGI
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseJalanPembagi" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="row">
+                            <form action="{{ route('jalan-pembagi.simpan') }}" method="POST" id="form-jalan-pembagi" class="form-prasarana">
+                                @csrf
+                                <div class="wrap_jalan_pembagi">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <input type="hidden" name="pemohon_id"
+                                                value="@isset($id_permohonan) {{ $id_permohonan }} @endisset"
+                                                class="prasarana_id_permohonan">
+                                            <div class="col-sm-2">
+                                                <label class="control-label center-block"><strong>PANJANG</strong></label>
+                                                <input type="text" name="jalanpembagi_panjang[]" class="form-control"
+                                                    placeholder="Panjang">
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label class="control-label center-block"><strong>LEBAR</strong></label>
+                                                <input type="text" name="jalanpembagi_lebar[]" class="form-control"
+                                                    placeholder="Lebar">
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="control-label center-block"><strong>KETERANGAN</strong></label>
+                                                <input type="text" name="jalanpembagi_keterangan[]" class="form-control"
+                                                    placeholder="Keterangan">
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="control-label center-block"><strong>&nbsp;</strong></label>
+                                                <i class="fa fa-2x fa-plus text-success add_jalan_pembagi"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" aria-expanded="false" href="#collapseThree8">
+                            JALAN PEMBANTU
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree8" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="row">
+                            <form action="{{ route('jalan-pembantu.simpan') }}" method="POST" id="form-jalan-pembantu" class="form-prasarana">
+                                @csrf
+                                <div class="wrap_jalan_pembantu">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <input type="hidden" name="pemohon_id" value="@isset($id_permohonan) {{ $id_permohonan }} @endisset"
+                                                class="prasarana_id_permohonan">
+                                            <div class="col-sm-2">
+                                                <label class="control-label center-block"><strong>PANJANG</strong></label>
+                                                <input type="text" name="jalanpembantu_panjang[]" class="form-control" placeholder="Panjang">
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label class="control-label center-block"><strong>LEBAR</strong></label>
+                                                <input type="text" name="jalanpembantu_lebar[]" class="form-control" placeholder="Lebar">
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label class="control-label center-block"><strong>KETERANGAN</strong></label>
+                                                <input type="text" name="jalanpembantu_keterangan[]" class="form-control" placeholder="Keterangan">
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <label class="control-label center-block"><strong>&nbsp;</strong></label>
+                                                <i class="fa fa-2x fa-plus text-success add_jalan_pembantu"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" aria-expanded="false" href="#collapseLimbah">
+                            SALURAN PEMBUANGAN AIR LIMBAH
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseLimbah" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="row">
+                            <form action="{{ route('limbah.simpan') }}" method="POST" id="form-limbah" class="form-prasarana">
+                                @csrf
+                                <div class="wrap_limbah">
+                                    <div class="row">
+                                        <input type="hidden" name="pemohon_id" value="@isset($id_permohonan) {{ $id_permohonan }} @endisset"
+                                            class="prasarana_id_permohonan">
+                                        <div class="col-sm-2">
+                                            <label class="control-label center-block"><strong>PANJANG</strong></label>
+                                            <input type="text" name="limbah_panjang[]" class="form-control" placeholder="Panjang">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <label class="control-label center-block"><strong>LEBAR</strong></label>
+                                            <input type="text" name="limbah_lebar[]" class="form-control" placeholder="Lebar">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="form-group">
+                                                <label class="control-label"><strong>JENIS KONSTRUKSI</strong></label>
+                                                <input type="text" name="limbah_jenis_konstruksi[]" class="form-control" placeholder="Isikan jenis konstruksi">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label class="control-label center-block"><strong>KETERANGAN</strong></label>
+                                            <input type="text" name="limbah_keterangan[]" class="form-control" placeholder="Keterangan">
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <label class="control-label center-block"><strong>&nbsp;</strong></label>
+                                            <i class="fa fa-2x fa-plus text-success add_limbah"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" aria-expanded="false" href="#collapseSampah">
+                            TEMPAT PEMBUANGAN SAMPAH
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseSampah" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="row">
+                            <form action="{{ route('sampah.simpan') }}" method="POST" id="form-sampah" class="form-prasarana">
+                                @csrf
+                                <div class="wrap_sampah">
+                                    <div class="row">
+                                        <input type="hidden" name="pemohon_id" value="@isset($id_permohonan) {{ $id_permohonan }} @endisset"
+                                            class="prasarana_id_permohonan">                        
+                                        <div class="col-sm-2">
+                                            <label class="control-label center-block"><strong>UKURAN</strong></label>
+                                            <input type="text" name="sampah_ukuran[]" class="form-control" placeholder="PxLxT / contoh: 5x3x2">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="form-group">
+                                                <label class="control-label"><strong>JENIS</strong></label>
+                                                <select name="sampah_jenis_tps[]" class="form-control">
+                                                    <option value="">---</option>
+                                                    <option value="Permanen">Permanen</option>
+                                                    <option value="Non Permanen">Non Permanen</option>
+                                                    <option value="Pengelolaan">Pengelolaan</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="form-group">
+                                                <label class="control-label"><strong>JENIS KONSTRUKSI</strong></label>
+                                                <input type="text" name="sampah_jenis_konstruksi[]" class="form-control" placeholder="Jenis konstruksi">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <label class="control-label center-block"><strong>RADIUS</strong></label>
+                                            <input type="text" name="sampah_jarak[]" class="form-control" placeholder="Jarak (m)">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <label class="control-label center-block"><strong>KETERANGAN</strong></label>
+                                            <input type="text" name="sampah_keterangan[]" class="form-control" placeholder="Keterangan jika ada">
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <div class="form-group">
+                                                <label class="control-label center-block"><strong>TERPILAH</strong></label>
+                                                <label class="rdiobox rdiobox-success rdiobox-inline mr20">
+                                                    <input type="radio" name="sampah_terpilah[][1]" value="Ya">
+                                                    <span>Ya</span>
+                                                </label>
+                                                <label class="rdiobox rdiobox-danger rdiobox-inline">
+                                                    <input type="radio" name="sampah_terpilah[][1]" value="Tidak">
+                                                    <span>Tidak</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <label class="control-label center-block"><strong>&nbsp;</strong></label>
+                                            <i class="fa fa-2x fa-plus text-success add_sampah"></i>
+                                        </div>   
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-danger btn-lg btn-block btn-next-prasarana"><i class="glyphicon glyphicon-floppy-save"></i> SIMPAN</button>
+        </div>
+    </div>
+</div>
 @endif
 
 @section('scripts')

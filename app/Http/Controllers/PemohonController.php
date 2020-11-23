@@ -158,8 +158,7 @@ class PemohonController extends Controller
         $tipe               = \App\MasterTipe::get();
         $form               = "edit";
 
-      
-        
+
         return view('admin.permohonan.index', compact('form','id_permohonan','pengembang','berkas', 'tipe' ,'kecamatan','kelurahan','jeniskonstruksi','jenisbangunan','pemohon'));
 
     }
@@ -317,111 +316,111 @@ class PemohonController extends Controller
     public function updateSarana(Request $request, $id)
     {
         
-    DB::transaction(function()  use ($request) {
+            DB::transaction(function()  use ($request) {
 
-            DB::table('rth')->where('id', $request->id_rth)->update(
-                [
-                    'user_id'                       => Auth::id(),
-                    'pemohon_id'                    => $request->pemohon_id,
-                    'kategori'                      => 'sarana',
-                    'jenis_konstruksi'              => $request->rth_jenis_konstruksi,
-                    'ukuran'                        => $request->rth_ukuran,
-                    'luas_lahan'                    => $request->rth_luas_lahan,
-                    'jenis'                         => $request->rth_jenis,
-                    'keterangan'                    => $request->rth_keterangan
-                ]);
+                    DB::table('rth')->where('id', $request->id_rth)->update(
+                        [
+                            'user_id'                       => Auth::id(),
+                            'pemohon_id'                    => $request->pemohon_id,
+                            'kategori'                      => 'sarana',
+                            'jenis_konstruksi'              => $request->rth_jenis_konstruksi,
+                            'ukuran'                        => $request->rth_ukuran,
+                            'luas_lahan'                    => $request->rth_luas_lahan,
+                            'jenis'                         => $request->rth_jenis,
+                            'keterangan'                    => $request->rth_keterangan
+                        ]);
 
-            DB::table('peribadatan')->where('id', $request->id_peribadatan)->update(
-                [
-                     'user_id'                       => Auth::id(),
-                    'pemohon_id'                    => $request->pemohon_id,
-                    'kategori'                      => 'sarana',
-                    'jenis_konstruksi'              => $request->ibadah_jenis_konstruksi,
-                    'ukuran'                        => $request->ibadah_ukuran,
-                    'luas_lahan'                    => $request->ibadah_luas_lahan,
-                    'jenis'                         => $request->ibadah_jenis,
-                    'keterangan'                    => $request->ibadah_keterangan
-                ]);
+                    DB::table('peribadatan')->where('id', $request->id_peribadatan)->update(
+                        [
+                            'user_id'                       => Auth::id(),
+                            'pemohon_id'                    => $request->pemohon_id,
+                            'kategori'                      => 'sarana',
+                            'jenis_konstruksi'              => $request->ibadah_jenis_konstruksi,
+                            'ukuran'                        => $request->ibadah_ukuran,
+                            'luas_lahan'                    => $request->ibadah_luas_lahan,
+                            'jenis'                         => $request->ibadah_jenis,
+                            'keterangan'                    => $request->ibadah_keterangan
+                        ]);
 
-        
+                
 
-            DB::table('rekreasi')->where('id', $request->id_rekreasi)->update(
-                [
-                   'user_id'                       => Auth::id(),
-                    'pemohon_id'                    => $request->pemohon_id,
-                    'kategori'                      => 'sarana',
-                    'jenis_konstruksi'              => $request->rekreasi_jenis_konstruksi,
-                    'ukuran'                        => $request->rekreasi_ukuran,
-                    'luas_lahan'                    => $request->rekreasi_luas_lahan,
-                    'jenis'                         => $request->rekreasi_jenis,
-                    'keterangan'                    => $request->rekreasi_keterangan
-                ]);
-
-
-
-             DB::table('sarana_pendidikan')->where('id', $request->id_sarana_pendidikan)->update(
-                [
-                    'user_id'                       => Auth::id(),
-                    'pemohon_id'                    => $request->pemohon_id,
-                    'kategori'                      => 'sarana',
-                    'jenis_konstruksi'              => $request->pendidikan_jenis_konstruksi,
-                    'ukuran'                        => $request->pendidikan_ukuran,
-                    'luas_lahan'                    => $request->pendidikan_luas_lahan,
-                    'jenis'                         => $request->pendidikan_jenis,
-                    'keterangan'                    => $request->pendidikan_keterangan
-                ]);
-
-            DB::table('sarana_kesehatan')->where('id', $request->id_sarana_kesehatan)->update(
-                [
-                    'user_id'                       => Auth::id(),
-                    'pemohon_id'                    => $request->pemohon_id,
-                    'kategori'                      => 'sarana',
-                    'jenis_konstruksi'              => $request->kesehatan_jenis_konstruksi,
-                    'luas_lahan'                    => $request->kesehatan_luas_lahan,
-                    'ukuran'                        => $request->kesehatan_ukuran,
-                    'jenis'                         => $request->kesehatan_jenis,
-                    'keterangan'                    => $request->kesehatan_keterangan
-                ]);
-
-            DB::table('sarana_perniagaan')->where('id', $request->id_sarana_perniagaan)->update(
-                [
-                    'user_id'                       => Auth::id(),
-                    'pemohon_id'                    => $request->pemohon_id,
-                    'kategori'                      => 'sarana',
-                    'jenis_konstruksi'              => $request->perniagaan_jenis_konstruksi,
-                    'luas_lahan'                    => $request->perniagaan_luas_lahan,
-                    'ukuran'                        => $request->perniagaan_ukuran,
-                    'jenis'                         => $request->perniagaan_jenis,
-                    'keterangan'                    => $request->perniagaan_keterangan
-                ]);
+                    DB::table('rekreasi')->where('id', $request->id_rekreasi)->update(
+                        [
+                        'user_id'                       => Auth::id(),
+                            'pemohon_id'                    => $request->pemohon_id,
+                            'kategori'                      => 'sarana',
+                            'jenis_konstruksi'              => $request->rekreasi_jenis_konstruksi,
+                            'ukuran'                        => $request->rekreasi_ukuran,
+                            'luas_lahan'                    => $request->rekreasi_luas_lahan,
+                            'jenis'                         => $request->rekreasi_jenis,
+                            'keterangan'                    => $request->rekreasi_keterangan
+                        ]);
 
 
-            DB::table('pelayanan_umum')->where('id', $request->id_pelayanan_umum)->update(
-                [
-                    'user_id'                       => Auth::id(),
-                    'pemohon_id'                    => $request->pemohon_id,
-                    'kategori'                      => 'sarana',
-                    'jenis_konstruksi'              => $request->umum_jenis_konstruksi,
-                    'luas_lahan'                    => $request->umum_luas_lahan,
-                    'ukuran'                        => $request->umum_ukuran,
-                    'jenis'                         => $request->umum_jenis,
-                    'keterangan'                    => $request->umum_keterangan
-                ]);
 
-            DB::table('parkir')->where('id', $request->id_parkir)->update(
-                [
-                    'user_id'                       => Auth::id(),
-                    'pemohon_id'                    => $request->pemohon_id,
-                    'kategori'                      => 'sarana',
-                    'jenis_konstruksi'              => $request->parkir_jenis_konstruksi,
-                    'luas_lahan'                    => $request->parkir_luas_lahan,
-                    'ukuran'                        => $request->parkir_ukuran,
-                    'jenis'                         => $request->parkir_jenis,
-                    'keterangan'                    => $request->parkir_keterangan
-                ]);
+                    DB::table('sarana_pendidikan')->where('id', $request->id_sarana_pendidikan)->update(
+                        [
+                            'user_id'                       => Auth::id(),
+                            'pemohon_id'                    => $request->pemohon_id,
+                            'kategori'                      => 'sarana',
+                            'jenis_konstruksi'              => $request->pendidikan_jenis_konstruksi,
+                            'ukuran'                        => $request->pendidikan_ukuran,
+                            'luas_lahan'                    => $request->pendidikan_luas_lahan,
+                            'jenis'                         => $request->pendidikan_jenis,
+                            'keterangan'                    => $request->pendidikan_keterangan
+                        ]);
 
-        
-    });
+                    DB::table('sarana_kesehatan')->where('id', $request->id_sarana_kesehatan)->update(
+                        [
+                            'user_id'                       => Auth::id(),
+                            'pemohon_id'                    => $request->pemohon_id,
+                            'kategori'                      => 'sarana',
+                            'jenis_konstruksi'              => $request->kesehatan_jenis_konstruksi,
+                            'luas_lahan'                    => $request->kesehatan_luas_lahan,
+                            'ukuran'                        => $request->kesehatan_ukuran,
+                            'jenis'                         => $request->kesehatan_jenis,
+                            'keterangan'                    => $request->kesehatan_keterangan
+                        ]);
+
+                    DB::table('sarana_perniagaan')->where('id', $request->id_sarana_perniagaan)->update(
+                        [
+                            'user_id'                       => Auth::id(),
+                            'pemohon_id'                    => $request->pemohon_id,
+                            'kategori'                      => 'sarana',
+                            'jenis_konstruksi'              => $request->perniagaan_jenis_konstruksi,
+                            'luas_lahan'                    => $request->perniagaan_luas_lahan,
+                            'ukuran'                        => $request->perniagaan_ukuran,
+                            'jenis'                         => $request->perniagaan_jenis,
+                            'keterangan'                    => $request->perniagaan_keterangan
+                        ]);
+
+
+                    DB::table('pelayanan_umum')->where('id', $request->id_pelayanan_umum)->update(
+                        [
+                            'user_id'                       => Auth::id(),
+                            'pemohon_id'                    => $request->pemohon_id,
+                            'kategori'                      => 'sarana',
+                            'jenis_konstruksi'              => $request->umum_jenis_konstruksi,
+                            'luas_lahan'                    => $request->umum_luas_lahan,
+                            'ukuran'                        => $request->umum_ukuran,
+                            'jenis'                         => $request->umum_jenis,
+                            'keterangan'                    => $request->umum_keterangan
+                        ]);
+
+                    DB::table('parkir')->where('id', $request->id_parkir)->update(
+                        [
+                            'user_id'                       => Auth::id(),
+                            'pemohon_id'                    => $request->pemohon_id,
+                            'kategori'                      => 'sarana',
+                            'jenis_konstruksi'              => $request->parkir_jenis_konstruksi,
+                            'luas_lahan'                    => $request->parkir_luas_lahan,
+                            'ukuran'                        => $request->parkir_ukuran,
+                            'jenis'                         => $request->parkir_jenis,
+                            'keterangan'                    => $request->parkir_keterangan
+                        ]);
+
+                
+            });
 
         return response()->json([
                 'pesan' => 'Data sarana berhasil diupdate.',

@@ -1,6 +1,8 @@
 @extends('layouts.master')
 @section('content')
-<h3><i class="fa fa-edit"></i> <strong>PERMOHONAN</strong></h3>
+<h3><i class="fa fa-edit"></i> <strong>PERMOHONAN 
+    
+</strong></h3>
 <div class="mb15"></div>
 
 
@@ -30,10 +32,6 @@
     <div class="tab-content mb20">
         <div class="tab-pane active" id="tab1">
             <div class="panel">
-                <div class="panel-heading nopaddingbottom">
-                    <h4 class="panel-title">Data Permohonan</h4>
-                    <p><em> Tanda (*) wajib diisi</em></p>
-                </div>
                 <input type="hidden" name="id" id="id_permohonan" @isset($id_permohonan) value="{{ $id_permohonan }}" @endisset>
                 @include('admin.common.pemohon')
         </div><!-- panel -->
@@ -364,6 +362,13 @@
 
 
      $(".btn-next-prasarana").on('click', function (event) {
+
+        var idPermohonan =  $('.prasarana_id_permohonan').val();
+
+        if(idPermohonan == ''){
+            alertError('Data pemohon belum ada.');
+            return false;
+        }
         $(".form-prasarana").each(function (index, el) {
             var url      = $(el).attr('action')
             var formData = $(el).serialize();
@@ -377,34 +382,27 @@
          });
     });
        
-        // $(".btn-next-sarana").on('click', function () {
-        //     $('.nav-tabs a[href="#tab5"]').tab('show');
-        // });
-        // $(".btn-next-utilitas").on('click', function () {
-        //     $('.nav-tabs a[href="#tab6"]').tab('show');
-        // });
-        $('.nav-tabs a').on('shown.bs.tab', function(event){
-            var x = $(event.target).text();         // active tab
-            var y = $(event.relatedTarget).text();  // previous tab
-            console.log(x);
-            $(".act span").text(x);
-            $(".prev span").text(y);
-        });
-        
-        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-            var target = $(e.target).attr("href") 
-            var id = $.trim($("#id_permohonan").val());
-                if(target == "#tab2"){
-                    $.ajax({
-                        type: "get",
-                        url: BASE_URL+"/admin/berkas/show/"+id,
-                        success: function (res) {
-                            $("#tab2").html(res);
-                        }
-                    });
-                }
 
-            });
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        var target = $(e.target).attr("href") 
+        var id = $.trim($("#id_permohonan").val());
+            if(target == "#tab2"){
+                $.ajax({
+                    type: "get",
+                    url: BASE_URL+"/admin/berkas/show/"+id,
+                    beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+                        $('.loader').show();
+                    },
+                    success: function (res) {
+                        $("#tab2").html(res);
+                    },
+                    complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
+                        $('.loader').hide();
+                    },
+                });
+            }
+
+        });
 
 
         // Ajax permohonan
@@ -423,6 +421,9 @@
                         method: "POST",
                         url: BASE_URL+"/admin/permohonan/simpan",
                         data: data,
+                        beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+                            $('.loader').show();
+                        },
                         success: function (response) {
                             $.gritter.add({
                                 title: 'PEMBERITAHUAN',
@@ -431,141 +432,37 @@
                             });
                             $("#id_permohonan,.prasarana_id_permohonan,#sarana_id_permohonan,#utilitas_id_permohonan,#ukuran_id_permohonan").val(response.id);
                             $('.nav-tabs a[href="#tab2"]').tab('show');
-                            $.ajax({
-                                type: "get",
-                                url: BASE_URL+"/admin/berkas/show/"+response.id,
-                                success: function (res) {
-                                    $("#tab2").html(res);
+                                $.ajax({
+                                    type: "get",
+                                    url: BASE_URL+"/admin/berkas/show/"+response.id,
+                                    success: function (res) {
+                                        $("#tab2").html(res);
                                 }
                             });
-                        }
+                        },
+                        complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
+                            $('.loader').hide();
+                        },
                     });
             },
         });
 
-        // Prasarana jalan masuk
-        // $("#form-jalan-masuk").submit(function( event ) {
-        //     var data = $(this).serialize();
-        //     $.ajax({
-        //         method: "POST",
-        //         url: BASE_URL+"/admin/prasarana/jalan-masuk/simpan",
-        //         data: data,
-        //         success: function (response) {
-        //              $.gritter.add({
-        //                 title: 'PEMBERITAHUAN',
-        //                 text: response.pesan,
-        //                 class_name: 'with-icon question-circle primary'
-        //             });
-        //             $('.nav-tabs a[href="#tab3"]').tab('show');
-        //         }
-        //     });
-        //     event.preventDefault();
-        // });
-
-        // // Prasarana jalan utama
-        // $("#form-jalan-utama").submit(function( event ) {
-        //     var data = $(this).serialize();
-        //     $.ajax({
-        //         method: "POST",
-        //         url: BASE_URL+"/admin/prasarana/jalan-utama/simpan",
-        //         data: data,
-        //         success: function (response) {
-        //              $.gritter.add({
-        //                 title: 'PEMBERITAHUAN',
-        //                 text: response.pesan,
-        //                 class_name: 'with-icon question-circle primary'
-        //             });
-        //             $('.nav-tabs a[href="#tab3"]').tab('show');
-        //         }
-        //     });
-        //     event.preventDefault();
-        // });
-
-        // Prasarana jalan pembantu
-        // $("#form-jalan-pembantu").submit(function( event ) {
-        //     var data = $(this).serialize();
-        //     $.ajax({
-        //         method: "POST",
-        //         url: BASE_URL+"/admin/prasarana/jalan-pembantu/simpan",
-        //         data: data,
-        //         success: function (response) {
-        //              $.gritter.add({
-        //                 title: 'PEMBERITAHUAN',
-        //                 text: response.pesan,
-        //                 class_name: 'with-icon question-circle primary'
-        //             });
-        //             $('.nav-tabs a[href="#tab3"]').tab('show');
-        //         }
-        //     });
-        //     event.preventDefault();
-        // });
-
-        // // Prasarana jalan pembagi
-        // $("#form-jalan-pembagi").submit(function( event ) {
-        //     var data = $(this).serialize();
-        //     $.ajax({
-        //         method: "POST",
-        //         url: BASE_URL+"/admin/prasarana/jalan-pembagi/simpan",
-        //         data: data,
-        //         success: function (response) {
-        //              $.gritter.add({
-        //                 title: 'PEMBERITAHUAN',
-        //                 text: response.pesan,
-        //                 class_name: 'with-icon question-circle primary'
-        //             });
-        //             $('.nav-tabs a[href="#tab3"]').tab('show');
-        //         }
-        //     });
-        //     event.preventDefault();
-        // });
-
-        // // Prasarana limbah
-        //  $("#form-limbah").submit(function( event ) {
-        //     var data = $(this).serialize();
-        //     $.ajax({
-        //         method: "POST",
-        //         url: BASE_URL+"/admin/prasarana/limbah/simpan",
-        //         data: data,
-        //         success: function (response) {
-        //              $.gritter.add({
-        //                 title: 'PEMBERITAHUAN',
-        //                 text: response.pesan,
-        //                 class_name: 'with-icon question-circle primary'
-        //             });
-        //             $('.nav-tabs a[href="#tab3"]').tab('show');
-        //         }
-        //     });
-        //     event.preventDefault();
-        // });
-        
-        // // Prasarana sampah
-        //  $("#form-sampah").submit(function( event ) {
-        //     var data = $(this).serialize();
-        //     $.ajax({
-        //         method: "POST",
-        //         url: BASE_URL+"/admin/prasarana/sampah/simpan",
-        //         data: data,
-        //         success: function (response) {
-        //              $.gritter.add({
-        //                 title: 'PEMBERITAHUAN',
-        //                 text: response.pesan,
-        //                 class_name: 'with-icon question-circle primary'
-        //             });
-        //             $('.nav-tabs a[href="#tab3"]').tab('show');
-        //         }
-        //     });
-        //     event.preventDefault();
-        // });
-
 
         // Ajax sarana
         $("#form-sarana").on("submit", function(event){
-           
+            var idPermohonan =  $('#sarana_id_permohonan').val();
+            if(idPermohonan == ''){
+                alertError('Data pemohon belum ada.');
+                return false;
+            }
                 var data = $("#form-sarana").serialize();
                     $.ajax({
                         method: "POST",
                         url: BASE_URL+"/admin/sarana/simpan",
                         data: data,
+                        beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+                            $('.loader').show();
+                        },
                         success: function (response) {
                             $.gritter.add({
                                 title: 'PEMBERITAHUAN',
@@ -573,18 +470,30 @@
                                 class_name: 'with-icon question-circle primary'
                             });
                             $('.nav-tabs a[href="#tab5"]').tab('show');
-                        }
+                        },
+                        complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
+                            $('.loader').hide();
+                        },
                     });
             event.preventDefault();
         });
 
         // Ajax utilitas
         $("#form-utilitas").on("submit", function(event){
+
+            var idPermohonan =  $('#utilitas_id_permohonan').val();
+            if(idPermohonan == ''){
+                alertError('Data pemohon belum ada.');
+                return false;
+            }
             var data = $("#form-utilitas").serialize();
             $.ajax({
                 method: "POST",
                 url: BASE_URL+"/admin/utilitas",
                 data: data,
+                beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+                            $('.loader').show();
+                        },
                 success: function (response) {
                      $.gritter.add({
                         title: 'PEMBERITAHUAN',
@@ -592,7 +501,10 @@
                         class_name: 'with-icon question-circle primary'
                     });
                     $('.nav-tabs a[href="#tab6"]').tab('show');
-                }
+                },
+                complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
+                    $('.loader').hide();
+                },
             });
             event.preventDefault();
         });

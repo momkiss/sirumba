@@ -181,6 +181,12 @@
 
     $(document).ready(function () {
         $("#form-ukuran").on("submit", function(event){
+
+            var idPermohonan =  $('#ukuran_id_permohonan').val();
+            if(idPermohonan == ''){
+                alertError('Data pemohon belum ada.');
+                return false;
+            }
             var data = $("#form-ukuran").serialize();
             $.ajax({
                 method: "POST",
@@ -217,15 +223,10 @@
         });
 
         $(document).on("click",".hapus_ukuran_edit", function(e){ 
-            // alert('tes');
-            // e.preventDefault();
-            // $(e.target).remove();
             $(e.target).parent('div').parent().remove();
         });
 
-        $(".btn-next-tipe").on('click', function(){
-            $('.nav-tabs a[href="#tab7"]').tab('show');
-        });
+       
     });
 
     function hapusBarisUkuran(id)

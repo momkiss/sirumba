@@ -7795,7 +7795,7 @@ fieldset[disabled] .btn-info.active {
 .panel-group .panel-inverse > .panel-heading .panel-title > a:hover,
 .panel-group .panel-inverse > .panel-heading .panel-title > a:focus {
   color: #fff;
-  background-color: #259dab;
+  background-color: #464f63;
   margin-bottom: 10px;
 }
 .panel-group .panel-inverse > .panel-heading .panel-title > a.collapsed {

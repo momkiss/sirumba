@@ -300,13 +300,14 @@
                 </div>
             </div>
                 <div class="form-group">
-                    <button  class="btn btn-danger btn-lg btn-block ">UPDATE<button>
+                    <button  class="btn btn-primary btn-lg btn-block "><i class="glyphicon glyphicon-floppy-save"></i> UPDATE<button>
                 </div>
             </div>
     </div>
     </form>
 </div>
 @else 
+{{-- Form Tambah Utilitas --}}
 <div class="panel-body">
     <div class="row">
         <form action="{{ route('utilitas.store') }}" method="POST" id="form-utilitas">
