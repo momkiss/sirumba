@@ -82,6 +82,7 @@ Route::get('prasarana/culdesac/hapus/{id}','CuldesacController@destroy')->name('
 Route::get('prasarana/drainase/hapus/{id}','DrainaseController@destroy')->name('drainase.hapus');
 Route::get('prasarana/limbah/hapus/{id}','LimbahController@destroy')->name('limbah.hapus');
 Route::get('prasarana/sampah/hapus/{id}','SampahController@destroy')->name('sampah.hapus');
+Route::get('unit/hapus/{id}','JumlahRumahController@hapus');
 
 // Detail
 Route::post('permohonan/detail/{id}', 'PemohonController@detail_pemohon')->name('permohonan.detail');

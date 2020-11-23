@@ -232,12 +232,14 @@
     function hapusBarisUkuran(id)
     {
         $.ajax({
-            type: "method",
-            url: "url",
-            data: "data",
-            dataType: "dataType",
-            success: function (response) {
-                
+            url: BASE_URL+"/admin/unit/hapus/"+id,
+            dataType: "json",
+            success: function (res) {
+                $.gritter.add({
+                        title: 'PEMBERITAHUAN',
+                        text: res.pesan,
+                        class_name: 'with-icon question-circle primary'
+                });
             }
         });
     }

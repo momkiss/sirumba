@@ -120,4 +120,13 @@ class JumlahRumahController extends Controller
     {
         //
     }
+
+    public function hapus($id){
+        $unit = JumlahRumah::find($id);
+        $unit->delete();
+
+        return response()->json([
+            'pesan' => 'Unit rumah dihapus.'
+        ]);
+    }
 }
